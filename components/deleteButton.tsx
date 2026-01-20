@@ -1,0 +1,87 @@
+"use client";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Trash2 } from "lucide-react";
+import { toast } from "sonner";
+export default function DeleteButton({
+  id,
+  deleteAction,
+}: {
+  id: string;
+  deleteAction: (id: string) => Promise<{
+    message: string;
+    status: number;
+  }>;
+}) {
+  const [open, setOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleConfirm = async () => {
+    setLoading(true);
+    const result = await deleteAction(id);
+    if (result.status !== 201) {
+      return toast.error(result.message);
+    }
+    toast.success(result.message);
+    setLoading(false);
+    setOpen(false);
+  };
+
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <div className="relative flex justify-center items-center">
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Trash2 className="w-5 h-5 text-[#8B0000] cursor-pointer hover:text-[#800000]" />
+              </TooltipTrigger>
+              <TooltipContent side="top" align="center">
+                <p>Delete</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
+        </div>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-100">
+        <DialogHeader>
+          <DialogTitle className="text-black">Confirm Delete</DialogTitle>
+          <DialogDescription className="text-gray-800">
+            Are you sure you want to permanently delete this?
+          </DialogDescription>
+        </DialogHeader>
+        <div className="mt-4 flex justify-end gap-2">
+          <DialogTrigger asChild>
+            <button
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-gray-700"
+              onClick={() => setOpen(false)}
+            >
+              Cancel
+            </button>
+          </DialogTrigger>
+
+          <button
+            type="submit"
+            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+            onClick={handleConfirm}
+          >
+            {loading ? "Deleting..." : "Confirm"}
+          </button>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}

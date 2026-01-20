@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model applications {
+  id               String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  first_name       String                 @db.VarChar(255)
+  last_name        String                 @db.VarChar(255)
+  email            String                 @db.VarChar(255)
+  phone_number     String                 @db.VarChar(255)
+  country          String                 @db.VarChar(255)
+  course_id        String                 @db.Uuid
+  sponsorship_type sponsorship_type_enum? @default(Self_funded)
+  created_at       DateTime?              @default(now()) @db.Timestamp(6)
+  courses          courses                @relation(fields: [course_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model banners {
+  id             String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name           String? @db.VarChar(255)
+  image          String?
+  description_en String?
+  description_ar String?
+}
+
+model category {
+  id                      String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  category_name_en        String    @db.VarChar(255)
+  category_name_ar        String    @db.VarChar(255)
+  category_description_en String?
+  category_description_ar String?
+  slug                    String    @db.VarChar(255)
+  logo                    String?   @db.VarChar(255)
+  courses                 courses[]
+}
+
+model courses {
+  id                    String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  course_title_en       String         @db.VarChar(255)
+  course_title_ar       String         @db.VarChar(255)
+  course_description_en String?
+  course_description_ar String?
+  duration              String?        @db.VarChar(255)
+  category_id           String         @db.Uuid
+  slug                  String         @unique @db.VarChar(255)
+  course_image          String?        @db.VarChar(255)
+  start_date            DateTime?      @db.Date
+  end_date              DateTime?      @db.Date
+  target_audience_en    String[]
+  target_audience_ar    String[]
+  applications          applications[]
+  category              category       @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model our_team {
+  id             String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name_en        String   @db.VarChar(255)
+  name_ar        String   @db.VarChar(255)
+  description_en String?
+  description_ar String?
+  position_en    String   @db.VarChar(255)
+  position_ar    String   @db.VarChar(255)
+  image          String   @db.VarChar(255)
+  display_order  Int?     @unique @default(0)
+  main           Boolean? @default(false)
+}
+
+model partners {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name       String    @db.VarChar(255)
+  logo       String    @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model reset_password_token {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  token     String    @unique
+  user_id   String?   @db.Uuid
+  create_at DateTime? @default(now()) @db.Timestamp(6)
+  expire_at DateTime  @db.Timestamp(6)
+  users     users?    @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model users {
+  id                   String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  first_name           String                 @db.VarChar(255)
+  last_name            String?                @db.VarChar(225)
+  email                String                 @unique @db.VarChar(255)
+  password             String?                @db.VarChar(255)
+  role                 role                   @default(user)
+  reset_password_token reset_password_token[]
+}
+
+enum gender {
+  male
+  female
+}
+
+enum role {
+  admin
+  user
+}
+
+enum sponsorship_type {
+  self_funded
+  sponsored_by_international_organization
+}
+
+enum sponsorship_type_enum {
+  Self_funded                             @map("Self-funded")
+  Sponsored_by_International_Organization @map("Sponsored by International Organization")
+  Other
+}
+
+enum sponsorship_type_enum2 {
+  Self_funded                             @map("Self-funded")
+  Sponsored_by_International_Organization @map("Sponsored by International Organization")
+}
