@@ -71,8 +71,8 @@ export type NewCourse = {
   slug: string ;
   course_image: string | null;
   category_id: string ;
-  start_date:string |null,
-  end_date:string |null
+  start_date:Date |null,
+  end_date:Date |null
 
 };
 
@@ -108,27 +108,17 @@ export type TranslatedPartners = {
 };
 
 export type NewApplication = {
-  name: string;
-  gender: "male" | "female";
-  email: string;
-  phone_number: string;
-  location: string;
-  education_level: string;
-  program_id: string;
-  major: string;
-  date_of_birth: string;
-};
-
-export type NewApplicationForm = {
   first_name: string;
   last_name: string;
+  sponsorship_type: "self_funded"| "sponsored_by_international_organization"
   email: string;
   phone_number: string;
   country: string;
-  education_level: string;
   course_id: string;
-  sponsorship_type: "Self-funded"| "Sponsored by International Organization"
+  created_at?:Date | null
 };
+
+
   
 export type NewMember = {
   id?: string;

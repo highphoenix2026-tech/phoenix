@@ -32,5 +32,9 @@ export const applicationSchema = (locale: Locale) =>
       .string()
       .min(1, locale === "en" ? "Course is required" : "الدورة مطلوبة"),
 
-    sponsorship_type: z.string(),
+    sponsorship_type: z.enum([
+  "self_funded",
+  "sponsored_by_international_organization",
+]),
+
   });

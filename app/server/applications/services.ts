@@ -1,8 +1,8 @@
 import prisma from "@/lib/prisma";
-import { NewApplicationForm } from "@/types";
+import { NewApplication } from "@/types";
 import { revalidateTag, unstable_cache } from "next/cache";
 
-export const addNewApplcation = async (data: NewApplicationForm) => {
+export const addNewApplcation = async (data: NewApplication) => {
   try {
     await prisma.applications.create({ data });
     revalidateTag("courses", "max");
@@ -95,6 +95,7 @@ export const deleteApplicationById = async (id: string) => {
   }
 };
 
+
 export const getApplicationById = (id: string) =>
   unstable_cache(
     async () => {
@@ -138,9 +139,11 @@ type ApplicationFilters = {
   courseId?: string | null;
   country?: string | null;
   applicationId?: string | null;
-    sponsorshipType: "Self-funded"| "Sponsored by International Organization";
+  sponsorshipType: "self_funded"| "sponsored_by_international_organization";
 
 };
+
+
 
 const DEFAULT_PAGE_SIZE = 10;
 
@@ -161,7 +164,7 @@ export const getAllApplicationsByFilters = (
       // Use the correct Prisma type
       const where: ApplicationsWhereInput = {};
 
-       if (filters?.sponsorshipType) {
+       if (filters?.sponsorshipType ) {
         where.sponsorship_type = filters.sponsorshipType;
       }
 
@@ -169,11 +172,11 @@ export const getAllApplicationsByFilters = (
         where.course_id = filters.courseId;
       }
 
-      if (filters?.applicationId) {
+      if (filters?.applicationId ) {
         where.id = filters.applicationId;
       }
 
-      if (filters?.country) {
+      if (filters?.country || filters?.country==="all") {
         where.country = { contains: filters.country, mode: "insensitive" };
       }
       try {

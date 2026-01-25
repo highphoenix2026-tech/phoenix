@@ -9,7 +9,7 @@ import TrainingOutcomesSection from "@/app/components/trainingcomponents/Trainin
 
 export default function TrainingPage() {
   return (
-    <main className="bg-[#f1f3f5] text-slate-800">
+    <main className="bg-[#f1f3f5] text-slate-800  mt-20">
       <TrainingHero />
       <InstitutionalTrainingSection />
       <TrainingDeliverySection />

@@ -11,7 +11,7 @@ import { Control, Controller, FieldError } from "react-hook-form";
 
 interface Option {
   label: string;
-  value: string;
+  value: string ;
 }
 
 interface FormSelectProps {
@@ -53,8 +53,14 @@ export default function FormSelect({
         name={name}
         control={control}
         render={({ field }) => (
-          <Select onValueChange={field.onChange} value={field.value}>
+         <Select
+  value={field.value}
+  onValueChange={field.onChange}
+  defaultValue={field.value}
+>
+
             <SelectTrigger
+            
               id={id}
               aria-invalid={!!error}
               aria-describedby={

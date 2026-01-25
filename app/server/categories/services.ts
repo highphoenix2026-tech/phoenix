@@ -94,6 +94,42 @@ export const getAllCategoriesWithCourses = unstable_cache(
   { revalidate: 3600, tags: ["categories"] },
 );
 
+export const getAllCategoriesNameAndImageWithCourses = unstable_cache(
+  async () => {
+    try {
+      const result = await prisma.category.findMany({
+        select: {
+          courses: {
+            select: {
+              course_title_en: true,
+              id: true,
+              applications: { select: { id: true } },
+              course_image: true,
+            },
+          },
+          category_name_en: true,
+          id: true,
+        },
+      });
+      return {
+        data: result,
+        status: 200,
+        success: true,
+        message: "All Categories With Courses",
+      };
+    } catch (error) {
+      return {
+        data: null,
+        status: 500,
+        success: false,
+        message: "Error In Getting Categories With Courses",
+      };
+    }
+  },
+  ["all-categories-with-courses"],
+  { revalidate: 3600, tags: ["categories"] },
+);
+
 export const deleteCategory = async (id: string) => {
   try {
     await prisma.category.delete({

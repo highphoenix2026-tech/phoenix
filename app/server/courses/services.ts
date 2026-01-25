@@ -325,3 +325,30 @@ export const getCoursesByCategoryIdByLocale = (
     [`courses-${categoryId}-locale-${locale}`],
     { tags: ["courses", "categories"], revalidate: 3600 },
   );
+
+
+  export const getCourseNameAndIdById= (id: string) => {
+  const cachedFn = unstable_cache(
+    async () => {
+      try {
+        const result = await prisma.courses.findUnique({
+          where: { id },
+          select:{id:true, course_title_en:true}
+        });
+        if (!result)
+          return { data: null, message: "Course not found", status: 409 };
+        return {
+          data: result,
+          message: "Course fetched successfully",
+          status: 200,
+        };
+      } catch (error) {
+        return { data: null, message: "Error fetching Course", status: 500 };
+      }
+    },
+    [`course-name-by-id-${id}`],
+    { tags: ["courses"], revalidate: 3600 }
+  );
+
+  return cachedFn();
+};

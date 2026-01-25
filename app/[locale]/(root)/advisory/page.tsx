@@ -9,12 +9,12 @@ import PartnerSection from "@/app/components/advisorycomponents/PartnerSection";
 
 export default function AdvisoryPage() {
   return (
-    <main className="bg-[#f1f3f5] text-slate-800">
+    <main className="bg-[#f1f3f5] text-slate-800  mt-20">
       <AdvisoryHero />
-      <InstitutionalSection />
       <DomainsSection />
-      <EngagementSection />
       <OutcomesSection />
+      <InstitutionalSection />
+      <EngagementSection />
       <PartnerSection />
     </main>
   );

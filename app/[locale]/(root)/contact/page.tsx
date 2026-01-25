@@ -7,7 +7,7 @@ import ProfessionalNotice from "@/app/components/contactcomponents/ProfessionalN
 
 export default function ContactPage() {
   return (
-    <main className="bg-[#f1f3f5] text-slate-800">
+    <main className="bg-[#f1f3f5] text-slate-800  mt-20">
       <HeroSection />
       <EngagementSection />
       <ContactForm />

@@ -9,7 +9,7 @@ import {
   KeyRound,
   Ticket,
   Crown,
-  Users2Icon,
+  FileUser,
   BookA,
 } from "lucide-react";
 
@@ -64,6 +64,11 @@ const items = [
     title: "Courses",
     url: "/admin/dashboard/courses",
     icon: BookA,
+  },
+  {
+    title: "Applications",
+    url: "/admin/dashboard/applications",
+    icon: FileUser,
   },
 ];
 
