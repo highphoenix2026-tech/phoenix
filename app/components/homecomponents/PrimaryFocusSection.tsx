@@ -1,5 +1,6 @@
 "use client"
-import { FaUserTie, FaGavel, FaMapMarkedAlt, FaSchool, FaPaperPlane, FaChevronRight } from "react-icons/fa";
+import { FaUserTie, FaGavel, FaMapMarkedAlt, FaSchool, FaChevronRight } from "react-icons/fa";
+import Button2 from "../Button2";
 import Link from "next/link";
 import { homeData } from "@/app/data/homedata";
 import { useLocale } from "next-intl";
@@ -98,9 +99,8 @@ export default function PrimaryFocusSection() {
         </div>
 
         <div className="animate-me opacity-0 translate-y-8 flex justify-center mt-16">
-          <Link href="/services" className="group relative px-10 py-3 bg-transparent border border-[#c9a24d]/40 text-[#c9a24d] font-mono text-xs tracking-[0.3em] uppercase hover:bg-[#c9a24d] hover:text-[#0b1236] transition-all duration-500 shadow-xl">
-            {primaryFocus.cta}
-          </Link>
+<Button2>          {primaryFocus.cta}
+         </Button2>  
         </div>
 
       </div>

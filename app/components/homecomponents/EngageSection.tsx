@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { FaArrowRight, FaHeadset } from "react-icons/fa";
+import Button2 from "../Button2";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -69,20 +70,9 @@ export default function EngageSection() {
 
         <div className="md:col-span-4 flex flex-col items-center md:items-end">
           <div className="engage-white-animate opacity-0 translate-y-10 w-full max-w-[280px]">
-            <Link
-              href="/contact"
-              className="group relative flex items-center justify-between w-full px-8 py-6 bg-[#0b1236] text-white overflow-hidden shadow-2xl transition-all duration-500"
-            >
-              <div className="absolute inset-0 w-0 bg-[#c9a24d] group-hover:w-full transition-all duration-500 ease-out" />
-              
-              <span className="relative z-10 font-black uppercase tracking-widest text-sm group-hover:text-[#0b1236] transition-colors">
-                {engage.cta}
-              </span>
-              
-              <div className="relative z-10 bg-white/10 p-2 group-hover:bg-[#0b1236]/10 transition-colors">
-                <FaArrowRight className="group-hover:translate-x-2 transition-transform rtl:rotate-180 group-hover:text-[#0b1236]" />
-              </div>
-            </Link>
+
+          <Button2>                            {engage.cta}
+</Button2>
             
             <p className="mt-4 font-mono text-[9px] text-slate-400 text-center md:text-right uppercase tracking-tighter">
               *Response time within 24 operational hours

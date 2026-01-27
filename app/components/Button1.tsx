@@ -1,0 +1,40 @@
+import Link from "next/link";
+import { FaPlane } from "react-icons/fa";
+interface ButtonLinkProps {
+  href?: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
+export default function Button1({
+  href = "#",
+  children,
+  className = "",
+}: ButtonLinkProps) {
+  return (
+    <div className={`eng-element group relative ${className}`}>
+      {/* Border الخارجي المتحرك */}
+      <div className="absolute -inset-2 border border-[#c9a24d]/50 group-hover:border-[#0b1236]/30 transition-colors duration-500" />
+
+      <Link
+        href={href}
+        className="relative flex items-center gap-6 
+                   bg-[#c9a24d] text-[#0b1236] 
+                   px-8 py-4 transition-all duration-500 
+                   hover:bg-[#0b1236] hover:text-white 
+                   shadow-xl"
+      >
+        {/* النص */}
+        <span className="font-black uppercase tracking-[0.2em] text-xs sm:text-[12px]">
+          {children}
+        </span>
+
+        {/* الأسهم */}
+        <div className="relative w-5 h-5 sm:w-4 sm:h-4 overflow-hidden">
+          <FaPlane className="text-lg no-flip -rotate-45 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+          <FaPlane  className="text-lg no-flip absolute -left-6 top-6 sm:-left-5 sm:top-5 -rotate-45 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+        </div>
+      </Link>
+    </div>
+  );
+}

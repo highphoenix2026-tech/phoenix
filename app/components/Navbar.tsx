@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="max-w-[1500px] mx-auto flex justify-between items-center h-full px-6 md:px-12">
           
           <div className="flex items-center gap-6 h-full">
-            <Link href="/" className="w-20 md:w-[90px] shrink-0">
+            <Link href="/" className="w-20 md:w-[70px] shrink-0">
               <Image src={Logo} alt="Logo" className="w-full h-auto brightness-0 invert" priority />
             </Link>
             <div className="h-8 w-[1px] bg-white/10 hidden lg:block" />

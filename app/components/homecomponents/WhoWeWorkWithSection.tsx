@@ -94,7 +94,7 @@ export default function WhoWeWorkWithSection() {
           })}
         </div>
 
-        <div className="absolute inset-[-180px] z-40 pointer-events-none animate-[spin_10s_linear_infinite]">
+        <div className="absolute inset-[-180px] z-0 pointer-events-none animate-[spin_10s_linear_infinite]">
             <div className="absolute inset-[180px]"
                  style={{
                    background: `conic-gradient(from 0deg at 50% 50%, transparent 270deg, rgba(201, 162, 77, 0.3) 360deg)`,
