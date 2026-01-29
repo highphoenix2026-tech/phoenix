@@ -23,6 +23,9 @@ import TargetAudienceInput from "../inputs/MultiInput";
 import DateInput from "../inputs/DateInput";
 import FormSelect from "../inputs/SelectorInput";
 import { z } from "zod";
+import Button2 from "@/components/ui/Button2"
+import Button1 from "@/components/ui/Button1"
+
 
 interface Props {
   course:NewCourse
@@ -251,23 +254,23 @@ export default function EditCourseForm({
             </div>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12 mb-12">
-              <Button
+              <Button2
                 type="submit"
                 disabled={!isDirty || isSubmitting}
                 className="bg-gray-800 sm:w-auto"
                 aria-disabled={!isDirty || isSubmitting}
               >
                 {isSubmitting ? "Ubdating..." : "Update Course"}
-              </Button>
+              </Button2>
 
-              <Button
+              <Button1
                 disabled={isSubmitting}
                 type="button"
                 onClick={() => router.push("/admin/dashboard/courses")}
                 className="bg-gray-800 sm:w-auto"
               >
                 Cancel
-              </Button>
+              </Button1>
             </div>
           </form>
         </CardContent>

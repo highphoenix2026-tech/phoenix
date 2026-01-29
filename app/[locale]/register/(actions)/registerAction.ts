@@ -1,6 +1,6 @@
 "use server";
 
-import { register } from "@/app/[locale]/server/users/services";
+import { register } from "@/app/server/users/services";
 import { type NewUser } from "@/types";
 
 export const registerAction = async (data: NewUser) => {

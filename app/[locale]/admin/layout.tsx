@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   } as React.CSSProperties}>
       <AppSidebar />
       <main className="flex-1">
-        <SidebarTrigger  />
+        <SidebarTrigger className="text-[#0b1236] hover:text-[#c9a24d]" />
         {children}
       </main>
     </SidebarProvider>

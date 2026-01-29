@@ -46,7 +46,7 @@ export default function ProfessionalNotice() {
         <div className="relative inline-block mb-10">
           <div className="absolute inset-0 bg-[#c9a24d]/10 blur-xl rounded-full" />
           <div className="relative w-20 h-20 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center">
-            <FaShieldAlt className="text-[#c9a24d] text-3xl" />
+            <FaShieldAlt className="text-[#c9a24d] text-3xl no-flip" />
           </div>
         </div>
 

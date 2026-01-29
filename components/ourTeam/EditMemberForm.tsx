@@ -17,7 +17,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import TextInput from "../inputs/TextInput";
 import TextareaInput from "../inputs/TextareaInput";
 import FormCheckbox from "../inputs/CheckBoxInput";
-import { Button } from "../ui/button";
+import Button2 from "@/components/ui/Button2"
+import Button1 from "@/components/ui/Button1"
 
 interface Props {
   member: NewMember | null;
@@ -174,21 +175,21 @@ export default function EditMemberForm({ action, member }: Props) {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-              <Button
+              <Button1
                 type="button"
                 disabled={isSubmitting}
                 onClick={() => router.replace("/admin/dashboard/ourTeam")}
                 className="bg-gray-800 sm:w-auto"
               >
                 Cancel
-              </Button>
-              <Button
+              </Button1>
+              <Button2
                 type="submit"
                 disabled={!isDirty || isSubmitting}
                 className="bg-gray-800 sm:w-auto"
               >
                 {isSubmitting ? "Saving..." : "Save Changes"}
-              </Button>
+              </Button2>
             </div>
           </CardContent>
         </Card>

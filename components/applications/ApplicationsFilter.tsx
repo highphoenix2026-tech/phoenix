@@ -29,16 +29,17 @@ export default function ApplicationsFilter({
     useForm<ApplicationsFilterFormValues>({
       defaultValues: {
         country: initialCountry,
-        applicationId: initialApplicationId ,
-        sponsorshipType: initialSponsorshipType
+        applicationId: initialApplicationId,
+        sponsorshipType: initialSponsorshipType,
       },
     });
 
   const onSubmit: SubmitHandler<ApplicationsFilterFormValues> = (data) => {
     const params = new URLSearchParams();
-    if (data.country) params.set("country", data.country);
+    if (data.country) params.set("country", data.country.toLowerCase());
     if (data.applicationId) params.set("applicationId", data.applicationId);
-    if (data.sponsorshipType) params.set("sponsorshipType", data.sponsorshipType);
+    if (data.sponsorshipType)
+      params.set("sponsorshipType", data.sponsorshipType);
     window.location.href = `${window.location.pathname}?${params.toString()}`;
   };
 
@@ -48,20 +49,7 @@ export default function ApplicationsFilter({
       className="flex flex-col gap-4 ml-0 mr-0 lg:ml-4 lg:mr-4"
     >
       <div className="flex flex-wrap gap-4 items-start justify-start">
-        <FormSelect
-          name="country"
-          label="Country"
-          control={control}
-          placeholder="Select Option"
-          options={[
-            { label: "All", value: "all" },
-            { label: "Saudi Arabia", value: "Saudi Arabia" },
-            { label: "Jordan", value: "Jordan" },
-          ]}
-          className="text-gray-700"
-        />
-
-        <FormSelect
+         <FormSelect
           name="sponsorshipType"
           label="Sponsorship Type"
           control={control}
@@ -76,6 +64,7 @@ export default function ApplicationsFilter({
           ]}
           className="text-gray-700"
         />
+        <TextInput register={register("country")} label="Country" />
 
         <TextInput
           label="Id"
@@ -85,7 +74,7 @@ export default function ApplicationsFilter({
       </div>
 
       <div className="flex gap-2 flex-row items-start justify-start">
-        <Button2 type="submit">Apply</Button2>
+        <Button2 type="submit" disabled={false} >Apply</Button2>
 
         <Button1
           type="button"

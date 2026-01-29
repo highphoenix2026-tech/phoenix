@@ -68,6 +68,7 @@ export default function FormSelect({
               }
               className={`bg-white shadow-sm transition
                 focus:outline-none focus:ring-2 focus:ring-blue-500
+                
                 ${triggerClassName}
                 ${error ? "border-red-600 focus:ring-red-500" : "border-gray-200"}`}
             >

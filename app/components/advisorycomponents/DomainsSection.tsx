@@ -6,6 +6,12 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import Image from "next/image";
+import a from "@/public/images/a.jpg";
+import b from "@/public/images/b.jpg";
+
+import c from "@/public/images/c.jpg";
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -17,9 +23,9 @@ export default function DomainsSection() {
   const containerRef = useRef(null);
 
   const realImages = [
-    "https://images.unsplash.com/photo-1540339832862-47452993c66e?q=80&w=2000&auto=format&fit=crop", // قاعة اجتماعات فاخرة
-    "https://images.unsplash.com/photo-1520437358207-323b43b50729?q=80&w=2000&auto=format&fit=crop", // هيكل طائرة تقني
-    "https://images.unsplash.com/photo-1454165833767-0266b196773f?q=80&w=2000&auto=format&fit=crop"  // تحليل بيانات ومخططات
+    c, 
+    b, 
+    a 
   ];
 
   useGSAP(() => {
@@ -67,9 +73,10 @@ export default function DomainsSection() {
             >
               <div className="w-full md:w-1/2">
                 <div className="domain-img-container aspect-video overflow-hidden shadow-xl border border-slate-100 relative group">
-                  <img 
-                    src={domain.image || realImages[i % realImages.length]} 
+                  <Image 
+                    src={ realImages[i % realImages.length]} 
                     alt={domain.title}
+                    fill
                     className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/50" />

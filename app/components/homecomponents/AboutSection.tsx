@@ -67,7 +67,7 @@ export default function AboutSection() {
 
           <button className="flex items-center gap-4 text-[#0b1236] font-mono text-xs tracking-widest uppercase group transition-all">
             <span className="bg-[#0b1236] text-white p-3 group-hover:bg-[#c9a24d] transition-colors">
-                <FaArrowRight className="group-hover:translate-x-1 transition-transform rtl:rotate-180" />
+                <FaArrowRight className="group-hover:translate-x-1 no-flip  transition-transform rtl:rotate-180" />
             </span>
             <span className="font-bold border-b border-[#0b1236]/10 pb-1 group-hover:border-[#c9a24d]">
                 {locale === "en" ? "Read Full History" : "اقرأ التاريخ الكامل"}
@@ -90,7 +90,7 @@ export default function AboutSection() {
                   <div className="absolute top-0 right-0 w-0 h-0 border-t-2 border-r-2 border-[#c9a24d] opacity-0 group-hover:w-4 group-hover:h-4 group-hover:opacity-100 transition-all duration-300" />
                   
                   <div className="text-[#c9a24d] text-3xl mb-4 transition-transform group-hover:scale-110 group-hover:-translate-y-1">
-                    <IconComponent />
+                    <IconComponent className="no-flip" />
                   </div>
                   
                   <h4 className="text-[#0b1236] font-black text-sm uppercase tracking-tight group-hover:text-white transition-colors">

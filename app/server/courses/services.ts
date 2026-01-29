@@ -200,7 +200,7 @@ export const getAllCoursesByLocale = (locale: Locale) =>
 
         const translatedCourses = result.data.map((course) => ({
           id: course.id,
-          title: locale === "en" ? course.category : course.course_title_ar,
+          title: locale === "en" ? course.course_title_en : course.course_title_ar,
           description:
             locale === "en"
               ? course.course_description_en

@@ -76,21 +76,21 @@ export async function AppSidebar() {
   const session = await getServerSession(authOptions);
   const userName = session?.user.firstName;
   return (
-    <Sidebar className="bg-black text-white" collapsible="icon">
-      <SidebarContent className="bg-gray-800">
+    <Sidebar className="bg-black text-[#c9a24d]" collapsible="icon">
+      <SidebarContent className="bg-[#0b1236]">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-white text-lg ">
+          <SidebarGroupLabel className="text-[#c9a24d] text-lg ">
             Admin Dashboard
           </SidebarGroupLabel>
-          <span className=" text-black  mb-2.5"></span>
+          <span className="  border border-b-[#c9a24d]  mb-2.5"></span>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu >
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                <SidebarMenuItem key={item.title} className="hover:bg-[#c9a24d] hover:text-[#0b1236]">
+                  <SidebarMenuButton asChild className="hover:bg-[#c9a24d] hover:text-[#0b1236]">
                     <a href={item.url}>
                       <item.icon />
-                      <span>{item.title}</span>
+                      <span >{item.title}</span>
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -99,33 +99,33 @@ export async function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="bg-gray-800 text-white">
+      <SidebarFooter className="bg-[#0b1236] text-[#c9a24d]">
         <SidebarMenu>
-          <SidebarMenuItem>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton>
+          <SidebarMenuItem >
+            <DropdownMenu >
+              <DropdownMenuTrigger asChild className="hover:bg-[#c9a24d] hover:text-[#0b1236] border-[#0b1236] focus:border-[#c9a24d] ">
+                <SidebarMenuButton >
                   <User2 /> {userName}
                   <ChevronUp className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 side="top"
-                className="min-w-44 rounded-lg shadow-lg bg-gray-800 "
+                className="min-w-44 rounded-lg shadow-lg bg-[#0b1236]  border-[#c9a24d]  "
               >
-                <DropdownMenuItem className="text-white">
+                <DropdownMenuItem className="text-[#c9a24d] group  hover:bg-[#c9a24d] focus:text-[#0b1236] focus:bg-[#c9a24d] ">
                   <Link
                     href="/cahnge-password"
-                    className="text-sm flex flex-row gap-1"
+                    className="text-sm flex flex-row gap-1  "
                   >
                     <KeyRound
                       width={4}
                       height={4}
-                      className="mt-1 text-white"
+                      className="mt-1 text-[#c9a24d] group-hover:text-[#0b1236]  "
                     />
                     Change Password
                   </Link>
-                </DropdownMenuItem>
+                </DropdownMenuItem >
                 <SignOutComponent />
               </DropdownMenuContent>
             </DropdownMenu>

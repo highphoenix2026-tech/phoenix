@@ -19,6 +19,9 @@ import { useRouter } from "next/navigation";
 import TextInput from "../inputs/TextInput";
 import TextareaInput from "../inputs/TextareaInput";
 import TargetAudienceInput from "../inputs/MultiInput";
+import Button2 from "@/components/ui/Button2";
+import Button1 from "@/components/ui/Button1";
+
 interface Props {
   category: NewCategory;
   action: (
@@ -148,22 +151,22 @@ function EditCategoryForm({ action, category }: Props) {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12 mb-12">
-              <Button
+              <Button2
                 type="submit"
                 disabled={!isDirty || isSubmitting}
                 className="bg-gray-800 sm:w-auto"
               >
                 {isSubmitting ? "Updating..." : "Update Category"}
-              </Button>
+              </Button2>
 
-              <Button
+              <Button1
                 disabled={isSubmitting}
                 type="button"
                 onClick={() => router.push("/admin/dashboard/categories")}
                 className="bg-gray-800 sm:w-auto"
               >
                 Cancel
-              </Button>
+              </Button1>
             </div>
           </form>
         </CardContent>

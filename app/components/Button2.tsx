@@ -13,9 +13,9 @@ export default function Button2({
   className = "",
 }: ButtonLinkProps) {
   return (
-    <div className={`eng-element group relative ${className}`}>
+    <div className={`eng-element  group relative ${className}`}>
       {/* Border الخارجي المتحرك */}
-      <div className="absolute -inset-2 border border-slate-100 group-hover:border-[#c9a24d]/30 transition-colors duration-500" />
+      <div className="absolute -inset-2 border flex  border-slate-100 group-hover:border-[#c9a24d]/30 transition-colors duration-500" />
 
       <Link
         href={href}
@@ -28,8 +28,8 @@ export default function Button2({
 
         {/* الأسهم */}
         <div className="relative w-5 h-5 sm:w-4 sm:h-4 overflow-hidden">
-          <FaPlane className="text-lg -rotate-45 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
-          <FaPlane className="text-lg absolute -left-6 top-6 sm:-left-5 sm:top-5 -rotate-45 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+          <FaPlane className="text-lg -rotate-45 no-flip transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
+          <FaPlane className="text-lg no-flip absolute -left-6 top-6 sm:-left-5 sm:top-5 -rotate-45 transition-transform duration-500 group-hover:translate-x-6 group-hover:-translate-y-6" />
         </div>
       </Link>
     </div>

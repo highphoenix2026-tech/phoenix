@@ -6,12 +6,19 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {translatedMembers}from "@/types/index"
+import Image from "next/image";
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
+interface Props {
+  founderData: translatedMembers;
+}
 
-export default function FounderCard() {
+
+export default function FounderCard({founderData}: Props) {
   const locale = useLocale() as "en" | "ar";
   const { founder } = teamData[locale];
   const containerRef = useRef(null);
@@ -32,7 +39,7 @@ export default function FounderCard() {
     }, containerRef);
     return () => ctx.revert();
   }, [locale]);
-
+console.log(founderData)
   return (
     <section 
       ref={containerRef} 
@@ -46,10 +53,13 @@ export default function FounderCard() {
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-[#0b1236] hidden lg:block" />
             
             <div className="relative z-10 overflow-hidden shadow-[0_50px_100px_rgba(11,18,54,0.15)] bg-[#0b1236]">
-              <img
-                src={founder.image}
-                alt={founder.name}
-                className="w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
+              <Image
+                src={founderData.image}
+                
+                width={500}
+                height={500}
+                alt={founderData.name}
+                className="w-full h-[500px] object-cover grayscal hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b1236]/40 to-transparent" />
             </div>
@@ -67,17 +77,18 @@ export default function FounderCard() {
                <span className="text-[#c9a24d] font-mono text-[10px] font-black uppercase tracking-widest">Leadership_Profile</span>
             </div>
 
-            <h2 className="text-5xl md:text-7xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-4">
-              {founder.name}
+            <h2 className="text-5xl md:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-4">
+                       {founderData.name}
+
             </h2>
             <h3 className="text-xl md:text-2xl font-bold text-[#c9a24d] uppercase italic tracking-tight mb-8">
-              {founder.role}
+              {founderData.position}
             </h3>
 
             <div className="relative">
               <span className="absolute -top-10 -left-6 text-9xl text-slate-50 font-serif opacity-50 select-none">“</span>
               <p className="relative z-10 text-slate-600 text-lg md:text-xl leading-relaxed font-medium italic">
-                {founder.bio}
+                {founderData.description}
               </p>
             </div>
 

@@ -7,11 +7,34 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
+
+
+
+
+import {translatedMembers}from "@/types/index"
+import Image from "next/image";
+
+
+
+interface Props {
+  memberData: translatedMembers[];
+}
+
+
+ 
+
+
+
+
+
+
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function StaffCards() {
+export default function StaffCards({memberData}: Props) {
+
   const locale = useLocale() as "en" | "ar";
   const { staff } = teamData[locale];
   const containerRef = useRef(null);
@@ -56,15 +79,16 @@ export default function StaffCards() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {staff.map((member, i) => (
+          {memberData.map((member, i) => (
             <div 
               key={i} 
               className="staff-member-card group bg-white border border-slate-100 flex flex-col transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(11,18,54,0.1)] relative"
             >
               <div className="relative aspect-[4/5] overflow-hidden bg-[#0b1236]">
-                <img 
+                <Image 
                   src={member.image} 
-                  alt={member.name} 
+                  alt={member.name}
+                  fill 
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" 
                 />
                 
@@ -78,13 +102,13 @@ export default function StaffCards() {
                   {member.name}
                 </h3>
                 <h4 className="text-[#c9a24d] font-mono text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-                  {member.role}
+                  {member.position}
                 </h4>
                 
                 <div className="w-full h-[1px] bg-slate-50 mb-6" />
                 
                 <p className="text-slate-500 text-sm leading-relaxed font-medium line-clamp-4 group-hover:text-slate-700 transition-colors">
-                  {member.bio}
+                  {member.description}
                 </p>
 
                 <div className="mt-8 pt-6 border-t border-slate-50 w-full flex justify-between items-center opacity-20">

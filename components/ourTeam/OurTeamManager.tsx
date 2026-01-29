@@ -1,7 +1,7 @@
 "use client";
 import MemberReorder, { Member } from "./MemberReorder";
 import { MemberOrder } from "@/types";
-import { reorderMemberyAction } from "@/app/admin/dashboard/ourTeam/(actions)/reorderMember";
+import { reorderMemberyAction } from "@/app/[locale]/admin/dashboard/ourTeam/(actions)/reorderMember";
 
 export default function OurTeamManager({ initialMembers }: { initialMembers: Member[] }) {
   // client wrapper: must return the promise

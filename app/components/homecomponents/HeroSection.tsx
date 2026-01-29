@@ -59,7 +59,7 @@ export default function HeroSection() {
       <div className="relative w-full max-w-[1840px] mx-auto px-4">
         <div className="relative w-full min-h-[80vh] md:h-[75vh] flex items-center justify-center">
           <div
-            className={`hero-cta-piece absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-[5px] `}
+            className={`hero-cta-piece  absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-[5px] `}
           >
             <Button>Enroll Now</Button>
           </div>

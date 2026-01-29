@@ -69,8 +69,8 @@ export default function WhyUsSection() {
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#c9a24d]/20 group-hover:border-[#c9a24d] transition-colors duration-500" />
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#c9a24d]/20 group-hover:border-[#c9a24d] transition-colors duration-500" />
 
-                <div className="mb-6 w-16 h-16 rounded-full bg-[#0b1236] flex items-center justify-center text-[#c9a24d] text-2xl group-hover:scale-110 transition-transform duration-500 shadow-lg">
-                  <IconComponent />
+                <div className="mb-6 w-16 h-16  rounded-full bg-[#0b1236] flex items-center justify-center text-[#c9a24d] text-2xl group-hover:scale-110 transition-transform duration-500 shadow-lg">
+                  <IconComponent className="no-flip" />
                 </div>
 
                 <h4 className="font-black text-xs md:text-sm uppercase tracking-widest text-[#0b1236] mb-3 group-hover:text-[#c9a24d] transition-colors">

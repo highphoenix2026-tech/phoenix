@@ -58,7 +58,7 @@ export default function TrustedAuthoritySection() {
           <div className="absolute inset-0 border-2 border-[#c9a24d]/20 rounded-full animate-spin-slow" />
           
           <div className="w-20 h-20 bg-[#0b1236] rounded-full flex items-center justify-center text-[#c9a24d] shadow-2xl relative">
-             <FaCheckCircle size={32} />
+             <FaCheckCircle className="no-flip" size={32} />
              <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-[#c9a24d]" />
              <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-[#c9a24d]" />
           </div>

@@ -61,13 +61,13 @@ export default function PrimaryFocusSection() {
             <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-[#c9a24d]/40 group-hover:border-[#c9a24d] transition-colors duration-500" />
             
             <div className="relative z-10">
-              <div className="text-[#c9a24d] mb-6"><FaUserTie size={35} /></div>
+              <div className="text-[#c9a24d] mb-6 "><FaUserTie className="no-flip"  size={35} /></div>
               <h3 className="text-2xl md:text-3xl font-black uppercase italic mb-4">{primaryFocus.services[0].title}</h3>
               <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mb-8 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-6 rtl:pr-6">
                 {primaryFocus.services[0].desc}
               </p>
               <Link href="/services" className="flex items-center gap-2 text-[#c9a24d] font-mono text-[10px] tracking-[0.2em] uppercase hover:gap-4 transition-all">
-                Access_Full_Brief <FaChevronRight size={8} />
+                Access_Full_Brief <FaChevronRight className="no-flip" size={8} />
               </Link>
             </div>
           </div>
@@ -76,7 +76,7 @@ export default function PrimaryFocusSection() {
             <div className="absolute top-4 right-4 w-6 h-6 border-t border-r border-[#0b1236]/30" />
             <div className="absolute bottom-4 left-4 w-6 h-6 border-b border-l border-[#0b1236]/30" />
             
-            <FaGavel size={40} className="mb-8 opacity-80" />
+            <FaGavel size={40} className="mb-8 opacity-80 no-flip" />
             <h4 className="text-xl font-[1000] uppercase italic leading-tight mb-4">{primaryFocus.services[1].title}</h4>
             <p className="text-sm font-bold leading-relaxed">{primaryFocus.services[1].desc}</p>
           </div>
@@ -87,7 +87,7 @@ export default function PrimaryFocusSection() {
               <div key={i} className="animate-me opacity-0 translate-y-8 focus-card md:col-span-6 relative p-8 bg-white/5 group border-l-2 border-[#c9a24d]/10 hover:border-[#c9a24d] transition-all duration-500">
                 <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#c9a24d]/20 group-hover:border-[#c9a24d] transition-colors" />
                 <div className="flex gap-6 items-start">
-                  <div className="text-[#c9a24d] mt-1"><Icon size={24} /></div>
+                  <div className="text-[#c9a24d] mt-1"><Icon size={24} className="no-flip" /></div>
                   <div>
                     <h4 className="text-lg font-black uppercase italic text-white mb-2">{item.title}</h4>
                     <p className="text-slate-400 text-xs leading-relaxed">{item.desc}</p>

@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, ComponentPropsWithoutRef } from "react";
 
-type ButtonProps = {
+interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   children: ReactNode;
   className?: string;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+}
 
-export default function Button1({
+export default function SecondaryButton({
   children,
   className = "",
   ...props
@@ -19,12 +19,15 @@ export default function Button1({
         lg:px-4 lg:py-2 lg:text-lg
 
         rounded-full font-bold
-        border-2 border-[#397a34] text-[#397a34]
+        border-2 border-[#c9a24d] text-[#c9a24d]
         bg-white relative overflow-hidden
+
+        /* Standard states */
+        disabled:opacity-50 disabled:cursor-not-allowed
 
         /* Hover effect */
         before:absolute before:top-0 before:left-0 before:h-full before:w-0
-        before:bg-[#6ab742]/20 before:transition-all before:duration-300
+        before:bg-[#c9a24d]/10 before:transition-all before:duration-300
         hover:before:w-full
 
         transition-all duration-300
@@ -32,7 +35,7 @@ export default function Button1({
       `}
       {...props}
     >
-      {children}
+      <span className="relative z-10">{children}</span>
     </button>
   );
 }

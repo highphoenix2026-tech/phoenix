@@ -7,9 +7,8 @@ import * as z from "zod";
 import { resetPasswordAction } from "./(actions)/resetPasswordAction";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import { toast } from "sonner";
-import Button2 from "@/components/ui/Button2";
+import { KeyRound, Loader2, ArrowLeft, ShieldCheck } from "lucide-react";
 
-// Validation schema
 const resetPasswordSchema = z
   .object({
     password: z.string().min(6, "Password must be at least 6 characters"),
@@ -44,9 +43,9 @@ function ResetPasswordPage() {
     try {
       const result = await resetPasswordAction(token, data.password);
       if (result.status === 201) {
-        toast.success(
-          "Password updated successfully. Redirecting to Login Page..."
-        );
+        toast.success("Password updated successfully!", {
+          style: { border: '1px solid #c9a24d', background: '#0b1236', color: '#fff' }
+        });
         setTimeout(() => router.push("/login"), 2000);
       } else {
         toast.error(result.message);
@@ -57,43 +56,73 @@ function ResetPasswordPage() {
   };
 
   return (
-    <main>
-      <form
-        className="max-w-lg mx-auto shadow-lg shadow-slate-500/50 p-7 rounded-lg bg-white mt-28 mb-20"
-        onSubmit={handleSubmit(onSubmit)}
-      >
-        <h1 className="text-2xl flex flex-row justify-center border-b-2 border-[#397a34]  mb-4 pb-2">
-          Reset Your Password
-        </h1>
+    <main className="h-screen flex items-center justify-center bg-slate-50 px-4 py-12">
+      <div className="w-full max-w-lg relative">
+        {/* Background Decorative Blur */}
+        <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#c9a24d]/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0b1236]/5 rounded-full blur-3xl" />
 
-        {/* Password */}
-        <PasswordInput
-          register={register("password")}
-          error={errors.password}
-          label="Password"
-        />
-        {/* Confirm Password */}
-        <PasswordInput
-          register={register("confirmPassword")}
-          error={errors.confirmPassword}
-          label="Confirm Password"
-        />
-        {/* Submit */}
-        <Button2 disabled={isSubmitting}
-        className="w-full px-5 py-2.5"
-          type="submit">
-{isSubmitting ? "Resetting..." : "Reset"}
-        </Button2>
-       
-
-        {/* Back Link */}
-        <Link
-          href="/login"
-          className="flex flex-row pt-4 text-center justify-center text-sm text-[#397a34] underline-offset-4 hover:underline m-2"
+        <form
+          className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-10 rounded-[2.5rem] border border-slate-100"
+          onSubmit={handleSubmit(onSubmit)}
         >
-          Back To Login
-        </Link>
-      </form>
+          {/* Header Section */}
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
+              <KeyRound size={32} strokeWidth={1.5} />
+            </div>
+            <h1 className="text-2xl font-extrabold text-[#0b1236] tracking-tight">
+              Set New Password
+            </h1>
+            <p className="text-slate-500 mt-2 font-medium">Please choose a strong, unique password</p>
+            <div className="w-12 h-1 bg-[#c9a24d] mx-auto mt-4 rounded-full" />
+          </div>
+
+          <div className="space-y-5">
+            <PasswordInput
+              register={register("password")}
+              error={errors.password}
+              label="New Password"
+              placeholder="Min. 6 characters"
+            />
+            
+            <PasswordInput
+              register={register("confirmPassword")}
+              error={errors.confirmPassword}
+              label="Confirm New Password"
+              placeholder="Repeat your password"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="group relative w-full mt-10 flex items-center justify-center gap-3 bg-[#0b1236] text-white py-4 rounded-2xl font-bold text-lg overflow-hidden transition-all hover:bg-[#121b4a] active:scale-[0.98] disabled:opacity-70 shadow-lg shadow-[#0b1236]/20"
+          >
+            {isSubmitting ? (
+              <Loader2 className="animate-spin" size={22} />
+            ) : (
+              <>
+                <span className="relative z-10 text-[#c9a24d]">Update Password</span>
+                <ShieldCheck size={20} className="relative z-10 text-white/50" />
+              </>
+            )}
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+          </button>
+
+          {/* Back Navigation */}
+          <div className="mt-8 pt-6 border-t border-slate-50 flex justify-center">
+            <Link
+              href="/login"
+              className="flex items-center gap-2 text-sm font-bold text-slate-400 hover:text-[#0b1236] transition-colors group"
+            >
+              <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+              Back To Login
+            </Link>
+          </div>
+        </form>
+      </div>
     </main>
   );
 }

@@ -1,226 +1,245 @@
 import type { Metadata } from "next";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_APP_URL || "http://studioonejo.com";
-export const AppName = "Studio One";
-export const APP_DESCRIPTION = "We provide the best engineering office services for residential and commercial projects in Jordan.";
+// Environment & Base Info
+const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+export const SITE_TITLE = "HighPhoenix Aviation Consultancy";
+export const SITE_TAGLINE = "Strategic aviation safety, governance & training";
+export const APP_NAME = `${SITE_TITLE} | ${SITE_TAGLINE}`;
+export const HOME_DESCRIPTION =
+  "HighPhoenix supports aviation organisations to strengthen safety performance, governance, regulatory compliance, and long-term institutional sustainability through expert advisory and training.";
 
-// الكلمات المفتاحية العامة
+export const APP_DESCRIPTION =
+  process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
+  "HighPhoenix is a founder-led international aviation consultancy providing strategic and operational advisory, training, and governance support to safety-critical aviation organisations. We combine decades of aviation leadership experience with practical, context-aware delivery.";
+
 export const COMMON_KEYWORDS = [
-  "Studio One",
-  "Interior Design",
-  "Engineering Office",
-  "Residential Design",
-  "Commercial Projects",
-  "Project Management",
-  "Renovation",
-  "3D Rendering",
-  "Materials Execution",
-  "Luxury Interiors",
+  // English keywords
+  "HighPhoenix",
+  "HighPhoenix Aviation Consultancy",
+  "Phoenix Aviation Consultancy",
+  "aviation consultancy",
+  "aviation safety",
+  "safety performance",
+  "aviation governance",
+  "regulatory compliance",
+  "aviation training",
+  "operational excellence",
+  "institutional sustainability",
+  "aviation advisory",
+  "safety-critical aviation",
+  "aviation leadership",
+  "ICAO compliance",
+  "civil aviation",
+  "air transport safety",
+  "aviation risk management",
+  "SMS aviation",
+  "remote aviation training",
+  "blended aviation training",
+
+  // Arabic keywords
+  "هاي فينيكس",
+  "هاي فينيكس للاستشارات الجوية",
+  "فينيكس للاستشارات الجوية",
+  "استشارات الطيران",
+  "سلامة الطيران",
+  "أداء السلامة",
+  "حوكمة الطيران",
+  "الامتثال التنظيمي",
+  "التشريعات الجوية",
+  "تدريب الطيران",
+  "التميز التشغيلي",
+  "الاستدامة المؤسسية",
+  "استشارات الطيران المدني",
+  "أنظمة إدارة السلامة",
+  "SMS الطيران",
+  "إدارة المخاطر في الطيران",
+  "القيادة في الطيران",
+  "منظمات الطيران",
+  "الهيئات الجوية",
+  "سلامة النقل الجوي",
+  "تأهيل قيادات الطيران",
+  "بيئات الطيران عالية الخطورة",
 ] as const;
 
-// الصفحات الثابتة
-export const PAGE_METADATA: Record<string, Metadata> = {
-  home: {
-    title: "Studio One - Interior Design & Engineering Office | Jordan",
+
+// Home (Single page / landing)
+export const HOME_METADATA: Metadata = {
+  title: APP_NAME,
+  description: HOME_DESCRIPTION,
+  keywords: COMMON_KEYWORDS.join(", "),
+  metadataBase: new URL(SITE_URL),
+
+  openGraph: {
+    title: APP_NAME,
     description: APP_DESCRIPTION,
-    keywords: COMMON_KEYWORDS.join(", "),
-    openGraph: {
-      title: "Studio One - Interior Design & Engineering Office",
-      description: APP_DESCRIPTION,
-      type: "website",
-      siteName: AppName,
-      images: [
-        { url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Home" },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Studio One - Interior Design & Engineering Office",
-      description: APP_DESCRIPTION,
-      images: [`${SERVER_URL}/logo-open-graph.png`],
+    url: SITE_URL,
+    siteName: SITE_TITLE,
+    type: "website",
+    locale: "en-US",
+    images: [
+      {
+        url: `${SITE_URL}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — Strategic aviation safety, governance & training`,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    images: [`${SITE_URL}/logo.png`],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
-  about: {
-    title: "About Studio One - Interior Design & Engineering Office",
+
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+  },
+};
+
+// About page
+export const ABOUT_METADATA: Metadata = {
+  title: `${SITE_TITLE} — About Us`,
+  description:
+    "HighPhoenix provides trusted, independent aviation consultancy and training that improves safety, operational performance, and regulatory compliance across the global aviation sector.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — About Us`,
     description:
-      "Studio One is a leading interior design and engineering office in Amman, Jordan, providing innovative solutions for residential and commercial projects.",
-    keywords: [...COMMON_KEYWORDS, "About Studio One", "Jordan Interior Design"].join(", "),
-    openGraph: {
-      title: "About Studio One",
-      description:
-        "Leading interior design and engineering office in Jordan for residential and commercial projects.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "About Studio One" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "About Studio One",
-      description:
-        "Leading interior design and engineering office in Jordan for residential and commercial projects.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
+      "Learn about HighPhoenix’s founder-led team, decades of aviation leadership experience, and our approach to delivering confidential, impact-focused advisory and training worldwide.",
+    url: `${SITE_URL}/about`,
+    siteName: SITE_TITLE,
+    locale: "en-US",
+    type: "article",
+    images: [
+      {
+        url: `${SITE_URL}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — About Us`,
+      },
+    ],
   },
-  services: {
-    title: "Services - Studio One | Interior Design & Engineering",
-    description: "Explore the range of services offered by Studio One, from interior design to project management and execution.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Services", "Interior Design Services"].join(", "),
-    openGraph: {
-      title: "Services - Studio One",
-      description: "Professional interior design and engineering services in Jordan.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Services" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Services - Studio One",
-      description: "Professional interior design and engineering services in Jordan.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  projects: {
-    title: "Projects - Studio One | Interior Design & Engineering",
-    description: "Browse our recent projects showcasing residential and commercial interior design and engineering solutions.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Projects", "Interior Design Projects"].join(", "),
-    openGraph: {
-      title: "Projects - Studio One",
-      description: "Residential and commercial projects by Studio One in Jordan.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Projects" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Projects - Studio One",
-      description: "Residential and commercial projects by Studio One in Jordan.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  contact: {
-    title: "Contact Studio One | Interior Design & Engineering",
-    description: "Get in touch with Studio One to start your interior design or engineering project in Jordan.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Contact", "Interior Design Contact"].join(", "),
-    openGraph: {
-      title: "Contact Studio One",
-      description: "Reach out to Studio One for interior design and engineering services in Jordan.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Contact" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Contact Studio One",
-      description: "Reach out to Studio One for interior design and engineering services in Jordan.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
-  },
-  mission: {
-    title: "Mission & Vision - Studio One | Interior Design & Engineering",
-    description: "Studio One aims to create exceptional interior spaces that blend aesthetics, functionality, and innovation.",
-    keywords: [...COMMON_KEYWORDS, "Studio One Mission", "Studio One Vision"].join(", "),
-    openGraph: {
-      title: "Mission & Vision - Studio One",
-      description: "Studio One's mission is to deliver tailored interior design solutions that reflect clients’ unique vision and lifestyle.",
-      type: "website",
-      siteName: AppName,
-      images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: "Studio One Mission" }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Mission & Vision - Studio One",
-      description: "Studio One's mission is to deliver tailored interior design solutions that reflect clients’ unique vision and lifestyle.",
-      images: [`${SERVER_URL}/logo-open-graph.png`],
-    },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — About Us`,
+    description:
+      "Discover the leadership, values, and global approach that underpin HighPhoenix Aviation Consultancy.",
   },
 };
 
-// Metadata ديناميكي للمشاريع والخدمات
-export const generateDynamicMetadata = {
-  project: (project: { id: string; name: string; description?: string; image?: string }): Metadata => {
-    const description =
-      project.description ||
-      `Explore Studio One's project "${project.name}" showcasing innovative interior design and engineering solutions.`;
-
-    return {
-      title: `${project.name} | Project - Studio One`,
-      description,
-      keywords: ["Studio One", "Interior Design", "Engineering", project.name, "Project"].join(", "),
-      openGraph: {
-        title: `${project.name} | Studio One Project`,
-        description,
-        type: "website",
-        siteName: AppName,
-        images: [
-          { url: project.image || `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: project.name },
-        ],
+// Vision & Mission page
+export const VISION_MISSION_METADATA: Metadata = {
+  title: `${SITE_TITLE} — Vision & Mission`,
+  description:
+    "Vision: To be a leading international aviation consultancy shaping safe, resilient and future-ready aviation organisations. Mission: Deliver trusted advisory and training that raises safety, compliance, and sustainable growth.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — Vision & Mission`,
+    description:
+      "Read HighPhoenix’s vision and mission and how we translate strategic insight into operational improvements for safety-critical aviation stakeholders.",
+    url: `${SITE_URL}/vision-mission`,
+    siteName: SITE_TITLE,
+    locale: "en-US",
+    type: "article",
+    images: [
+      {
+        url: `${SITE_URL}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — Vision & Mission`,
       },
-      twitter: {
-        card: "summary_large_image",
-        title: `${project.name} | Studio One Project`,
-        description,
-        images: [project.image || `${SERVER_URL}/logo-open-graph.png`],
-      },
-    };
+    ],
   },
-
-  service: (service: { id: string; name: string; description?: string; image?: string }): Metadata => {
-    const description =
-      service.description ||
-      `Learn more about Studio One's service "${service.name}" offering professional interior design and engineering solutions.`;
-
-    return {
-      title: `${service.name} | Service - Studio One`,
-      description,
-      keywords: ["Studio One", "Interior Design", "Engineering", service.name, "Service"].join(", "),
-      openGraph: {
-        title: `${service.name} | Studio One Service`,
-        description,
-        type: "website",
-        siteName: AppName,
-        images: [
-          { url: service.image || `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: service.name },
-        ],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: `${service.name} | Studio One Service`,
-        description,
-        images: [service.image || `${SERVER_URL}/logo-open-graph.png`],
-      },
-    };
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — Vision & Mission`,
+    description:
+      "HighPhoenix: shaping safe, resilient, and future-ready aviation organisations through leadership and practical delivery.",
   },
 };
 
-// ROOT_METADATA عام لجميع الصفحات
+// Services page (Advisory & Training)
+export const TRAINING_METADATA: Metadata = {
+  title: `${SITE_TITLE} — Services`,
+  description:
+    "Advisory and training services focused on safety performance, governance, regulatory compliance, and sustainable institutional capability for aviation organisations.",
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — Services`,
+    description:
+      "HighPhoenix delivers project-based advisory and training engagements — on-site, remote, or blended — to strengthen aviation institutions at leadership, governance, and system levels.",
+    url: `${SITE_URL}/training`,
+    siteName: SITE_TITLE,
+    locale: "en-US",
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — Advisory & Training Services`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — Training`,
+    description:
+      "Strategic and operational advisory, governance strengthening, regulatory support, and bespoke aviation training worldwide.",
+  },
+};
+
+// Root / Global metadata (app layout)
 export const ROOT_METADATA: Metadata = {
-  title: { default: AppName, template: `%s - ${AppName}` },
+  metadataBase: new URL(SITE_URL),
+  title: APP_NAME,
   description: APP_DESCRIPTION,
-  metadataBase: new URL(SERVER_URL),
   icons: {
-    icon: `${SERVER_URL}/favicon.ico`,
-    shortcut: `${SERVER_URL}/favicon.ico`,
-    apple: `${SERVER_URL}/favicon.ico`,
+    icon: `${SITE_URL}/favicon.ico`,
+    shortcut: `${SITE_URL}/favicon.ico`,
+    apple: `${SITE_URL}/logo.png`,
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    title: AppName,
+    locale: "en-US",
+    title: APP_NAME,
     description: APP_DESCRIPTION,
-    siteName: AppName,
-    url: SERVER_URL,
-    images: [{ url: `${SERVER_URL}/logo-open-graph.png`, width: 1200, height: 630, alt: AppName }],
+    siteName: SITE_TITLE,
+    url: SITE_URL,
+    images: [
+      {
+        url: `${SITE_URL}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: SITE_TITLE,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@StudioOne",
-    creator: "@StudioOne",
-    title: AppName,
+    title: APP_NAME,
     description: APP_DESCRIPTION,
-    images: [`${SERVER_URL}/logo-open-graph.png`],
+    images: [`${SITE_URL}/logo.png`],
   },
   robots: {
     index: true,
     follow: true,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
 };

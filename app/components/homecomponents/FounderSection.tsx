@@ -59,8 +59,8 @@ export default function FounderSection() {
           
           <div className="founder-img-box relative aspect-[4/5] bg-[#0b1236] rounded-sm overflow-hidden shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=1889&auto=format&fit=crop" 
-              className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
+              src="	https://www.highphoenix.com/assets/founder_profile.jpg" 
+              className="object-cover grayscal hover:grayscale-0 transition-all duration-1000" 
               alt={founder.name}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b1236]/60 to-transparent" />

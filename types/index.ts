@@ -29,8 +29,8 @@ export type UserDetails = {
 
 export type NewBanner = {
   id?: string;
-  name: string |null;
-  image: string |null;
+  name: string | null;
+  image: string | null;
   description_en: string | null;
   description_ar: string | null;
 };
@@ -38,7 +38,7 @@ export type NewBanner = {
 export type TranslatedBanner = {
   name: string;
   image: string;
-  description: string|null;
+  description: string | null;
 };
 
 export type NewCategory = {
@@ -52,11 +52,23 @@ export type NewCategory = {
 };
 
 export type TranslatedCategory = {
-  id?: string;
-  category_name: string;
-  logo: string | null;
-  category_description: string | null;
+  id: string;
+  name: string;
+  description: string | null;
   slug: string;
+  logo: string | null;
+};
+
+export type TranslatedCourse = {
+  id: string;
+  title: string;
+  description: string | null;
+  target_audience: string | string[];
+  image: string | null;
+  categoryId: string;
+  slug: string;
+  start_date: Date | null;
+  end_date: Date | null;
 };
 
 export type NewCourse = {
@@ -65,15 +77,14 @@ export type NewCourse = {
   course_title_ar: string;
   course_description_en: string | null;
   course_description_ar: string | null;
-  target_audience_en: string[] ;
-  target_audience_ar: string[] ;
+  target_audience_en: string[];
+  target_audience_ar: string[];
   duration: string | null;
-  slug: string ;
+  slug: string;
   course_image: string | null;
-  category_id: string ;
-  start_date:Date |null,
-  end_date:Date |null
-
+  category_id: string;
+  start_date: Date | null;
+  end_date: Date | null;
 };
 
 export type translatedProgram = {
@@ -110,16 +121,14 @@ export type TranslatedPartners = {
 export type NewApplication = {
   first_name: string;
   last_name: string;
-  sponsorship_type: "self_funded"| "sponsored_by_international_organization"
+  sponsorship_type: "self_funded" | "sponsored_by_international_organization";
   email: string;
   phone_number: string;
   country: string;
   course_id: string;
-  created_at?:Date | null
+  created_at?: Date | null;
 };
 
-
-  
 export type NewMember = {
   id?: string;
   name_en: string;
@@ -130,23 +139,16 @@ export type NewMember = {
   position_ar: string;
   display_order?: number | null | undefined;
   main: boolean | null;
-  image: string | null;
+  image: string;
 };
-
-export type TranslatedMemberFounders = {
+export type translatedMembers = {
   id?: string;
   name: string;
   description: string | null;
   position: string;
   display_order?: number | null | undefined;
-  member_type: "founder" | "life_programs" | "professional_programs" | null;
-  image: string | null;
-};
-
-export type TranslatedMember = {
-  name: string;
-  position: string;
-  image: string | null;
+  main: boolean | null;
+  image: string;
 };
 
 export type MemberOrder = {

@@ -186,7 +186,7 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
     );
 
     await Promise.all(queries);
-    revalidateTag("our_team", "max");
+    revalidateTag("ourteam", "max");
     return {
       message: "Member orders updated successfully",
       status: 201,
@@ -199,3 +199,47 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
     };
   }
 };
+
+
+
+export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
+  unstable_cache(
+    async () => {
+      try {
+        const result = await prisma.our_team.findMany({
+          where: { main },
+          orderBy: { display_order: "asc" },
+        });
+
+        if (!result) return { data: [], status: 200 };
+
+        const translatedMembers = result.map((member) => ({
+          id: member.id,
+          name: locale === "en" ? member.name_en : member.name_ar,
+          position: locale === "en" ? member.position_en : member.position_ar,
+          description: locale === "en" ? member.description_en : member.description_ar,
+          image: member.image,
+          display_order: member.display_order,
+          main:member.main
+        }));
+
+        return {
+          data: translatedMembers,
+          message: `Members fetched successfully in ${locale}`,
+          status: 200,
+        };
+      } catch (error) {
+        console.error("Database Error:", error);
+        return {
+          data: [],
+          message: "Error In Getting Members",
+          status: 500,
+        };
+      }
+    },
+    [`members-${main}-${locale}`],
+    {
+      tags: ["ourTeam"],
+      revalidate: 3600,
+    }
+  );

@@ -18,9 +18,9 @@ export default function EngagementSection() {
   const containerRef = useRef(null);
 
   const icons: Record<string, React.ReactNode> = {
-    FaFileAlt: <FaFileAlt />,
-    FaHandshake: <FaHandshake />,
-    FaUsers: <FaUsers />
+    FaFileAlt: <FaFileAlt className="no-flip" />,
+    FaHandshake: <FaHandshake  className="no-flip"/>,
+    FaUsers: <FaUsers className="no-flip"/>
   };
 
   useGSAP(() => {
@@ -88,7 +88,7 @@ export default function EngagementSection() {
                 <span className="font-mono text-[10px] font-bold text-[#c9a24d] group-hover:text-[#0b1236] transition-colors">
                   PHX_STP_0{i + 1}
                 </span>
-                <div className="text-2xl text-[#c9a24d] group-hover:text-[#0b1236] transition-all duration-500">
+                <div className="text-2xl text-[#c9a24d]  group-hover:text-[#0b1236] transition-all duration-500">
                   {icons[item.icon]}
                 </div>
               </div>

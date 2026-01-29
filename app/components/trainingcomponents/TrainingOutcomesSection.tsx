@@ -73,7 +73,7 @@ export default function TrainingOutcomesSection() {
               className="outcome-item group flex items-center gap-4 p-4 border-b border-slate-50 hover:bg-slate-50 transition-colors duration-300"
             >
               <div className="flex-shrink-0 w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-[#c9a24d] group-hover:bg-[#c9a24d]/5 transition-all">
-                <FaCheck className="text-[#c9a24d] text-[10px] opacity-40 group-hover:opacity-100 transition-opacity" />
+                <FaCheck className="text-[#c9a24d] no-flip text-[10px] opacity-40 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <p className="text-[#0b1236] text-lg font-bold italic tracking-tight uppercase leading-tight group-hover:translate-x-1 transition-transform">

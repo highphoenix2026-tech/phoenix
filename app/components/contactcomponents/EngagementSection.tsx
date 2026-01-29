@@ -18,9 +18,9 @@ export default function EngagementSection() {
   const containerRef = useRef(null);
 
   const icons: Record<string, JSX.Element> = {
-    FaBusinessTime: <FaBusinessTime className="text-[#c9a24d] text-4xl" />,
-    FaLaptop: <FaLaptop className="text-[#c9a24d] text-4xl" />,
-    FaHubspot: <FaHubspot className="text-[#c9a24d] text-4xl" />
+    FaBusinessTime: <FaBusinessTime className="text-[#c9a24d] text-4xl no-flip" />,
+    FaLaptop: <FaLaptop className="text-[#c9a24d] text-4xl no-flip" />,
+    FaHubspot: <FaHubspot className="text-[#c9a24d] text-4xl no-flip" />
   };
 
   useGSAP(() => {
