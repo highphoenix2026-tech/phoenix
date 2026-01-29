@@ -50,7 +50,7 @@ export default function GlobalReachSection() {
           <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#c9a24d]" />
         </div>
 
-        <h2 className="text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter mb-8 leading-none">
+        <h2 className="text-4xl md:text-6xl centert font-[1000] text-white uppercase italic tracking-tighter mb-8 leading-none">
           {globalReach.title}
         </h2>
 
@@ -58,7 +58,7 @@ export default function GlobalReachSection() {
           <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#c9a24d]" />
           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#c9a24d]" />
           
-          <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed italic">
+          <p className="text-lg md:text-xl centert  text-slate-300 font-medium leading-relaxed italic">
             {globalReach.desc}
           </p>
 

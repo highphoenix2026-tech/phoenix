@@ -3,6 +3,8 @@ import "./globals.css";
 import { AppName, AppDescription, AppURL } from "@/lib/constants";
 
 import { NextIntlClientProvider } from "next-intl";
+import { Toaster } from "@/components/ui/sonner"
+
 
 import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 
@@ -23,8 +25,14 @@ export default function RootLayout({
           <NextIntlClientProvider>
          
               <FontSwitcher locale={"en"}>{children}</FontSwitcher>
+             
+          <Toaster
+            position="bottom-right"
+            richColors
+            
           
-          
+            duration={3000}
+          />
           </NextIntlClientProvider>
       </body>
     </html>

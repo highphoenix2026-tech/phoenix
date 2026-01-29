@@ -93,7 +93,7 @@ export default function CoreValuesSection() {
                   {item.title}
                 </h4>
                 
-                <p className="text-[11px] md:text-xs text-slate-400 leading-relaxed font-medium group-hover:text-slate-600 transition-colors">
+                <p className="text-[11px] centert md:text-xs text-slate-400 leading-relaxed font-medium group-hover:text-slate-600 transition-colors">
                   {item.desc}
                 </p>
 

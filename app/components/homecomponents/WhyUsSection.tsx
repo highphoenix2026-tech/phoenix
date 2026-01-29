@@ -49,7 +49,7 @@ export default function WhyUsSection() {
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
-              Why_Choose_Us
+              {locale === "ar" ?"لماذا تختارنا" :"Why_Choose_Us" }
             </span>
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
           </div>

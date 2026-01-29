@@ -33,19 +33,19 @@ export default function PartnerSection() {
 
       <div className="max-w-3xl mx-auto text-center relative z-10 partner-content">
         
-        <div className="inline-flex items-center gap-2 mb-6">
+        <div className="inline-flex items-center gap-2 mb-6  w-full justify-center">
           <div className="w-6 h-[1px] bg-[#c9a24d]" />
-          <span className="text-[#c9a24d] font-mono text-[9px] tracking-[0.4em] font-black uppercase">
-            Direct_Contact
+          <span className="text-[#c9a24d] font-mono text-[9px] centert tracking-[0.4em] font-black uppercase">
+             {locale === "ar" ?"الاتصال المباشر" :" Corporate_Profile" }
           </span>
           <div className="w-6 h-[1px] bg-[#c9a24d]" />
         </div>
 
-        <h2 className="text-3xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-6">
+        <h2 className="text-3xl md:text-5xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-6">
           {partner.title}
         </h2>
 
-        <p className="text-slate-500 text-base md:text-lg font-medium max-w-xl mx-auto leading-relaxed mb-10">
+        <p className="text-slate-500 centert text-base md:text-lg font-medium max-w-xl mx-auto leading-relaxed mb-10">
           {partner.desc}
         </p>
 

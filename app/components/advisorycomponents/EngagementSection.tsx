@@ -68,12 +68,12 @@ export default function EngagementSection() {
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
-              Engagement_Protocol
+               {locale === "ar" ?"بروتوكول المشاركة" :"Engagement_Protocol" }
             </span>
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
           </div>
           <h2 className="text-4xl md:text-5xl font-[1000] text-white uppercase italic tracking-tighter">
-            How We Engage
+             {locale === "ar" ?"كيف نشارك" :"How We Engage" }
           </h2>
           <div className="mt-6 h-[1px] w-20 bg-[#c9a24d]/30" />
         </div>

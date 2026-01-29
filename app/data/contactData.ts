@@ -1,3 +1,5 @@
+import { Engagement } from "next/font/google";
+
 export const contactData = {
   en: {
     hero: {
@@ -22,6 +24,8 @@ export const contactData = {
         desc: "A hybrid approach combining the benefits of both on-site presence and remote flexibility."
       }
     ],
+    Engagementde:{
+      descreption:"Engagements typically begin with an initial discussion to understand organizational context, regulatory environment, and strategic objectives." },
     form: {
       name: "Full Name e.g. Jane Doe",
       organization: "Organization e.g. Civil Aviation Authority",
@@ -69,6 +73,8 @@ export const contactData = {
         desc: "جمع بين فوائد التواجد الميداني والمرونة الرقمية عن بعد."
       }
     ],
+        Engagementde:{
+      descreption:"تبدأ الارتباطات عادةً بمناقشة أولية لفهم السياق التنظيمي والبيئة التنظيمية والأهداف الاستراتيجية." },
     form: {
       name: "الاسم الكامل مثال: سارة أحمد",
       organization: "المنظمة مثال: الهيئة العامة للطيران المدني",

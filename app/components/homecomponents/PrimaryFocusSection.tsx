@@ -45,7 +45,7 @@ export default function PrimaryFocusSection() {
         <div className="animate-me opacity-0 translate-y-8 flex flex-col gap-6 mb-16 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-8 rtl:pr-8">
           <div className="flex items-center gap-3">
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
-              Operational_Scope
+                {locale === "ar" ?"النطاق التشغيلي" :"Operational_Scope" }
             </span>
             <div className="h-[1px] w-20 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />
           </div>

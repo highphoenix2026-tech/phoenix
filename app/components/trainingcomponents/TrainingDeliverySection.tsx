@@ -53,16 +53,16 @@ export default function TrainingDeliverySection() {
       <div className="max-w-6xl mx-auto">
         
         <div className="delivery-header text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4">
+          <div className="inline-flex items-center w-full justify-center gap-2 mb-4">
             <span className="w-2 h-2 bg-[#c9a24d] rotate-45" />
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] font-black uppercase">
-              Deployment_Systems
+               {locale === "ar" ?"أنظمة_النشر" :" Deployment_Systems" }
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter mb-4">
+          <h2 className="text-4xl md:text-5xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter mb-4">
             {delivery.title}
           </h2>
-          <p className="text-slate-500 font-medium max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-slate-500 centert font-medium max-w-2xl mx-auto text-lg leading-relaxed">
             {delivery.subtitle}
           </p>
         </div>

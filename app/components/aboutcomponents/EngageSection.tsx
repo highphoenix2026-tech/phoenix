@@ -52,15 +52,15 @@ export default function EngageSection() {
         </div>
 
         <div className="text-center space-y-4 mb-10">
-          <span className="eng-element block text-[#c9a24d] font-mono text-[9px] tracking-[0.5em] font-bold uppercase">
+          <span className="eng-element block text-[#c9a24d] centert font-mono text-[9px] tracking-[0.5em] font-bold uppercase">
             Protocol: Engagement
           </span>
 
-          <h2 className="eng-element text-3xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-tight">
+          <h2 className="eng-element centert text-3xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-tight">
             {engage.title}
           </h2>
           
-          <p className="eng-element text-slate-500 text-base md:text-lg max-w-lg mx-auto font-medium leading-relaxed italic opacity-80">
+          <p className="eng-element centert text-slate-500 text-base md:text-lg max-w-lg mx-auto font-medium leading-relaxed italic opacity-80">
             {engage.desc}
           </p>
         </div>

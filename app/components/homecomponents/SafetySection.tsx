@@ -68,13 +68,13 @@ export default function SafetySection() {
           </div>
 
           <div className="space-y-4 w-full">
-            <h2 className="safety-animate opacity-0 translate-y-6 text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
+            <h2 className="safety-animate centert opacity-0 translate-y-6 text-4xl md:text-6xl font-[1000] text-white uppercase italic tracking-tighter leading-none">
               {safety.title}
             </h2>
             <div className="safety-line w-0 h-[1px] bg-[#c9a24d]/30 mx-auto" />
           </div>
 
-          <p className="safety-animate opacity-0 translate-y-6 text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl font-medium italic">
+          <p className="safety-animate centert opacity-0 translate-y-6 text-slate-300 text-lg md:text-xl leading-relaxed max-w-2xl font-medium italic">
             {safety.desc}
           </p>
 

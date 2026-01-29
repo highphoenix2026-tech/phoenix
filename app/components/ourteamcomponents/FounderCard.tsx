@@ -66,7 +66,7 @@ console.log(founderData)
             
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:right-[-20%] lg:translate-x-0 z-20">
                 <span className="font-mono text-[10px] text-[#c9a24d] font-black uppercase tracking-[0.5em] bg-white px-6 py-2 shadow-sm border border-slate-100">
-                    Lead_Strategist
+                     {locale === "ar" ?"كبير_الاستراتيجيين" :" Lead_Strategist" }
                 </span>
             </div>
           </div>
@@ -74,7 +74,7 @@ console.log(founderData)
           <div className="founder-info lg:w-3/5 text-center lg:text-left rtl:lg:text-right">
             <div className="inline-flex items-center gap-3 mb-6">
                <div className="w-8 h-[2px] bg-[#c9a24d]" />
-               <span className="text-[#c9a24d] font-mono text-[10px] font-black uppercase tracking-widest">Leadership_Profile</span>
+               <span className="text-[#c9a24d] font-mono text-[10px] font-black uppercase tracking-widest"> {locale === "ar" ?"نبذة_عن_القائد" :" Leadership_Profile" }</span>
             </div>
 
             <h2 className="text-5xl md:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-4">

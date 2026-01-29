@@ -73,10 +73,10 @@ export default function TrainingCatalogueSection({
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter mb-4">
+          <h2 className="text-4xl centert md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter mb-4">
             {catalogue.title}
           </h2>
-          <p className="text-slate-400 italic text-sm">{catalogue.subtitle}</p>
+          <p className="text-slate-400 centert italic text-sm">{catalogue.subtitle}</p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 mb-16">
@@ -135,7 +135,7 @@ export default function TrainingCatalogueSection({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b1236] to-transparent opacity-80" />
                 <div className="absolute bottom-4 left-5 right-5">
-                  <h3 className="text-white font-black text-xl uppercase italic leading-tight">
+                  <h3 className="text-white  font-black text-xl uppercase italic leading-tight">
                     {course.title}
                   </h3>
                 </div>

@@ -54,10 +54,10 @@ export default function DomainsSection() {
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2 justify-center md:justify-start">
               <div className="w-2 h-2 bg-[#c9a24d]" />
-              <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">Expertise_Fields</span>
+              <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">   {locale === "ar" ?"مجال_الخبرة" :"Expertise_Fields" }</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-[#0b1236] uppercase italic tracking-tighter">
-              Advisory Service Domains
+               {locale === "ar" ?"مجال الخدمات الاستشارية" :" Advisory Service Domains" }
             </h2>
           </div>
           <p className="text-slate-400 font-mono text-[9px] uppercase tracking-widest hidden md:block">

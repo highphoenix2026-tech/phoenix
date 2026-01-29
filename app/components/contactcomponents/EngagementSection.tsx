@@ -15,6 +15,7 @@ if (typeof window !== "undefined") {
 export default function EngagementSection() {
   const locale = useLocale() as "en" | "ar";
   const { engagement } = contactData[locale];
+  const { Engagementde } = contactData[locale];  
   const containerRef = useRef(null);
 
   const icons: Record<string, JSX.Element> = {
@@ -57,12 +58,11 @@ export default function EngagementSection() {
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase">Engagement_Protocol</span>
             <div className="w-10 h-[1px] bg-slate-200" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-8">
+          <h2 className="text-4xl md:text-6xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-8">
             {locale === "ar" ? "كيفية التعامل" : "How We Engage"}
           </h2>
-          <p className="mt-6 text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed italic text-lg border-l-4 border-slate-100 pl-6 py-2">
-            Engagements typically begin with an initial discussion to understand organizational context, regulatory environment, and strategic objectives.
-          </p>
+          <p className="mt-6 text-slate-500 centert font-medium max-w-3xl mx-auto leading-relaxed italic text-lg border-l-4 border-slate-100 pl-6 py-2">
+{Engagementde.descreption}          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-0 border border-slate-100">

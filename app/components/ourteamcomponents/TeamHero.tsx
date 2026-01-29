@@ -29,7 +29,7 @@ export default function TeamHero() {
           
           <div className="flex items-center gap-3">
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
-              Flight_Crew_Command
+               {locale === "ar" ?"قيادة_طاقم_الطائرة" :" Flight_Crew_Command" }
             </span>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />
           </div>

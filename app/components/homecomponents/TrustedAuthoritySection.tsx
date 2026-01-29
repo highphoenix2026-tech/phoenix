@@ -67,7 +67,7 @@ export default function TrustedAuthoritySection() {
         <div className="flex items-center gap-4 mb-6">
           <div className="trust-line opacity-0 w-0 h-[1px] bg-[#c9a24d]" />
           <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
-            Authority_Verification
+            {locale === "ar" ?"التحقق من الصلاحية" :"Authority_Verification" }
           </span>
           <div className="trust-line opacity-0 w-0 h-[1px] bg-[#c9a24d]" />
         </div>

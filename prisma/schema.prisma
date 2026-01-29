@@ -8,16 +8,16 @@ datasource db {
 }
 
 model applications {
-  id               String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  first_name       String                 @db.VarChar(255)
-  last_name        String                 @db.VarChar(255)
-  email            String                 @db.VarChar(255)
-  phone_number     String                 @db.VarChar(255)
-  country          String                 @db.VarChar(255)
-  course_id        String                 @db.Uuid
-  sponsorship_type sponsorship_type_enum? @default(Self_funded)
-  created_at       DateTime?              @default(now()) @db.Timestamp(6)
-  courses          courses                @relation(fields: [course_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id               String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  first_name       String                @db.VarChar(255)
+  last_name        String                @db.VarChar(255)
+  email            String                @db.VarChar(255)
+  phone_number     String                @db.VarChar(255)
+  country          String                @db.VarChar(255)
+  course_id        String                @db.Uuid
+  created_at       DateTime?             @default(now()) @db.Timestamp(6)
+  sponsorship_type sponsorship_type_enum @default(self_funded)
+  courses          courses               @relation(fields: [course_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model banners {
@@ -106,18 +106,7 @@ enum role {
   user
 }
 
-enum sponsorship_type {
+enum sponsorship_type_enum {
   self_funded
   sponsored_by_international_organization
-}
-
-enum sponsorship_type_enum {
-  Self_funded                             @map("Self-funded")
-  Sponsored_by_International_Organization @map("Sponsored by International Organization")
-  Other
-}
-
-enum sponsorship_type_enum2 {
-  Self_funded                             @map("Self-funded")
-  Sponsored_by_International_Organization @map("Sponsored by International Organization")
 }

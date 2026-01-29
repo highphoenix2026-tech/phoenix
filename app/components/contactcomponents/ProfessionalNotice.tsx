@@ -43,8 +43,8 @@ export default function ProfessionalNotice() {
     >
       <div className="max-w-4xl mx-auto text-center notice-content">
         
-        <div className="relative inline-block mb-10">
-          <div className="absolute inset-0 bg-[#c9a24d]/10 blur-xl rounded-full" />
+        <div className="relative  mb-10 w-full flex items-center justify-center">
+          <div className="absolute inset-0  blur-xl rounded-full" />
           <div className="relative w-20 h-20 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center">
             <FaShieldAlt className="text-[#c9a24d] text-3xl no-flip" />
           </div>
@@ -53,22 +53,22 @@ export default function ProfessionalNotice() {
         <div className="space-y-4 mb-10">
           <div className="flex items-center justify-center gap-2">
             <span className="w-6 h-[1px] bg-slate-300" />
-            <span className="text-[#c9a24d] font-mono text-[9px] tracking-[0.4em] font-black uppercase">Official_Notice</span>
+            <span className="text-[#c9a24d] font-mono text-[9px] tracking-[0.4em] font-black centert uppercase"> {locale === "ar" ?"إشعار رسمي" :" Official_Notice" }</span>
             <span className="w-6 h-[1px] bg-slate-300" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
+          <h2 className="text-3xl md:text-5xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
             {professional.title}
           </h2>
         </div>
 
         <div className="space-y-6 max-w-3xl mx-auto">
-          <p className="text-slate-600 text-lg font-medium leading-relaxed italic">
+          <p className="text-slate-600 centert text-lg font-medium leading-relaxed italic">
             {professional.desc1}
           </p>
           <div className="flex justify-center py-2">
             <div className="w-12 h-[1px] bg-[#c9a24d]" />
           </div>
-          <p className="text-slate-500 text-sm md:text-base leading-relaxed font-medium">
+          <p className="text-slate-500 centert text-sm md:text-base leading-relaxed font-medium">
             {professional.desc2}
           </p>
         </div>

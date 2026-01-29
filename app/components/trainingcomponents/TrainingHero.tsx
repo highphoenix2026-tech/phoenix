@@ -29,7 +29,7 @@ export default function TrainingHero() {
           
           <div className="flex items-center gap-3">
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
-              Flight_Training_Division
+               {locale === "ar" ?"قسم_تدريب_الطيران" :"Flight_Training_Division" }
             </span>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />
           </div>

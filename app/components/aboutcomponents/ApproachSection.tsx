@@ -77,7 +77,9 @@ export default function ApproachSection() {
                 className="approach-card group opacity-0 relative bg-white border border-slate-100 p-8 transition-all duration-500 hover:border-[#c9a24d] hover:shadow-[0_30px_60px_-15px_rgba(11,18,54,0.1)]"
               >
                 <div className="absolute -top-3 left-6 bg-[#0b1236] text-[#c9a24d] font-mono text-[9px] px-3 py-1 tracking-[0.2em] font-bold z-20">
-                  PHASE_0{i + 1}
+                 
+  {locale === "ar" ?`الطور_0 ${i + 1}` :`PHASE_0 ${i + 1}` }
+
                 </div>
 
                 <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[#c9a24d]/10 group-hover:border-[#c9a24d] transition-colors duration-500" />
@@ -91,7 +93,7 @@ export default function ApproachSection() {
                     {item.title}
                   </h4>
                   
-                  <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                  <p className="text-xs centert text-slate-500 leading-relaxed font-medium">
                     {item.desc}
                   </p>
                 </div>

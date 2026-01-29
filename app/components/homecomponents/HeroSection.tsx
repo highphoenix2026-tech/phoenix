@@ -61,9 +61,8 @@ export default function HeroSection() {
           <div
             className={`hero-cta-piece  absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-[5px] `}
           >
-            <Button>Enroll Now</Button>
+            <Button> {locale === "ar" ? "انضم الآن" : "Enroll Now"}</Button>
           </div>
-
 
           <div className="hero-bg-svg absolute inset-0 z-0 flex justify-center items-center">
             <svg

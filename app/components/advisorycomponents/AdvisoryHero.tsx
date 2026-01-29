@@ -29,7 +29,8 @@ export default function AdvisoryHero() {
           
           <div className="flex items-center gap-3">
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
-              Advisory_Operations
+              {locale === "ar" ?"الملف_التعريفي_للشركة" :"Advisory_Operations" }
+
             </span>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />
           </div>

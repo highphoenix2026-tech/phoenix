@@ -49,14 +49,14 @@ export default function TrainingOutcomesSection() {
       <div className="max-w-5xl mx-auto">
         
         <div className="outcome-header text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4">
+          <div className="inline-flex items-center w-full justify-center gap-2 mb-4">
             <div className="w-1 h-1 bg-[#c9a24d] rounded-full" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] font-black uppercase">
-              Mission_Success_Criteria
+            <span className="text-[#c9a24d] font-mono  text-[10px] tracking-[0.4em] font-black uppercase">
+               {locale === "ar" ?"معايير_نجاح_المهمة" :" Mission_Success_Criteria" }
             </span>
             <div className="w-1 h-1 bg-[#c9a24d] rounded-full" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
+          <h2 className="text-4xl centert md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
             {outcomes.title}
           </h2>
           <div className="mt-6 flex justify-center gap-1">

@@ -70,10 +70,10 @@ export default function StaffCards({memberData}: Props) {
         <div className="staff-header text-center mb-24">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-12 h-[1px] bg-slate-200" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase">Core_Team</span>
+            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase"> {locale === "ar" ?"فريق العمل" :" Core_Team" }</span>
             <div className="w-12 h-[1px] bg-slate-200" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none">
+          <h2 className="text-4xl md:text-6xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none">
             {locale === "ar" ? "فريق العمل" : "Our Team"}
           </h2>
         </div>

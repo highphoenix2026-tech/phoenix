@@ -25,9 +25,7 @@ const PhoenixButton = ({ href = "#", children, className = "" }: PhoenixButtonPr
         href={href}
         className="relative flex items-center justify-between sm:justify-center 
                    bg-[#c9a24d] text-[#0b1236] 
-                   /* تدرج العرض الجانبي */
                    px-4 sm:px-8 md:px-12 lg:px-16 xl:!px-20 
-                   /* تدرج الارتفاع */
                    py-4 sm:py-4 md:py-5 lg:!py-6 
                    transition-all duration-500 hover:bg-[#0b1236] hover:text-white 
                    shadow-2xl w-full sm:w-fit mx-auto sm:overflow-visible overflow-hidden"

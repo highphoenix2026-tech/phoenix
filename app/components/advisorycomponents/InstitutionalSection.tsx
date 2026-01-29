@@ -43,8 +43,8 @@ export default function InstitutionalSection() {
             <div className="flex items-center gap-3">
               <div className="w-10 h-[2px] bg-[#c9a24d]" />
               <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
-                Institutional_Division
-              </span>
+                {locale === "ar" ?"التقسيم المؤسسي" :"Institutional_Division" }
+              </span> 
             </div>
             <h2 className="text-4xl md:text-5xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-[1.1]">
               {institutional.title}
