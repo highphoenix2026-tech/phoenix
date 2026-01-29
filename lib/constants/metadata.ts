@@ -141,34 +141,59 @@ export const ABOUT_METADATA: Metadata = {
   },
 };
 
-// Vision & Mission page
-export const VISION_MISSION_METADATA: Metadata = {
-  title: `${SITE_TITLE} — Vision & Mission`,
-  description:
-    "Vision: To be a leading international aviation consultancy shaping safe, resilient and future-ready aviation organisations. Mission: Deliver trusted advisory and training that raises safety, compliance, and sustainable growth.",
-  keywords: COMMON_KEYWORDS.join(", "),
-  openGraph: {
-    title: `${SITE_TITLE} — Vision & Mission`,
-    description:
-      "Read HighPhoenix’s vision and mission and how we translate strategic insight into operational improvements for safety-critical aviation stakeholders.",
-    url: `${SITE_URL}/vision-mission`,
-    siteName: SITE_TITLE,
-    locale: "en-US",
-    type: "article",
-    images: [
-      {
-        url: `${SITE_URL}/logo.png`,
-        width: 1200,
-        height: 630,
-        alt: `${SITE_TITLE} — Vision & Mission`,
+export const generateDynamicMetadata = {
+  page: (page: {
+    type: "training";
+    name: string;
+    description?: string;
+    slug: string;
+    parent?: string;
+  }): Metadata => {
+    const defaultDescriptions: Record<string, string> = {
+      training: `Phoenix Aviation Consultancy delivers aviation training as a strategic institutional capability designed to strengthen organizations—not merely individual competence.`,
+    };
+
+    const description = page.description || defaultDescriptions[page.type];
+
+    const keywords: string[] = [
+      "HighPhoenix",
+      page.name,
+      `${page.name} ${page.type}`,
+      "training" ,
+      "HighPhoenix Aviation Consultancy",
+  "Phoenix Aviation Consultancy",
+  "aviation consultancy",
+    ];
+
+    if (page.type === "training") {
+      keywords.push("orienteering", "life skills", "team building");
+    }
+
+    return {
+      title: `${page.name} | Training - ${SITE_TITLE}`,
+      description,
+      keywords: keywords.concat(Array.from(COMMON_KEYWORDS)).join(", "),
+      openGraph: {
+        title: `${page.name} | ${SITE_TITLE}`,
+        description,
+        type: "website",
+        siteName: SITE_TITLE,
+        images: [
+          {
+            url: `${SITE_URL}/${page.slug || "logo2"}.jpg`,
+            width: 1200,
+            height: 630,
+            alt: page.name,
+          },
+        ],
       },
-    ],
-  },
-  twitter: {
-    card: "summary",
-    title: `${SITE_TITLE} — Vision & Mission`,
-    description:
-      "HighPhoenix: shaping safe, resilient, and future-ready aviation organisations through leadership and practical delivery.",
+      twitter: {
+        card: "summary_large_image",
+        title: `${page.name} | ${SITE_TITLE}`,
+        description,
+        images: [`${SITE_URL}/${page.slug || "logo2"}.jpg`],
+      },
+    };
   },
 };
 
@@ -202,6 +227,38 @@ export const TRAINING_METADATA: Metadata = {
       "Strategic and operational advisory, governance strengthening, regulatory support, and bespoke aviation training worldwide.",
   },
 };
+ 
+// Advisory Page
+export const ADVISORY_METADATA: Metadata = {
+  title: `${SITE_TITLE} — Advisory Services`,
+  description:
+     `Phoenix Aviation Consultancy delivers strategic and operational advisory services designed to strengthen aviation institutions at leadership, governance, and system levels. Advisory engagements support organizations operating in safety-critical and highly regulated environments.`,
+  keywords: COMMON_KEYWORDS.join(", "),
+  openGraph: {
+    title: `${SITE_TITLE} — Advisory`,
+    description:
+      `Phoenix Aviation Consultancy delivers strategic and operational advisory services designed to strengthen aviation institutions at leadership, governance, and system levels. Advisory engagements support organizations operating in safety-critical and highly regulated environments.`,
+    url: `${SITE_URL}/advisory`,
+    siteName: SITE_TITLE,
+    locale: "en-US",
+    type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/logo.png`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_TITLE} — Advisory Services`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: `${SITE_TITLE} — Advisory Services`,
+    description:
+      `Phoenix Aviation Consultancy delivers strategic and operational advisory services designed to strengthen aviation institutions at leadership, governance, and system levels. Advisory engagements support organizations operating in safety-critical and highly regulated environments.`,
+  },
+};
+
 
 // Root / Global metadata (app layout)
 export const ROOT_METADATA: Metadata = {
