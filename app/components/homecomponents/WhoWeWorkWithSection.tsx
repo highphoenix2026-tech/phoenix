@@ -15,7 +15,9 @@ export default function WhoWeWorkWithSection() {
   const locale = useLocale() as "en" | "ar";
   const { whoWeWorkWith } = homeData[locale];
   const container = useRef(null);
-  const [radius, setRadius] = useState(260);
+const [radius, setRadius] = useState(
+  window.innerWidth < 480 ? 130 : 260
+);
 
   const icons = [FaUniversity, FaPlaneDeparture, FaPlaneArrival, FaSchool, FaBuilding];
 
@@ -77,7 +79,7 @@ export default function WhoWeWorkWithSection() {
               >
                 <div className="group flex flex-col items-center relative">
                   <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-[#0b1236] shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-[#c9a24d]/40 flex items-center justify-center text-[#c9a24d] text-xl md:text-2xl transition-all duration-500 group-hover:bg-[#c9a24d] group-hover:text-[#0b1236] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(201,162,77,0.4)]">
-                    <IconComponent className="no-flip" />
+                    <IconComponent className="" />
                     <div className="absolute inset-0 rounded-full border border-[#c9a24d] animate-ping opacity-0 group-hover:opacity-30" />
                   </div>
 

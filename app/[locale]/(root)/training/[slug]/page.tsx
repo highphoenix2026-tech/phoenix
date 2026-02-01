@@ -3,6 +3,7 @@ import CourseDetailHero from "@/app/components/trainingcoursecomponents/CourseDe
 import CourseMainImage from "@/app/components/trainingcoursecomponents/CourseMainImage";
 import CourseExtendedDetails from "@/app/components/trainingcoursecomponents/CourseExtendedDetails";
 import RelatedCourses from "@/app/components/trainingcoursecomponents/RelatedCourses";
+import ExploreRandomCourses from "@/app/components/trainingcoursecomponents/ExploreRandomCourses"
 import { notFound } from "next/navigation";
 
 type Locale = "en" | "ar";
@@ -15,6 +16,7 @@ interface Props {
 
 export default async function CourseDetailsPage({ params }: Props) {
   const { slug, locale } =await params;
+  
 
  
   const coursesRes = await getAllCoursesByLocale(locale)();
@@ -41,13 +43,21 @@ if (!course) {
         alt={course.title} 
       />
 
-      <CourseExtendedDetails
-        description={course.description}
-        targetAudience={course.target_audience}
-        startDate={course.start_date}
-        endDate={course.end_date}
-        locale={locale }
-      />
+  <CourseExtendedDetails 
+  id={course.id}
+  description={course.description}
+  targetAudience={course.target_audience}
+  startDate={course.start_date}
+  endDate={course.end_date}
+  duration={course.duration}
+  locale={locale}
+/>
+
+<ExploreRandomCourses 
+  allCourses={allCourses} 
+  currentCourseId={course.id}
+  locale={locale}
+/>
 
       <RelatedCourses 
         courses={relatedCourses} 

@@ -12,7 +12,6 @@ export default function CourseMainImage({ src, alt }: { src: string | null; alt:
             className="object-cover"
             priority
           />
-          {/* Overlay Grid */}
           <div className="absolute inset-0 bg-[url('/grid.png')] opacity-10 pointer-events-none" />
         </div>
       </div>

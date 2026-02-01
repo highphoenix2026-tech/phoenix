@@ -8,7 +8,6 @@ import { addNewMember } from "@/app/server/ourTeam/services";
 export async function createMemberyAction(data: NewMember) {
   try {
     const session = await getServerSession(authOptions);
-    // ❗ Not logged in
     if (!session) {
       return {
         success:false,
@@ -17,7 +16,6 @@ export async function createMemberyAction(data: NewMember) {
       };
     }
 
-    // ❗ Not admin
     if (session.user.role !== "admin") {
       return {
         success:false,

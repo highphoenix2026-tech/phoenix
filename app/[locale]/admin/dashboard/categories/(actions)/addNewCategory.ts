@@ -8,7 +8,6 @@ import { addNewCategory } from "@/app/server/categories/services";
 export async function createCategoryAction(data: NewCategory) {
   try {
     const session = await getServerSession(authOptions);
-    // ❗ Not logged in
     if (!session) {
       return {
         success:false,
@@ -17,7 +16,6 @@ export async function createCategoryAction(data: NewCategory) {
       };
     }
 
-    // ❗ Not admin
     if (session.user.role !== "admin") {
       return {
         success:false,

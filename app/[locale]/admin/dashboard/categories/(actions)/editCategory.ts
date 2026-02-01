@@ -8,7 +8,6 @@ import { editCategory } from "@/app/server/categories/services";
 export async function editCategoryAction(categoryId:string,data: Partial<NewCategory>) {
   try {
     const session = await getServerSession(authOptions);
-    // ❗ Not logged in
     if (!session) {
       return {
         success: false,
@@ -17,7 +16,6 @@ export async function editCategoryAction(categoryId:string,data: Partial<NewCate
       };
     }
 
-    // ❗ Not admin
     if (session.user.role !== "admin") {
       return {
         success: false,

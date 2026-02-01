@@ -61,7 +61,6 @@ export default function BulkDeleteButton({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      {/* BUTTON THAT OPENS THE DIALOG */}
       <DialogTrigger asChild>
         <Button
           variant="destructive"
@@ -73,7 +72,6 @@ export default function BulkDeleteButton({
         </Button>
       </DialogTrigger>
 
-      {/* CONFIRMATION DIALOG */}
       <DialogContent className="sm:max-w-100">
         <DialogHeader>
           <DialogTitle className="text-black">Confirm Delete</DialogTitle>
@@ -85,7 +83,6 @@ export default function BulkDeleteButton({
         </DialogHeader>
 
         <div className="mt-4 flex justify-end gap-2">
-          {/* Cancel Button */}
           <Button
             variant="outline"
             onClick={() => setOpen(false)}
@@ -95,7 +92,6 @@ export default function BulkDeleteButton({
             Cancel
           </Button>
 
-          {/* Confirm Button */}
           <Button
             variant="destructive"
             onClick={handleBulkDelete}

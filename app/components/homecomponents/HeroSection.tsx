@@ -2,15 +2,13 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Link from "next/link";
 import Image from "next/image";
 import plane from "@/public/plane.png";
 import { homeData } from "@/app/data/homedata";
 import { useLocale } from "next-intl";
-import Button1 from "../Button1";
-import Button2 from "../Button2";
-import Button from "../button";
 
+import Button from "../button3";
+import Button2 from "../Button1";
 export default function HeroSection() {
   const locale = useLocale() as "en" | "ar";
   const { hero } = homeData[locale];
@@ -26,7 +24,6 @@ export default function HeroSection() {
         { opacity: 0, x: locale === "ar" ? 15 : -15, duration: 0.5 },
         "-=0.4",
       )
-
       .fromTo(
         ".hero-cta-piece",
         {
@@ -39,7 +36,6 @@ export default function HeroSection() {
         },
         "-=0.3",
       )
-
       .from(
         ".plane",
         {
@@ -55,13 +51,21 @@ export default function HeroSection() {
   }, [locale]);
 
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden bg-white pt-5">
+    <section className="relative w-full    min-h-[90vh] overflow-hidden bg-white pt-5">
       <div className="relative w-full max-w-[1840px] mx-auto px-4">
-        <div className="relative w-full min-h-[80vh] md:h-[75vh] flex items-center justify-center">
+        <div className="relative w-full  h-[70vh]    md:min-h-[80vh] md:h-[80vh] flex items-center justify-center">
           <div
-            className={`hero-cta-piece  absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-[5px] `}
+            className={`hero-cta-piece absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-[5px] `}
           >
             <Button> {locale === "ar" ? "انضم الآن" : "Enroll Now"}</Button>
+          </div>
+          <div
+            className={`hero-cta-piece absolute z-40 -bottom-8 transform-gpu  translate-y-[5px] `}
+          >
+            <Button2 className="md:hidden">
+              {" "}
+              {locale === "ar" ? "انضم الآن" : "Enroll Now"}
+            </Button2>
           </div>
 
           <div className="hero-bg-svg absolute inset-0 z-0 flex justify-center items-center">
@@ -71,7 +75,14 @@ export default function HeroSection() {
               className="w-[96%] h-full drop-shadow-2xl"
             >
               <path
+                className="hidden md:block"
                 d="M0,0 H1000 V410 L960,495 H560 L520,410 H40 L0,370 Z"
+                fill="#0b1236"
+              />
+
+              <path
+                className="block md:hidden"
+                d="M0,0 H1000 V410 L960,450 H40 L0,370 Z"
                 fill="#0b1236"
               />
             </svg>
@@ -94,7 +105,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div className="flex justify-center items-center">
+            <div className=" hidden      md:flex justify-center items-center">
               <Image
                 src={plane}
                 alt="Aviation Hero"

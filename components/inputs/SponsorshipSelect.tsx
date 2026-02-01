@@ -33,7 +33,6 @@ export default function SponsorshipSelect({
 
   return (
     <div className={`group flex flex-col w-full ${className} ${isArabic ? "rtl" : "ltr"}`} dir={isArabic ? "rtl" : "ltr"}>
-      {/* Label with brand Navy */}
       <label 
         htmlFor={id} 
         className={`text-sm font-semibold text-gray-700 mb-1 ${isArabic ? "mr-2" : "ml-2"}`}
@@ -42,7 +41,6 @@ export default function SponsorshipSelect({
       </label>
 
       <div className="relative flex items-center">
-        {/* Decorative Sponsorship Icon */}
         <div className={`absolute pointer-events-none text-slate-400 group-focus-within:text-[#c9a24d] transition-colors duration-300 ${isArabic ? "right-4" : "left-4"}`}>
           <HandCoins size={18} strokeWidth={1.5} />
         </div>
@@ -70,7 +68,6 @@ export default function SponsorshipSelect({
           ))}
         </select>
 
-        {/* Custom Gold Chevron Arrow */}
         <div className={`absolute pointer-events-none flex items-center transition-transform group-focus-within:rotate-180 duration-500 ${isArabic ? "left-4" : "right-4"}`}>
           <svg className="w-5 h-5 text-[#c9a24d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
@@ -78,7 +75,6 @@ export default function SponsorshipSelect({
         </div>
       </div>
 
-      {/* Modern Error Layout */}
       {error && (
         <p className={`mt-2 text-xs font-bold text-red-500 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1 ${isArabic ? "mr-1" : "ml-1"}`}>
           <span className="w-1.5 h-1.5 rounded-full bg-red-500" />

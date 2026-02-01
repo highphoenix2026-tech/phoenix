@@ -56,7 +56,6 @@ export default function ContactForm({ locale, action }: Props) {
     }
   };
 
-  // Translations for labels
   const form = {
     name: isRtl ? "الاسم" : "Name",
     subject: isRtl ? "الموضوع" : "Subject",
@@ -93,7 +92,6 @@ export default function ContactForm({ locale, action }: Props) {
       <div className="absolute top-0 right-0 w-125 h-125 bg-[#c9a24d]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
 
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-20">
-        {/* Left title column (kept from original) */}
         <div className="lg:w-1/3 space-y-6">
           <div className="w-12 h-1 bg-[#c9a24d]" />
           <h2 className="text-6xl font-black text-white uppercase italic leading-tight tracking-tighter" >
@@ -106,14 +104,11 @@ export default function ContactForm({ locale, action }: Props) {
           </p>
         </div>
 
-        {/* Right side holds the form and contact info */}
         <div className="lg:w-2/3 space-y-12">
-          {/* Form */}
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
           >
-            {/* fields: name, subject, email (kept two-column layout) */}
             <div className="relative group">
               <span  className={`floating-label absolute -top-6 ${labelPosition} font-mono text-[9px] uppercase tracking-widest text-[#c9a24d]`} >
                 {form.name}
@@ -204,7 +199,6 @@ export default function ContactForm({ locale, action }: Props) {
             </div>
           </form>
 
-          {/* Contact info block — styled to fit dark theme and match the requested info content */}
           <div className="grid grid-cols-1  gap-6 text-white">
             <div className="mt-2 sm:mt-0 w-full">
               <div className="p-4 bg-white/5 rounded-2xl border border-white/5">

@@ -26,7 +26,6 @@ export default function PhoneInput({
 
   return (
     <div className={`group flex flex-col w-full ${className} ${isArabic ? "rtl" : "ltr"}`} dir={isArabic ? "rtl" : "ltr"}>
-      {/* Label with brand Navy */}
       <label 
         htmlFor={id} 
         className={`block text-sm font-semibold text-gray-700 mb-1 ${isArabic ? "mr-2" : "ml-2"}`}
@@ -35,7 +34,6 @@ export default function PhoneInput({
       </label>
 
       <div className="relative flex items-center">
-        {/* Phone Icon - transitions to Gold on focus */}
         <div className={`absolute pointer-events-none text-slate-400 group-focus-within:text-[#c9a24d] transition-colors duration-300 ${isArabic ? "right-4" : "left-4"}`}>
           <Phone size={18} strokeWidth={1.5} />
         </div>
@@ -58,7 +56,6 @@ export default function PhoneInput({
         />
       </div>
 
-      {/* Modern Error Layout */}
       {error && (
         <p className={`mt-2 text-xs font-bold text-red-500 flex items-center gap-1.5 animate-in fade-in slide-in-from-top-1 ${isArabic ? "mr-1" : "ml-1"}`}>
           <span className="w-1.5 h-1.5 rounded-full bg-red-500" />

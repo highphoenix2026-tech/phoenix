@@ -1,4 +1,3 @@
-// app/robots.txt/route.ts
 export async function GET() {
   const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://example.com";
 

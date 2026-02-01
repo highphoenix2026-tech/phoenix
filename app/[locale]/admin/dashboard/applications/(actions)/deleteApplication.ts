@@ -7,7 +7,6 @@ import { deleteApplicationById } from "@/app/server/applications/services";
 export async function deleteApplicationAction(applicationId:string) {
   try {
       const session = await getServerSession(authOptions);
-      // ❗ Not logged in
       if (!session) {
         return {
           success:false,
@@ -16,7 +15,6 @@ export async function deleteApplicationAction(applicationId:string) {
         };
       }
   
-      // ❗ Not admin
       if (session.user.role !== "admin") {
         return {
           success:false,

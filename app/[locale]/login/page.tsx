@@ -11,7 +11,7 @@ import { toast } from "sonner";
 import PasswordInput from "@/components/inputs/PasswordInput";
 import EmailInput from "@/components/inputs/EmailInput";
 import { useRouter } from "next/navigation";
-import { Loader2, LogIn } from "lucide-react"; // Added for premium feel
+import { Loader2, LogIn } from "lucide-react"; 
 
 type LoginFormValues = z.infer<typeof loginSchema>;
 
@@ -67,7 +67,6 @@ const Login = () => {
   return (
     <main className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-20">
       <div className="w-full max-w-2xl relative">
-        {/* Background Decorative Blur */}
         <div className="absolute -top-12 -left-12 w-64 h-64 bg-[#c9a24d]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-[#0b1236]/5 rounded-full blur-3xl" />
 
@@ -75,7 +74,6 @@ const Login = () => {
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-12 rounded-[2.5rem] border border-slate-100"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {/* Header */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
               <LogIn size={32} strokeWidth={1.5} />
@@ -111,7 +109,6 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Login Button */}
           <button
             type="submit"
             disabled={loading}
@@ -125,14 +122,12 @@ const Login = () => {
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
           </button>
 
-          {/* Divider */}
           <div className="my-8 flex items-center">
             <div className="h-[1px] flex-1 bg-slate-100"></div>
             <span className="mx-4 text-xs font-bold text-slate-400 uppercase tracking-widest">Or continue with</span>
             <div className="h-[1px] flex-1 bg-slate-100"></div>
           </div>
 
-          {/* Google Login */}
           <button
             type="button"
             className="w-full flex justify-center items-center gap-3 px-5 py-4 text-slate-700 font-bold border-2 border-slate-100 rounded-2xl hover:bg-slate-50 hover:border-slate-200 transition-all active:scale-[0.98]"
@@ -142,7 +137,6 @@ const Login = () => {
             Sign in with Google
           </button>
 
-          {/* Footer Link */}
           <p className="mt-10 text-center text-slate-500 font-medium">
             Don't have an account?{" "}
             <Link

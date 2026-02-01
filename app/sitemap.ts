@@ -1,4 +1,3 @@
-// app/sitemap.ts
 import { fetchTrainingSlugs } from "@/lib/sitemap.prisma";
 
 const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
@@ -6,7 +5,6 @@ const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 export default async function sitemap() {
   const now = new Date();
 
-  // static pages of HighPhoenix
   const staticPages = [
     { url: `${SITE_URL}/`, lastModified: now },
     { url: `${SITE_URL}/about`, lastModified: now },
@@ -17,13 +15,11 @@ export default async function sitemap() {
    
   ];
 
-  // dynamic training pages
   const trainingSlugs = await fetchTrainingSlugs();
   const trainingPages = trainingSlugs.map((t) => ({
     url: `${SITE_URL}/courses/${t.slug}`,
     lastModified: now,
   }));
 
-  // combine and return (Next.js will convert to /sitemap.xml)
   return [...staticPages, ...trainingPages];
 }

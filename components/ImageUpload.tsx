@@ -4,7 +4,7 @@ import { UploadCloudIcon, X } from "lucide-react";
 import { useState, useEffect, useRef, DragEvent } from "react";
 import Image from "next/image";
 import type { OurFileRouter } from "@/app/api/uploadthing/core";
-import { useUploadThing } from "@/lib/uploadthing"; // path = where you put lib/uploadthing.ts
+import { useUploadThing } from "@/lib/uploadthing"; 
 
 interface ImageUploaderProps {
   endpoint: keyof OurFileRouter;
@@ -14,7 +14,6 @@ interface ImageUploaderProps {
   onDelete?: () => void;
 }
 
-/** Minimal shape of UploadThing's per-file response we rely on */
 type UploadThingFile = {
   url?: string;
   uploadedUrl?: string;
@@ -38,7 +37,6 @@ export default function ImageUploader({
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
 
-  // useUploadThing hook typed to your router; pass endpoint directly
   const { startUpload, isUploading: hookUploading } = useUploadThing(
     endpoint
   );
@@ -48,7 +46,7 @@ export default function ImageUploader({
   }, [initialImageUrl]);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const MAX_BYTES = 2 * 1024 * 1024; // 2MB
+  const MAX_BYTES = 2 * 1024 * 1024; 
 
   const handleDelete = () => {
     setImageUrl(null);
@@ -56,7 +54,6 @@ export default function ImageUploader({
     onDelete?.();
   };
 
-  // Helper to extract a usable URL from UploadThing result
   function extractUrlFromResult(res: UploadThingFile[] | undefined): string | null {
     if (!res || !res[0]) return null;
     return (

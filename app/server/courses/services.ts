@@ -214,6 +214,7 @@ export const getAllCoursesByLocale = (locale: Locale) =>
           slug: course.slug,
           start_date: course.start_date,
           end_date: course.end_date,
+          duration:course.duration
         }));
 
         return {

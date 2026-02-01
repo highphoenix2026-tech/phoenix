@@ -11,14 +11,12 @@ export async function updateUserRole(data: {
  
 
   try {
-    // ❗ Not logged in
    if (!session)
       return {
         message: "Please Login",
         status: 401,
       };
 
-    // ❗ Not admin
     if (session?.user.role !== "admin")
       return {
         message: "You are not allowed to perform this action.",

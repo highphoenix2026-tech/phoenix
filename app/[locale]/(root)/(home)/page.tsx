@@ -8,9 +8,6 @@ import WhoWeWorkWithSection from "@/app/components/homecomponents/WhoWeWorkWithS
 import SafetySection from "@/app/components/homecomponents/SafetySection";
 import EngageSection from "@/app/components/homecomponents/EngageSection";
 
-
-
-
 type Locale = "en" | "ar";
 
 interface PageProps {
@@ -19,27 +16,10 @@ interface PageProps {
   };
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default async function Home({ params }: PageProps) {
-    const { locale } =await params;
   return (
     <main className="bg-[#f1f3f5] text-slate-800  mt-20 ">
-      <HeroSection  />
+      <HeroSection />
       <FounderSection />
 
       <AboutSection />
@@ -47,8 +27,7 @@ export default async function Home({ params }: PageProps) {
       <WhyUsSection />
 
       <WhoWeWorkWithSection />
-            <TrustedAuthoritySection />
-
+      <TrustedAuthoritySection />
 
       <SafetySection />
       <EngageSection />

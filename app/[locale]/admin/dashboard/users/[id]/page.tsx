@@ -16,7 +16,6 @@ async function Page(props: { params: Promise<{ id: string }> }) {
 
   const result = await getUserById(id);
 
-  // ⛔ Prevent access with fake / invalid user ID
   if (!result || !result.data) {
     notFound();
   }
@@ -25,7 +24,6 @@ async function Page(props: { params: Promise<{ id: string }> }) {
 
   return (
     <main className="ml-7 mb-7">
-      {/* Header */}
       <div className="flex flex-col justify-start items-start border-b border-gray-500 w-[80vw] mb-7">
         <h1 className="text-lg md:text-2xl font-bold">Edit User</h1>
         <h2 className="text-base md:text-xl text-gray-400">
@@ -34,7 +32,6 @@ async function Page(props: { params: Promise<{ id: string }> }) {
       </div>
 
       <div className="h-full lg:h-[85vh] w-[80vw] flex flex-col lg:flex-row gap-5">
-        {/* User Info */}
         <Card className="w-full h-full">
           <CardHeader>
             <CardTitle className="text-base md:text-2xl mb-5">
@@ -89,7 +86,6 @@ async function Page(props: { params: Promise<{ id: string }> }) {
           </CardContent>
         </Card>
 
-        {/* Edit Role */}
         <Card className="w-full h-full">
           <CardHeader>
             <CardTitle className="text-base md:text-2xl mb-2">

@@ -161,7 +161,6 @@ export const getAllApplicationsByFilters = (
       const page = Math.max(1, Number(pageNumber) || 1);
       const skip = (page - 1) * pageSize;
 
-      // Use the correct Prisma type
       const where: ApplicationsWhereInput = {};
 
        if (filters?.sponsorshipType ) {

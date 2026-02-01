@@ -77,14 +77,12 @@ export const authOptions: NextAuthOptions = {
   ],
 
   callbacks: {
-    // ✅ Handles JWT creation and updates
     async jwt({ token, user, account }) {
       if (account && user) {
         if (account.provider === "google") {
           const firstName = user.name?.split(" ")[0] || "";
           const lastName = user.name?.split(" ")[1] || "";
 
-          // Fetch user from DB
           let dbUser = await prisma.users.findUnique({
             where: { email: user.email },
             select: {
@@ -95,7 +93,6 @@ export const authOptions: NextAuthOptions = {
             },
           });
 
-          // If not exists, register
           if (!dbUser) {
             const registerResult = await register({
               first_name: firstName,
@@ -114,7 +111,6 @@ export const authOptions: NextAuthOptions = {
           token.firstName = firstName;
           token.role = dbUser!.role;
         } else {
-          // Credentials provider
           token.id = user.id;
           token.firstName = user.firstName;
           token.role = user.role;
@@ -123,7 +119,6 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
 
-    // ✅ Always fetches latest role from DB
     async session({ session, token }) {
       if (session.user) {
         try {
@@ -140,7 +135,6 @@ export const authOptions: NextAuthOptions = {
           session.user.role = latestRole;
         } catch (err) {
           console.error("Error fetching user role:", err);
-          // fallback to old token role
           session.user.role = token.role;
         }
       }
@@ -148,7 +142,6 @@ export const authOptions: NextAuthOptions = {
     },
   },
 
-  // ✅ Ensure Google users exist in DB
   events: {
     async signIn({ user, account }) {
       if (account?.provider === "google") {
@@ -162,7 +155,7 @@ export const authOptions: NextAuthOptions = {
               first_name: user.name?.split(" ")[0] || "",
               last_name: user.name?.split(" ")[1] || "",
               email: user.email!,
-              password: crypto.randomUUID(), // random password for Google users
+              password: crypto.randomUUID(), 
             });
           }
         } catch (err) {

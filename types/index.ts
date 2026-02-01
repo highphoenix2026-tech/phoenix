@@ -69,6 +69,8 @@ export type TranslatedCourse = {
   slug: string;
   start_date: Date | null;
   end_date: Date | null;
+    duration: string | null;
+
 };
 
 export type NewCourse = {
@@ -87,16 +89,7 @@ export type NewCourse = {
   end_date: Date | null;
 };
 
-export type translatedProgram = {
-  id?: string;
-  program_title: string;
-  program_description: string | null;
-  duration_h: string;
-  duration_d: string | null;
-  slug: string;
-  image: string | null;
-  program_type: "life_programs" | "professional_programs";
-};
+
 
 export type newSetting = {
   id?: string;

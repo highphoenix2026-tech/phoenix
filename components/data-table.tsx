@@ -125,7 +125,6 @@ console.log("table.getSelectedRowModel(): ",table.getSelectedRowModel());
 
   return (
     <div className="space-y-4  ml-0 mr-0 lg:ml-4 lg:mr-4 w-full text-gray-600">
-      {/* === Column Visibility Menu === */}
       <div className="flex justify-end flex-row items-end gap-2">
          {selectedIds.length > 0 && (
         <BulkDeleteButton
@@ -163,7 +162,6 @@ console.log("table.getSelectedRowModel(): ",table.getSelectedRowModel());
         </DropdownMenu>
       </div>
 
-      {/* === Table === */}
       <div className="rounded-md border border-gray-300">
         <Table>
           <TableHeader>
@@ -218,7 +216,6 @@ console.log("table.getSelectedRowModel(): ",table.getSelectedRowModel());
         </Table>
       </div>
 
-      {/* === Pagination === */}
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex items-center space-x-2">
           <span className="text-sm text-muted-foreground">Rows per page:</span>

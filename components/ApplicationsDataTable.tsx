@@ -131,7 +131,7 @@ applicationId
   const table = useReactTable({
     data,
     columns: columnsWithActions,
-    manualPagination: true, // ✅ IMPORTANT
+    manualPagination: true, 
     pageCount: totalPages,
     state: {
       columnVisibility,
@@ -165,7 +165,6 @@ applicationId
 
   return (
     <div className="space-y-4  ml-0 mr-0 lg:ml-4 lg:mr-4 w-full text-gray-600">
-      {/* === Column Visibility Menu === */}
       <div className="flex justify-end flex-row items-end gap-2">
         {selectedIds.length > 0 && (
           <BulkDeleteButton
@@ -211,7 +210,6 @@ applicationId
         </DropdownMenu>
       </div>
 
-      {/* === Table === */}
       <div className="rounded-md border border-gray-300">
         <Table>
           <TableHeader>
@@ -266,7 +264,6 @@ applicationId
         </Table>
       </div>
 
-      {/* === Pagination === */}
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button
           variant="outline"

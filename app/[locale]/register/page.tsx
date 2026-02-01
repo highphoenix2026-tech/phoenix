@@ -72,7 +72,6 @@ export default function RegisterForm() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-12">
       <div className="w-full max-w-2xl relative">
-        {/* Background Decorative Blur */}
         <div className="absolute -top-10 -right-10 w-64 h-64 bg-[#c9a24d]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-[#0b1236]/5 rounded-full blur-3xl" />
 
@@ -80,7 +79,6 @@ export default function RegisterForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-10 rounded-[2.5rem] border border-slate-100"
         >
-          {/* Header Section */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
               <UserPlus size={28} strokeWidth={1.5} />
@@ -93,7 +91,6 @@ export default function RegisterForm() {
           </div>
 
           <div className="space-y-4">
-            {/* Two Column Names */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <TextInput
                 register={register("first_name")}
@@ -131,7 +128,6 @@ export default function RegisterForm() {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
@@ -148,14 +144,12 @@ export default function RegisterForm() {
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
           </button>
 
-          {/* Divider */}
           <div className="my-6 flex items-center">
             <div className="h-px flex-1 bg-slate-100"></div>
             <span className="mx-4 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Or</span>
             <div className="h-px flex-1 bg-slate-100"></div>
           </div>
 
-          {/* Google Button */}
           <button
             type="button"
             className="w-full flex justify-center items-center gap-3 px-5 py-4 text-slate-700 font-bold border-2 border-slate-100 rounded-2xl hover:bg-slate-50 hover:border-slate-200 transition-all active:scale-[0.98]"
@@ -165,7 +159,6 @@ export default function RegisterForm() {
             Continue with Google
           </button>
 
-          {/* Footer Link */}
           <p className="mt-8 text-center text-slate-500 font-medium">
             Already have an account?{" "}
             <Link

@@ -8,7 +8,6 @@ import { updatMember } from "@/app/server/ourTeam/services";
 export async function editMemberAction(memberId:string,data: Partial<NewMember>) {
   try {
     const session = await getServerSession(authOptions);
-    // ❗ Not logged in
     if (!session) {
       return {
         success: false,
@@ -17,7 +16,6 @@ export async function editMemberAction(memberId:string,data: Partial<NewMember>)
       };
     }
 
-    // ❗ Not admin
     if (session.user.role !== "admin") {
       return {
         success: false,

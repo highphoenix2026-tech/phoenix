@@ -63,14 +63,12 @@ function Page() {
   return (
     <main className="min-h-[80vh] flex items-center justify-center bg-slate-50 px-4 py-12">
       <div className="w-full max-w-lg relative">
-        {/* Background Decorative Blur */}
         <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#c9a24d]/10 rounded-full blur-3xl" />
         
         <form
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-10 rounded-[2.5rem] border border-slate-100"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {/* Header Section */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
               <ShieldCheck size={32} strokeWidth={1.5} />
@@ -107,7 +105,6 @@ function Page() {
             />
           </div>
 
-          {/* Action Button */}
           <button
             type="submit"
             disabled={loading}
@@ -121,7 +118,6 @@ function Page() {
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
           </button>
 
-          {/* Back Navigation */}
           <div className="mt-8 pt-6 border-t border-slate-50 flex justify-center">
             <Link
               href="/"

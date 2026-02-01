@@ -12,7 +12,6 @@ export default async function CategoriesTable() {
 
   return (
     <main className="flex flex-col justify-center items-center ml-7 w-[88vw] md:w-[60vw] xl:w-[80vw]">
-      {/* Header */}
       <div className="flex flex-col justify-start items-start mb-6 border-b border-gray-300 w-full">
         <h1 className="text-lg md:text-2xl font-bold">Categories</h1>
         <h2 className="text-sm md:text-lg text-gray-600">
@@ -20,7 +19,6 @@ export default async function CategoriesTable() {
         </h2>
       </div>
 
-      {/* Conditional rendering */}
       {allCategories.length === 0 ? (
         <Card className="w-full h-64 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 bg-gray-50">
           <CardContent className="flex flex-col items-center text-center">

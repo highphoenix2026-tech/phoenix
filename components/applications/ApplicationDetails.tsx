@@ -46,7 +46,6 @@ export default function ApplicationDetailsClient({
 
   return (
     <div className="flex flex-col  overflow-hidden bg-gray-50">
-      {/* Header */}
       <header className="flex flex-col lg:flex-row items-start justify-between gap-3 lg:gap-0 lg:px-6 pb-4 px-0 bg-white shadow-md z-10 flex-none">
         <h1 className="text-lg lg:text-2xl font-semibold">{applicationDetails?.courses?.course_title_en ?? "Course"}</h1>
         <div className="flex items-center gap-3">
@@ -65,9 +64,7 @@ export default function ApplicationDetailsClient({
         </div>
       </header>
 
-      {/* Content */}
       <div className="flex flex-col xl:flex-row mt-4 overflow-auto lg:p-6 p-0 gap-6">
-        {/* Left: Program image */}
         <aside className="shrink-0 w-full xl:w-80">
           <div className="bg-white rounded-xl shadow-sm overflow-hidden ">
             <div className="relative w-full h-96 bg-gray-100 flex items-center justify-center">
@@ -85,7 +82,6 @@ export default function ApplicationDetailsClient({
           </div>
         </aside>
 
-        {/* Right: Application details */}
         <main className="flex-1 flex flex-col gap-4 overflow-auto">
           <div className="bg-white lg:p-6 p-2 rounded-xl shadow-sm flex flex-col gap-4">
             <h2 className="text-xl font-semibold">{fullName}</h2>

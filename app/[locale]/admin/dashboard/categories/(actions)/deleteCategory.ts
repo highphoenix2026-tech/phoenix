@@ -7,7 +7,6 @@ import { deleteCategory } from "@/app/server/categories/services";
 export async function deleteCategoryAction(categoryId: string) {
   try {
     const session = await getServerSession(authOptions);
-    // ❗ Not logged in
     if (!session) {
       return {
         success: false,
@@ -16,7 +15,6 @@ export async function deleteCategoryAction(categoryId: string) {
       };
     }
 
-    // ❗ Not admin
     if (session.user.role !== "admin") {
       return {
         success: false,

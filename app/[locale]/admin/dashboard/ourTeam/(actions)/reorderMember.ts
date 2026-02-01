@@ -8,7 +8,6 @@ import {MemberOrder} from "@/types/index"
 export async function reorderMemberyAction(data: MemberOrder[]) {
   try {
     const session = await getServerSession(authOptions);
-    // ❗ Not logged in
     if (!session) {
       return {
         success:false,
@@ -17,7 +16,6 @@ export async function reorderMemberyAction(data: MemberOrder[]) {
       };
     }
 
-    // ❗ Not admin
     if (session.user.role !== "admin") {
       return {
         success:false,

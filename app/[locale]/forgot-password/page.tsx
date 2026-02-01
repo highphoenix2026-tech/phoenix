@@ -44,14 +44,12 @@ function Page() {
   return (
     <main className="h-screen flex items-center justify-center  bg-slate-50 px-4">
       <div className="w-full max-w-md relative">
-        {/* Background Decorative Blur */}
         <div className="absolute -top-10 -left-10 w-64 h-64 bg-[#c9a24d]/10 rounded-full blur-3xl" />
 
         <form
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 overflow-hidden"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {/* Header Section */}
           <div className="text-center mb-8">
             <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 shadow-lg transition-colors duration-500 ${success ? 'bg-green-50 text-green-600' : 'bg-[#0b1236] text-[#c9a24d] shadow-[#0b1236]/20'}`}>
               {success ? <CheckCircle2 size={32} /> : <Mail size={32} strokeWidth={1.5} />}

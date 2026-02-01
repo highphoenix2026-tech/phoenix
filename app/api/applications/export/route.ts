@@ -26,8 +26,7 @@ function formatHumanDateTime(value?: string | Date | null): string {
   if (!value) return "";
   const d = new Date(value);
   if (Number.isNaN(d.getTime())) return "";
-  // Human friendly with day/month name and time in Asia/Amman timezone
-  // Example output: "29 Dec 2025, 14:05"
+
   try {
     return new Intl.DateTimeFormat("en-GB", {
       year: "numeric",
@@ -39,7 +38,7 @@ function formatHumanDateTime(value?: string | Date | null): string {
       timeZone: "Asia/Amman",
     }).format(d);
   } catch {
-    // Fallback
+
     return d.toLocaleString();
   }
 }
@@ -56,7 +55,7 @@ export async function GET(req: NextRequest) {
       applicationId: params.get("applicationId") ?? undefined,
     };
 
-    // collect all pages
+
     const allRows: applicationDetails[] = [];
     let page = 1;
     let totalPages = 1;
@@ -75,11 +74,10 @@ export async function GET(req: NextRequest) {
       page++;
     } while (page <= totalPages);
 
-    // build workbook
+
     const workbook = new ExcelJS.Workbook();
     const sheet = workbook.addWorksheet("Applications");
 
-    // define columns (customize fields to match your application object)
     sheet.columns = [
       { header: "Application ID", key: "applicationId", width: 40 },
       { header: "First Name", key: "firstName", width: 30 },
@@ -91,7 +89,6 @@ export async function GET(req: NextRequest) {
       { header: "Submitted At", key: "createdAt", width: 25 },
     ];
 
-    // normalize each application into the columns above
     for (const app of allRows) {
       sheet.addRow({
         applicationId: app.id ?? "",
@@ -100,17 +97,14 @@ export async function GET(req: NextRequest) {
         email: app?.email ?? "",
         phone: app.phone_number ?? "",
         country: app.country ?? "",
-        // created_at human friendly (Asia/Amman) e.g. "29 Dec 2025, 14:05"
         createdAt: formatHumanDateTime(app.created_at),
         courseName: app.courses?.course_title_en
 
       });
     }
 
-    // optional: make header bold
     sheet.getRow(1).font = { bold: true };
 
-    // generate buffer
     const buffer = await workbook.xlsx.writeBuffer();
     const bufferNode = Buffer.from(buffer as ArrayBuffer);
 
@@ -129,13 +123,11 @@ export async function GET(req: NextRequest) {
       },
     });
   } catch (err: any) {
-    // better console logging for debugging
     console.error("Export to Excel failed:", {
       message: err?.message ?? err,
       stack: err?.stack ?? null,
     });
 
-    // return JSON with helpful error message (useful for frontend)
     const body = {
       error: "ExportToExcelFailed",
       message: err?.message ?? "Unknown error during Excel export",

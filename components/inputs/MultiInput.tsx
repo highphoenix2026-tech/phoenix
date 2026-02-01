@@ -11,7 +11,7 @@ interface FormTargetAudienceInputProps {
   name: string;
   label: string;
   control: Control<any>;
-  error?: Merge<FieldError, (FieldError | undefined)[]>; // <--- allow undefined elements
+  error?: Merge<FieldError, (FieldError | undefined)[]>;
   placeholder?: string;
   className?: string;
   description?: string;
@@ -64,7 +64,6 @@ export default function FormTargetAudienceInput({
 
           return (
             <>
-              {/* Input + Button */}
               <div className="flex flex-col sm:flex-row gap-2">
                 <Input
                   id={id}
@@ -99,7 +98,6 @@ export default function FormTargetAudienceInput({
                 </Button>
               </div>
 
-              {/* Badges */}
               <div className="mt-3 flex flex-wrap gap-2">
                 {(field.value || []).map((item: string, index: number) => (
                   <Badge

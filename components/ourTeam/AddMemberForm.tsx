@@ -90,7 +90,6 @@ export default function AddMemberForm({ action }: Props) {
           </CardHeader>
 
           <CardContent className="flex flex-col gap-6">
-            {/* Main Checkbox */}
             <FormCheckbox
               name="main"
               error={errors.main}
@@ -99,7 +98,6 @@ export default function AddMemberForm({ action }: Props) {
               className="w-full md:w-1/2"
             />
 
-            {/* Name Inputs */}
             <div className="flex flex-col md:flex-row gap-4">
               <TextInput
                 register={register("name_en")}
@@ -115,7 +113,6 @@ export default function AddMemberForm({ action }: Props) {
               />
             </div>
 
-            {/* Position Inputs */}
             <div className="flex flex-col md:flex-row gap-4">
               <TextInput
                 register={register("position_en")}
@@ -131,7 +128,6 @@ export default function AddMemberForm({ action }: Props) {
               />
             </div>
 
-            {/* Description Inputs */}
             <div className="flex flex-col md:flex-row gap-4">
               <TextareaInput
                 register={register("description_en")}
@@ -147,7 +143,6 @@ export default function AddMemberForm({ action }: Props) {
               />
             </div>
 
-            {/* Image Uploader */}
             <div className="flex flex-col w-full md:w-1/2">
               <label className="text-base text-black mb-2">Member Image</label>
               <ImageUploader
@@ -161,7 +156,6 @@ export default function AddMemberForm({ action }: Props) {
               )}
             </div>
 
-            {/* Buttons */}
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
               <Button1
                 type="button"

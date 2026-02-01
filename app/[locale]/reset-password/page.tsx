@@ -58,7 +58,6 @@ function ResetPasswordPage() {
   return (
     <main className="h-screen flex items-center justify-center bg-slate-50 px-4 py-12">
       <div className="w-full max-w-lg relative">
-        {/* Background Decorative Blur */}
         <div className="absolute -top-12 -right-12 w-64 h-64 bg-[#c9a24d]/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-[#0b1236]/5 rounded-full blur-3xl" />
 
@@ -66,7 +65,6 @@ function ResetPasswordPage() {
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-10 rounded-[2.5rem] border border-slate-100"
           onSubmit={handleSubmit(onSubmit)}
         >
-          {/* Header Section */}
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
               <KeyRound size={32} strokeWidth={1.5} />
@@ -94,7 +92,6 @@ function ResetPasswordPage() {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -111,7 +108,6 @@ function ResetPasswordPage() {
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
           </button>
 
-          {/* Back Navigation */}
           <div className="mt-8 pt-6 border-t border-slate-50 flex justify-center">
             <Link
               href="/login"

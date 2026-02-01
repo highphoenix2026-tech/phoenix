@@ -12,7 +12,6 @@ export async function deleteUserAction(userId: string) {
         status: 401,
       };
 
-    // ❗ Not admin
     if (session?.user.role !== "admin")
       return {
         message: "You are not allowed to perform this action.",

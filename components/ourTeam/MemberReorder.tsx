@@ -99,7 +99,6 @@ export default function MemberReorder({
 }: Props) {
   const router = useRouter();
 
-  // local members state (safe copy and sorted)
   const [members, setMembers] = useState<Member[]>(() =>
     (initialMembers ?? [])
       .slice()
@@ -107,10 +106,8 @@ export default function MemberReorder({
   );
   const originalRef = useRef<Member[]>(members);
 
-  // local saving indicator (don't mutate props)
   const [isSaving, setIsSaving] = useState(false);
 
-  // sensors must be created at top-level
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
     useSensor(TouchSensor, {
@@ -118,7 +115,6 @@ export default function MemberReorder({
     })
   );
 
-  // handle drag end -> only update local UI (no server call here)
   const handleDragEnd = (e: DragEndEvent) => {
     const { active, over } = e;
     if (!over || active.id === over.id) return;
@@ -133,13 +129,10 @@ export default function MemberReorder({
       display_order: index + 1,
     }));
 
-    // update local list for immediate visual feedback
     setMembers(reordered);
   };
 
-  // Save button handler: call action (must return Promise)
   const handleSaveOrder = async () => {
-    // prepare payload from current local state
     const payload: MemberOrder[] = members.map((m) => ({
       id: m.id,
       display_order: m.display_order ?? 0,
@@ -147,7 +140,7 @@ export default function MemberReorder({
 
     setIsSaving(true);
     try {
-      const res = await action(payload); // ensure parent passes a function that returns a Promise
+      const res = await action(payload); 
       if (res.success) {
         toast.success(res.message || "Order saved");
         router.push("/admin/dashboard/ourTeam");

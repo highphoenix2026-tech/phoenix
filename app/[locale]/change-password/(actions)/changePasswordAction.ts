@@ -10,7 +10,6 @@ export const changePasswordAction = async (
 ) => {
   try {
     const session= await getServerSession(authOptions)
-    // ❗ Not logged in
    if (!session)
       return {
         message: "Please Login",

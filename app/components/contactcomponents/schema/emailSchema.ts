@@ -32,12 +32,12 @@ export const createContactSchema = (lang: Lang) => {
     },
     messageEn: {
       min: {
-        en: "English message must be at least 10 characters",
-        ar: "الرسالة الإنجليزية يجب أن تحتوي على 10 أحرف على الأقل",
+        en: "message must be at least 10 characters",
+        ar: "الرسالة يجب أن تحتوي على 10 أحرف على الأقل",
       },
       max: {
-        en: "English message is too long",
-        ar: "الرسالة الإنجليزية طويلة جدًا",
+        en: "Enlish message is too long",
+        ar: "الرسالة طويلة جدًا",
       },
     },
     messageAr: {

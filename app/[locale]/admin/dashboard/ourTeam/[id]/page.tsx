@@ -1,4 +1,3 @@
-// app/(somewhere)/[id]/page.tsx
 import EditMemberForm from "@/components/ourTeam/EditMemberForm";
 import { editMemberAction } from "../(actions)/editMember";
 import { getMemberById } from "@/app/server/ourTeam/services";
