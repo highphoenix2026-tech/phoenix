@@ -1,5 +1,4 @@
-import CreateBannerForm from '@/components/banner/CreateBannerForm'
-import React from 'react'
+
 import {createCategoryAction} from "../(actions)/addNewCategory"
 import CreateCategoryForm from '@/components/categories/CreateCategoryForm'
 function page() {

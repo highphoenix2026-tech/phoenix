@@ -36,8 +36,6 @@ export async function createMemberyAction(data: NewMember) {
     return { success:false,message: result.message, status: result.status };
 
   } catch (error) {
-    console.log("lkdfj error: 0:",error);
-    
     return {success:false, message: "Error In Adding Member", status: 500 };
   }
 }

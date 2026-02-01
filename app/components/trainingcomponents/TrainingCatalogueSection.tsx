@@ -5,12 +5,12 @@ import { useLocale } from "next-intl";
 import { trainingData } from "@/app/data/trainingdata";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import type { TranslatedCategory, TranslatedCourse } from "@/types";
+import type { TranslatedCategory, TranslatedCourseFiltered } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
 interface Props {
-  dbCourses: TranslatedCourse[];
+  dbCourses: TranslatedCourseFiltered[];
   dbCategories: TranslatedCategory[];
 }
 
@@ -31,7 +31,6 @@ export default function TrainingCatalogueSection({ dbCourses, dbCategories }: Pr
       { opacity: 1, y: 0, stagger: 0.1, duration: 0.5, ease: "power2.out" }
     );
   }, { dependencies: [selected] });
-
   return (
     <section ref={containerRef} className="bg-white py-24 px-6 md:px-24">
       <div className="max-w-7xl mx-auto">
@@ -93,7 +92,7 @@ export default function TrainingCatalogueSection({ dbCourses, dbCategories }: Pr
                   </div>
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-6 flex flex-col grow">
                   <div className="flex items-center gap-2 mb-4 shrink-0">
                     <div className="w-1.5 h-1.5 bg-[#c9a24d] rotate-45" />
                     <span className="text-[9px] font-mono text-slate-400 tracking-tighter uppercase">Operational_Module</span>

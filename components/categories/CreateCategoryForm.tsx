@@ -2,12 +2,9 @@
 import { categorySchema } from "@/app/server/categories/validators";
 import { NewCategory } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import z from "zod";
-import { useState } from "react";
 import ImageUploader from "@/components/ImageUpload";
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
   Card,
@@ -15,8 +12,6 @@ import {
   CardHeader,
   CardDescription,
   CardTitle,
-  CardAction,
-  CardFooter,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
@@ -136,6 +131,7 @@ setValue(
                   endpoint="categories"
                   onUploadComplete={handleUploadComplete}
                   onUploadError={handleUploadError}
+                  
                 />
                 {errors.logo && (
                   <p className="mt-1 text-xs text-red-600">Icon is required</p>

@@ -33,9 +33,7 @@ export async function createCategoryAction(data: NewCategory) {
     }
     return { success:false,message: result.message, status: result.status };
 
-  } catch (error) {
-    console.log("lkdfj error: 0:",error);
-    
+  } catch (error) {    
     return {success:false, message: "Error In Adding Category", status: 500 };
   }
 }

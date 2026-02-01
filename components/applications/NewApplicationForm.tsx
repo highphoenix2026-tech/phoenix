@@ -11,6 +11,7 @@ import TextInput from "../inputs/TextInput";
 import EmailInput from "../inputs/EmailInput";
 import CountrySelect from "../inputs/CountrySelect";
 import SponsorshipSelect from "../inputs/SponsorshipSelect";
+import { useRouter } from "next/navigation";
 
 type ApplicationFormValue = z.infer<ReturnType<typeof applicationSchema>>;
 
@@ -22,6 +23,7 @@ interface Props {
 
 function NewApplicationForm({ action, locale, course }: Props) {
   const isArabic = locale === "ar";
+  const router= useRouter()
 
   const {
     register,
@@ -41,6 +43,7 @@ function NewApplicationForm({ action, locale, course }: Props) {
         toast.success(isArabic ? "تم استلام طلبك بنجاح" : "Application Received", {
           style: { border: "1px solid #c9a24d", background: "#0b1236", color: "#fff" },
         });
+        router.replace("/")
         return;
       }
       toast.error(result.message);
@@ -105,6 +108,7 @@ function NewApplicationForm({ action, locale, course }: Props) {
               register={register("email")}
               error={errors.email}
               label={isArabic ? "البريد الإلكتروني" : "Email Address"}
+              className="text-black"
             />
             <TextInput
               register={register("phone_number")}
@@ -130,24 +134,24 @@ function NewApplicationForm({ action, locale, course }: Props) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="group relative w-full md:w-max min-w-[240px] flex items-center justify-between bg-[#0b1236] text-white py-4 px-8 transition-all hover:bg-[#0b1236] hover:shadow-[8px_8px_0px_#c9a24d] active:translate-x-1 active:translate-y-1 disabled:opacity-50"
+              className="group relative w-full  min-w-60 flex items-center justify-center bg-[#0b1236] text-white py-4 px-8 transition-all hover:bg-[#0b1236] hover:shadow-[8px_8px_0px_#c9a24d] active:translate-x-1 active:translate-y-1 disabled:opacity-50"
             >
-              <span className="text-[10px] font-black uppercase italic tracking-widest">
+              <span className="text-base md:text-xl font-black uppercase italic tracking-widest ">
                 {isSubmitting ? (
                   <Loader2 className="animate-spin" size={18} />
                 ) : (
-                  isArabic ? "إرسال البيانات" : "Process_Application"
+                  isArabic ? "إرسال البيانات" : "Process Application"
                 )}
               </span>
               {!isSubmitting && (
-                isArabic ? <ArrowLeft size={16} className="text-[#c9a24d]" /> : <ArrowRight size={16} className="text-[#c9a24d]" />
+                isArabic ? <ArrowRight size={30} className="text-[#c9a24d]  " /> : <ArrowRight size={30} className="text-[#c9a24d] ml-1" />
               )}
             </button>
           </div>
 
           <div className="mt-6 flex justify-between items-center text-[7px] font-mono text-slate-300 tracking-[0.2em] uppercase">
             <span>Security_Encrypted</span>
-            <div className="h-[1px] flex-1 mx-3 bg-slate-50" />
+            <div className="h-px flex-1 mx-3 bg-slate-50" />
             <span>Ref_HPA_2024</span>
           </div>
         </form>

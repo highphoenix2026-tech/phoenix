@@ -5,6 +5,8 @@ import FormSelect from "../inputs/SelectorInput";
 import TextInput from "../inputs/TextInput";
 import Button1 from "../ui/Button1";
 import Button2 from "../ui/Button2";
+import CountrySelect from "../inputs/CountrySelect";
+import SponsorshipSelect from "../inputs/SponsorshipSelect";
 
 interface Props {
   initialCountry?: string;
@@ -49,32 +51,29 @@ export default function ApplicationsFilter({
       className="flex flex-col gap-4 ml-0 mr-0 lg:ml-4 lg:mr-4"
     >
       <div className="flex flex-wrap gap-4 items-start justify-start">
-         <FormSelect
-          name="sponsorshipType"
-          label="Sponsorship Type"
-          control={control}
-          placeholder="Select Option"
-          options={[
-         
-            { label: "Self-funded", value: "self_funded" },
-            {
-              label: "Sponsored by International Organization",
-              value: "sponsored_by_international_organization",
-            },
-          ]}
-          className="text-gray-700"
+        <SponsorshipSelect
+          register={register("sponsorshipType")}
+          label={"Sponsorship Type"}
+          className="sm:w-[35vw] md:w-[30vw] lg:w-[25vw]"
         />
-        <TextInput register={register("country")} label="Country" />
+        <CountrySelect
+          register={register("country")}
+          className="sm:w-[35vw] md:w-[30vw] lg:w-[25vw]"
+          label={"Nationality"}
+        />
 
         <TextInput
           label="Id"
           register={register("applicationId")}
-          className="sm:w-[35vw] md:w-[30vw] lg:w-[25vw]"
+          className="sm:w-[35vw] md:w-[30vw] lg:w-[25vw] "
+          inputClassName="py-3"
         />
       </div>
 
       <div className="flex gap-2 flex-row items-start justify-start">
-        <Button2 type="submit" disabled={false} >Apply</Button2>
+        <Button2 type="submit" disabled={false}>
+          Apply
+        </Button2>
 
         <Button1
           type="button"

@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { TranslatedCourse } from "@/types";
+import { TranslatedCourseFiltered } from "@/types";
 
 interface Props {
-  allCourses: TranslatedCourse[];
+  allCourses: TranslatedCourseFiltered[];
   currentCourseId: string;
   locale: "ar" | "en";
 }

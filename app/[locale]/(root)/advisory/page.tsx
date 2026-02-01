@@ -1,4 +1,3 @@
-"use client";
 
 import AdvisoryHero from "@/app/components/advisorycomponents/AdvisoryHero";
 import InstitutionalSection from "@/app/components/advisorycomponents/InstitutionalSection";
@@ -6,6 +5,9 @@ import DomainsSection from "@/app/components/advisorycomponents/DomainsSection";
 import EngagementSection from "@/app/components/advisorycomponents/EngagementSection";
 import OutcomesSection from "@/app/components/advisorycomponents/OutcomesSection";
 import PartnerSection from "@/app/components/advisorycomponents/PartnerSection";
+import {ADVISORY_METADATA} from "@/lib/constants/metadata"
+
+export const metadata= ADVISORY_METADATA
 
 export default function AdvisoryPage() {
   return (

@@ -10,6 +10,7 @@ interface TextInputProps {
   className?: string;
   description?: string;
   intialValue?:string
+  inputClassName?:string;
 }
 
 export default function TextInput({
@@ -20,6 +21,7 @@ export default function TextInput({
   className = "",
   description,
     intialValue,
+    inputClassName
 
 }: TextInputProps) {
   const id = register?.name ?? `input-${label.replace(/\s+/g, "-").toLowerCase()}`;
@@ -38,7 +40,7 @@ export default function TextInput({
         placeholder={placeholder}
         aria-invalid={!!error}
         aria-describedby={error ? errorId : description ? `${id}-desc` : undefined}
-        className={`w-full pl-3 pr-3 py-2 border rounded-md bg-white shadow-sm transition
+        className={`w-full pl-3 pr-3 py-2 ${className=inputClassName!} border rounded-md bg-white shadow-sm transition
           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:scale-101
           ${error ? "border-red-600 focus:ring-red-500" : "border-gray-200"}`}
       />

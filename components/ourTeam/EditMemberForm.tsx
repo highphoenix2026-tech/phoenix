@@ -55,7 +55,7 @@ export default function EditMemberForm({ action, member }: Props) {
   const router = useRouter();
 
   const handleUploadComplete = (url: string) => {
-    setValue("image", url, { shouldValidate: true });
+    setValue("image", url, { shouldValidate: true,shouldDirty:true });
   };
 
   const handleUploadError = (error: Error) => {

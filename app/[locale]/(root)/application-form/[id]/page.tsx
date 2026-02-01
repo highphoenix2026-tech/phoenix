@@ -4,7 +4,9 @@ import React from 'react'
 import NewApplicationForm from '@/components/applications/NewApplicationForm'
 import {newApplicationAction} from "../(actions)/newApplication"
 import { NewCourse } from '@/types'
+import {FORM_METADATA} from "@/lib/constants/metadata"
 
+export const metadata= FORM_METADATA
 
 interface Props {
     params: Promise<{id:string ,locale:"en"| "ar"}>

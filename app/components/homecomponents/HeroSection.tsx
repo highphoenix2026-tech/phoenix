@@ -52,19 +52,19 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full    min-h-[90vh] overflow-hidden bg-white pt-5">
-      <div className="relative w-full max-w-[1840px] mx-auto px-4">
+      <div className="relative w-full max-w-460 mx-auto px-4">
         <div className="relative w-full  h-[70vh]    md:min-h-[80vh] md:h-[80vh] flex items-center justify-center">
           <div
-            className={`hero-cta-piece absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-[5px] `}
+            className={`hero-cta-piece absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-1.25 `}
           >
-            <Button> {locale === "ar" ? "انضم الآن" : "Enroll Now"}</Button>
+            <Button href="/training"> {locale === "ar" ? "انضم الآن" : "Enroll Now"}</Button>
           </div>
           <div
-            className={`hero-cta-piece absolute z-40 -bottom-8 transform-gpu  translate-y-[5px] `}
+            className={`hero-cta-piece absolute z-40 -bottom-8 transform-gpu  translate-y-1.25 `}
           >
-            <Button2 className="md:hidden">
+            <Button2 className="md:hidden" href="/training">
               {" "}
-              {locale === "ar" ? "انضم الآن" : "Enroll Now"}
+              {locale === "ar" ? "انضم الآن" : "Enroll Now"} 
             </Button2>
           </div>
 
@@ -109,7 +109,7 @@ export default function HeroSection() {
               <Image
                 src={plane}
                 alt="Aviation Hero"
-                className="plane w-full max-w-[220px] sm:max-w-[280px] md:max-w-xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
+                className="plane w-full max-w-55 sm:max-w-70 md:max-w-xl object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
                 priority
               />
             </div>

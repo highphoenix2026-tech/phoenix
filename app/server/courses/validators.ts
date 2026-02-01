@@ -29,14 +29,14 @@ export const courseSchema = z
     duration: z.string().min(1, "Duration is required").nullable(),
     category_id: z.string().min(1, "Category is required"),
 
-    start_date: z.string(),
-    end_date: z.string(),
+    start_date: z.string().optional(),
+    end_date: z.string().optional(),
 
     slug: z.string().min(3, "Slug is required"),
 
     course_image: z.string().min(1, "Course image is required"),
   })
-  .refine((data) => data.end_date >= data.start_date, {
+  .refine((data) => data.end_date! >= data.start_date!, {
     message: "End date must be after start date",
     path: ["end_date"],
   });

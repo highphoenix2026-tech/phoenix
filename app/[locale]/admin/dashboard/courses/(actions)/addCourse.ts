@@ -33,14 +33,12 @@ export const addCourseAction = async (data: NewCourse) => {
       };
     }
      
-console.log("error course: ",result);
     return {
       success: false,
       status: result.status,
       message: result.message,
     };
   } catch (error) {
-    console.log("error course: ",error);
     
     return {
       success: false,

@@ -13,8 +13,6 @@ export const addNewApplcation = async (data: NewApplication) => {
       status: 201,
     };
   } catch (error) {
-    console.log("error in: ", error);
-
     return {
       success: false,
       message: "Error In Submitting The Application",
@@ -136,7 +134,7 @@ export const getApplicationById = (id: string) =>
   )();
 
 type ApplicationFilters = {
-  courseId?: string | null;
+  programId?: string | null;
   country?: string | null;
   applicationId?: string | null;
   sponsorshipType: "self_funded"| "sponsored_by_international_organization";
@@ -163,12 +161,16 @@ export const getAllApplicationsByFilters = (
 
       const where: ApplicationsWhereInput = {};
 
+      if (filters?.sponsorshipType ) {
+        where.sponsorship_type = filters.sponsorshipType;
+      }
+
        if (filters?.sponsorshipType ) {
         where.sponsorship_type = filters.sponsorshipType;
       }
 
-      if (filters?.courseId) {
-        where.course_id = filters.courseId;
+      if (filters?.programId) {
+        where.course_id = filters.programId;
       }
 
       if (filters?.applicationId ) {

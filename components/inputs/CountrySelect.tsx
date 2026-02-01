@@ -45,7 +45,7 @@ interface CountrySelectProps {
   label: string;
   register: UseFormRegisterReturn;
   error?: FieldError;
-  locale: "en" | "ar";
+  locale?: "en" | "ar";
   className?: string;
 }
 

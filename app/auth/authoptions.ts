@@ -122,7 +122,6 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         try {
-          console.log("token: ", token.id);
           const result = await prisma.users.findUnique({
             where: { email: token.email },
             select: { id: true, first_name: true, role: true },

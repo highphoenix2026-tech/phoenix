@@ -10,9 +10,6 @@ export default async function Page({ params }: Props) {
   const { id } = await params;
 
   const result = await getApplicationById(id);
-  console.log("appl result: ",result);
-  
-
   if (!result || !result.data) {
     notFound();
   }

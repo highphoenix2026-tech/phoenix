@@ -23,20 +23,19 @@ async function Page({ params, searchParams }: Props) {
   const id = (await params).id;
   const searchParamsData = await searchParams;
   const page = Number(searchParamsData.page ?? 1);
-
   const filters = {
     programId: id,
     country: searchParamsData.country ?? null,
     applicationId: searchParamsData.applicationId ?? null,
     sponsorshipType: searchParamsData.sponsorshipType ?? null,
+    
   };
 
   const courseResult = await getCourseNameAndIdById(id);
 
   if (!courseResult || !courseResult.data) {
     notFound();
-  }
-
+  }  
   const courseDetails = courseResult.data;
   const filteredData = await getAllApplicationsByFilters(page, filters);
 

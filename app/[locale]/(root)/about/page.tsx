@@ -5,6 +5,9 @@ import ApproachSection from "@/app/components/aboutcomponents/ApproachSection";
 import CoreValuesSection from "@/app/components/aboutcomponents/CoreValuesSection";
 import GlobalReachSection from "@/app/components/aboutcomponents/GlobalReachSection";
 import EngageSection from "@/app/components/aboutcomponents/EngageSection";
+import {ABOUT_METADATA} from "@/lib/constants/metadata"
+
+export const metadata=ABOUT_METADATA
 
 export default function AboutPage() {
   return (

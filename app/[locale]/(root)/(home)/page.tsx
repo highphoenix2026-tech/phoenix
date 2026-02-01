@@ -7,15 +7,18 @@ import TrustedAuthoritySection from "@/app/components/homecomponents/TrustedAuth
 import WhoWeWorkWithSection from "@/app/components/homecomponents/WhoWeWorkWithSection";
 import SafetySection from "@/app/components/homecomponents/SafetySection";
 import EngageSection from "@/app/components/homecomponents/EngageSection";
+import {HOME_METADATA} from "@/lib/constants/metadata"
+
+
+export const metadata= HOME_METADATA
+
 
 type Locale = "en" | "ar";
-
 interface PageProps {
   params: {
     locale: Locale;
   };
 }
-
 export default async function Home({ params }: PageProps) {
   return (
     <main className="bg-[#f1f3f5] text-slate-800  mt-20 ">

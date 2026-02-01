@@ -27,15 +27,15 @@ import { z } from "zod";
 import Button2 from "@/components/ui/Button2";
 import Button1 from "@/components/ui/Button1";
 
+type CourseFormValues = z.infer<typeof courseSchema>;
 
 interface Props {
   categoriesNameAndId: { id: string; category_name_en: string }[] | null;
   action: (
-    data: NewCourse,
+    data: CourseFormValues,
   ) => Promise<{ success: boolean; message: string; status: number }>;
 }
 
-type CourseFormValues = z.infer<typeof courseSchema>;
 
 export default function CreateCourseForm({
   action,
@@ -113,7 +113,6 @@ export default function CreateCourseForm({
 
       toast.error(result.message);
     } catch (err) {
-      console.error("Add course error:", err);
       toast.error("Error In Creating The Course");
     }
   };
@@ -136,9 +135,7 @@ export default function CreateCourseForm({
 
         <CardContent>
           <form
-            onSubmit={handleSubmit(onSubmit, (formErrors) =>
-              console.log("Form errors:", formErrors),
-            )}
+            onSubmit={handleSubmit(onSubmit)}
             className="w-full lg:w-2/3"
             aria-busy={isSubmitting}
           >

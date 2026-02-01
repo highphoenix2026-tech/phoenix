@@ -4,7 +4,9 @@ import EngagementSection from "@/app/components/contactcomponents/EngagementSect
 import ContactForm from "@/app/components/contactcomponents/ContactForm";
 import ProfessionalNotice from "@/app/components/contactcomponents/ProfessionalNotice";
 import { sendEmailAction } from "./(actions)/sendEmailAction";
+import {CONTACT_METADATA} from "@/lib/constants/metadata"
 
+export const metadata= CONTACT_METADATA
 
 
 

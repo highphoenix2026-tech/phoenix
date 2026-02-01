@@ -12,8 +12,6 @@ export async function getMemberIdAction() {
     }
 
   } catch (error) {
-    console.log("lkdfj error: 0:",error);
-    
     return {success:false, message: "Error In Adding Member", status: 500 };
   }
 }

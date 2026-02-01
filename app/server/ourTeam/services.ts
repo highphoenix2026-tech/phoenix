@@ -4,9 +4,15 @@ import { revalidateTag, unstable_cache } from "next/cache";
 
 export const addNewMember = async (data: NewMember) => {
   try {
-    const numberOfMembers = await prisma.our_team.count();
+    const highestDisplayOrder = (
+      await prisma.our_team.findFirst({
+        select: { display_order: true },
+        orderBy: { display_order: "desc" },
+      })
+    )?.display_order;
+
     const result = await prisma.our_team.create({
-      data: { ...data, display_order: numberOfMembers + 1 },
+      data: { ...data, display_order: Number(highestDisplayOrder!) + 1 },
     });
     revalidateTag("ourTeam", "max");
     return {
@@ -15,8 +21,6 @@ export const addNewMember = async (data: NewMember) => {
       status: 201,
     };
   } catch (error) {
-    console.log("error backend: ", error);
-
     return {
       data: error,
       message: "Error In Adding The Member",
@@ -48,7 +52,7 @@ export const getAllMembers = unstable_cache(
   {
     tags: ["ourTeam"],
     revalidate: 3600,
-  }
+  },
 );
 
 export const getMembersByMain = (main: boolean) =>
@@ -76,7 +80,7 @@ export const getMembersByMain = (main: boolean) =>
     {
       tags: ["ourTeam"],
       revalidate: 3600,
-    }
+    },
   );
 
 export const getMemberById = (id: string) => {
@@ -84,8 +88,6 @@ export const getMemberById = (id: string) => {
     async () => {
       try {
         const result = await prisma.our_team.findUnique({ where: { id } });
-        console.log("result: ",result);
-        
         if (!result)
           return { data: null, message: "Member not found", status: 409 };
         return {
@@ -98,7 +100,7 @@ export const getMemberById = (id: string) => {
       }
     },
     [`member-by-id-${id}`],
-    { tags: ["ourTeam"], revalidate: 3600 }
+    { tags: ["ourTeam"], revalidate: 3600 },
   );
 
   return cachedFn();
@@ -182,7 +184,7 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
       prisma.our_team.update({
         where: { id: member.id },
         data: { display_order: member.display_order },
-      })
+      }),
     );
 
     await Promise.all(queries);
@@ -200,8 +202,6 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
   }
 };
 
-
-
 export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
   unstable_cache(
     async () => {
@@ -217,10 +217,11 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
           id: member.id,
           name: locale === "en" ? member.name_en : member.name_ar,
           position: locale === "en" ? member.position_en : member.position_ar,
-          description: locale === "en" ? member.description_en : member.description_ar,
+          description:
+            locale === "en" ? member.description_en : member.description_ar,
           image: member.image,
           display_order: member.display_order,
-          main:member.main
+          main: member.main,
         }));
 
         return {
@@ -241,5 +242,5 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     {
       tags: ["ourTeam"],
       revalidate: 3600,
-    }
+    },
   );

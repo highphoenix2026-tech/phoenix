@@ -36,8 +36,6 @@ export async function reorderMemberyAction(data: MemberOrder[]) {
     return { success:false,message: result.message, status: result.status };
 
   } catch (error) {
-    console.log("lkdfj error: 0:",error);
-    
     return {success:false, message: "Error In Re Ordering The Members", status: 500 };
   }
 }

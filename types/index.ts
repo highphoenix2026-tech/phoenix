@@ -27,20 +27,6 @@ export type UserDetails = {
   first_name: string;
 };
 
-export type NewBanner = {
-  id?: string;
-  name: string | null;
-  image: string | null;
-  description_en: string | null;
-  description_ar: string | null;
-};
-
-export type TranslatedBanner = {
-  name: string;
-  image: string;
-  description: string | null;
-};
-
 export type NewCategory = {
   id?: string;
   category_name_en: string;
@@ -73,6 +59,18 @@ export type TranslatedCourse = {
 
 };
 
+export type TranslatedCourseFiltered = {
+  id: string;
+  title: string;
+  description: string | null;
+ 
+  image: string | null;
+  categoryId: string;
+  slug: string;
+ 
+
+};
+
 export type NewCourse = {
   id?: string;
   course_title_en: string;
@@ -85,30 +83,8 @@ export type NewCourse = {
   slug: string;
   course_image: string | null;
   category_id: string;
-  start_date: Date | null;
-  end_date: Date | null;
-};
-
-
-
-export type newSetting = {
-  id?: string;
-  key_name_en?: string | null;
-  key_name_ar?: string | null;
-  value_en?: string | null;
-  value_ar?: string | null;
-};
-
-export type Partners = {
-  id?: string;
-  name: string;
-  logo: string;
-};
-
-export type TranslatedPartners = {
-  id?: string;
-  name: string;
-  logo: string;
+  start_date?: string | null;
+  end_date?: string | null;
 };
 
 export type NewApplication = {

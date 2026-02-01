@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import z from "zod";
 import ImageUploader from "@/components/ImageUpload";
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import {
   Card,
@@ -18,7 +17,6 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import TextInput from "../inputs/TextInput";
 import TextareaInput from "../inputs/TextareaInput";
-import TargetAudienceInput from "../inputs/MultiInput";
 import Button2 from "@/components/ui/Button2";
 import Button1 from "@/components/ui/Button1";
 
@@ -50,7 +48,7 @@ function EditCategoryForm({ action, category }: Props) {
   const router = useRouter();
 
   const handleUploadComplete = (url: string) => {
-    setValue("logo", url, { shouldValidate: true });
+    setValue("logo", url, { shouldValidate: true,shouldDirty:true });
   };
 
   const handleUploadError = (error: Error) => {

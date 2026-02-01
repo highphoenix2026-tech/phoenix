@@ -16,6 +16,7 @@ export default function AboutSection() {
   const { about } = homeData[locale];
   const icons = [FaShieldVirus, FaCheckCircle, FaBuilding, FaSchool];
   const container = useRef(null);
+  const isArabic= locale==="ar"
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -67,11 +68,9 @@ export default function AboutSection() {
 
           <button className="flex items-center gap-4 text-[#0b1236] font-mono text-xs tracking-widest uppercase group transition-all">
             <span className="bg-[#0b1236] text-white p-3 group-hover:bg-[#c9a24d] transition-colors">
-                <FaArrowRight className="group-hover:translate-x-1 no-flip  transition-transform rtl:rotate-180" />
+                <FaArrowRight className={`${isArabic? "group-hover:-translate-x-1" :"group-hover:translate-x-1"} no-flip  transition-transform rtl:rotate-180`} />
             </span>
-            <span className="font-bold border-b border-[#0b1236]/10 pb-1 group-hover:border-[#c9a24d]">
-                {locale === "en" ? "Read Full History" : "اقرأ التاريخ الكامل"}
-            </span>
+            
           </button>
         </div>
 

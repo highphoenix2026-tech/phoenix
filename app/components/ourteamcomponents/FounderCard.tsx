@@ -39,7 +39,6 @@ export default function FounderCard({founderData}: Props) {
     }, containerRef);
     return () => ctx.revert();
   }, [locale]);
-console.log(founderData)
   return (
     <section 
       ref={containerRef} 
@@ -92,17 +91,7 @@ console.log(founderData)
               </p>
             </div>
 
-            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-8 opacity-40 grayscale">
-                <div className="flex flex-col">
-                    <span className="font-mono text-[8px] uppercase tracking-widest mb-1">Status</span>
-                    <span className="font-black text-xs uppercase italic tracking-tighter text-[#0b1236]">Active_Founder</span>
-                </div>
-                <div className="w-[1px] h-8 bg-slate-200" />
-                <div className="flex flex-col">
-                    <span className="font-mono text-[8px] uppercase tracking-widest mb-1">Expertise</span>
-                    <span className="font-black text-xs uppercase italic tracking-tighter text-[#0b1236]">Global Aviation Management</span>
-                </div>
-            </div>
+           
           </div>
 
         </div>

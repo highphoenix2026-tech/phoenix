@@ -7,9 +7,7 @@ type Props = { params:Promise< { id: string }> };
 
 export default async function Page({ params }: Props) {
   const id= (await params).id
-  const member = await getMemberById(id);
-   console.log("member: ",member);
-   
+  const member = await getMemberById(id);   
   if (!member?.data || member.status !== 200) {
     notFound();
   }

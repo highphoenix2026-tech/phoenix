@@ -26,12 +26,12 @@ import { z } from "zod";
 import Button2 from "@/components/ui/Button2"
 import Button1 from "@/components/ui/Button1"
 
-
+type CourseFormValues = z.infer<typeof courseSchema>;
 interface Props {
   course:NewCourse
   categoriesNameAndId: { id: string; category_name_en: string }[] | null;
   action: (
-   id:string, data: NewCourse,
+   id:string, data: CourseFormValues,
   ) => Promise<{ success: boolean; message: string; status: number }>;
 }
 
@@ -43,7 +43,6 @@ interface Props {
   return `${d.getFullYear()}-${month}-${day}`;
 };
 
-type CourseFormValues = z.infer<typeof courseSchema>;
 
 export default function EditCourseForm({
   action,
@@ -76,12 +75,6 @@ export default function EditCourseForm({
       category_id:course.category_id??""
     } as Partial<CourseFormValues>,
   });
-
-  console.log("course: ",course);
-
- 
-
-  
   const categoriesOptions = useMemo(() => {
     return (
       categoriesNameAndId?.map((ele) => ({
@@ -92,7 +85,7 @@ export default function EditCourseForm({
   }, [categoriesNameAndId]);
 
   const handleUploadComplete = (url: string) => {
-    setValue("course_image", url, { shouldValidate: true });
+    setValue("course_image", url, { shouldValidate: true,shouldDirty:true });
   };
 
   const handleUploadError = (error: Error) => {
@@ -157,9 +150,7 @@ export default function EditCourseForm({
 
         <CardContent>
           <form
-            onSubmit={handleSubmit(onSubmit, (formErrors) =>
-              console.log("Form errors:", formErrors),
-            )}
+            onSubmit={handleSubmit(onSubmit)}
             className="w-full lg:w-2/3"
             aria-busy={isSubmitting}
           >

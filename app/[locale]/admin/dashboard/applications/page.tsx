@@ -3,7 +3,6 @@ import Image from "next/image";
 import { getAllCategoriesNameAndImageWithCourses } from "@/app/server/categories/services";
 async function page() {
   const allCategories = (await getAllCategoriesNameAndImageWithCourses()).data;
-  console.log("allCategories: ", allCategories);
 
   return (
     <main className=" ml:0 md:ml-2.5 lg:ml-5 mt-2">

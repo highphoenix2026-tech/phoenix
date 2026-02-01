@@ -8,12 +8,14 @@ export async function deleteUserAction(userId: string) {
     const session = await getServerSession(authOptions);
     if (!session)
       return {
+        success: false,
         message: "Please Login",
         status: 401,
       };
 
     if (session?.user.role !== "admin")
       return {
+    success: false,
         message: "You are not allowed to perform this action.",
         status: 403,
       };
@@ -22,16 +24,19 @@ export async function deleteUserAction(userId: string) {
     revalidatePath(`/admin/dashboard/users`);
     if (result.status !== 201)
       return {
+    success: false,
         message: result.message,
         status: result.status,
       };
 
     return {
+      success: true,
       message: result.message,
       status: result.status,
     };
   } catch (error) {
     return {
+      success: false,
       message: "Error In Deleting User Role",
       status: 500,
     };

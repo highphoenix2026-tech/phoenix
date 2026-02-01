@@ -117,8 +117,6 @@ export function DataTable<TData>({
   });
 
   const selectedRows = table.getSelectedRowModel().flatRows;
-console.log("table.getSelectedRowModel(): ",table.getSelectedRowModel());
-
   const selectedIds = selectedRows.map(
     (row) => (row.original as TData & { id: string }).id
   );

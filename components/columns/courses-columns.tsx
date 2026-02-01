@@ -145,7 +145,8 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
     header: "Start Date",
     cell: ({ row }) => {
       const date = row.getValue("start_date") as Date;
-      return new Date(date).toLocaleDateString();
+      if(date) return new Date(date).toLocaleDateString();
+       return "---"
     },
   },
 
@@ -155,7 +156,9 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
     header: "End Date",
     cell: ({ row }) => {
       const date = row.getValue("end_date") as Date;
-      return new Date(date).toLocaleDateString();
+      if(date) return new Date(date).toLocaleDateString();
+      return "---"
+      
     },
   },
 ];

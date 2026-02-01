@@ -62,7 +62,7 @@ export async function GET(req: NextRequest) {
 
     do {
       const res = await getAllApplicationsByFilters(page, {
-        courseId: filters.courseId ?? null,
+        programId: filters.courseId ?? null,
         country: filters.country ?? null,
         sponsorshipType: filters.sponsorshipType,
         applicationId: filters.applicationId ?? null,

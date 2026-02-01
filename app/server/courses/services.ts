@@ -3,16 +3,38 @@ import { NewCourse, Locale } from "@/types";
 import { revalidateTag, unstable_cache } from "next/cache";
 
 export const addNewCourse = async (data: NewCourse) => {
+  let isDate = false;
+  if (data.start_date && data.end_date) {
+    isDate = true;
+  }
+
+  const isExisted = await prisma.courses.findFirst({
+    where: {
+      course_title_en: data.course_title_en,
+    },
+  });
+
+  if (isExisted)
+    return {
+      success: false,
+      message: "Course Name Is Already Existed",
+      status: 409,
+    };
+
   try {
     await prisma.courses.create({
-      data: {
-        ...data,
-        start_date: new Date(data.start_date!),
-        end_date: new Date(data.end_date!),
-      },
+      data: isDate
+        ? {
+            ...data,
+            start_date: new Date(data.start_date!),
+            end_date: new Date(data.end_date!),
+          }
+        : {
+            ...data,
+            start_date: null,
+            end_date: null,
+          },
     });
-    console.log("target", data.target_audience_ar);
-
     revalidateTag("courses", "max");
     revalidateTag("categories", "max");
     return {
@@ -21,8 +43,6 @@ export const addNewCourse = async (data: NewCourse) => {
       status: 201,
     };
   } catch (error) {
-    console.log("error backend: ", error);
-
     return {
       success: false,
       message: "Error In Adding The Course",
@@ -55,20 +75,29 @@ export const deleteCourse = async (id: string) => {
 };
 
 export const editCourse = async (id: string, data: Partial<NewCourse>) => {
+  let isDate = false;
+  if (data.start_date && data.end_date) {
+    isDate = true;
+  }
+
   try {
     const result = await prisma.courses.update({
       where: { id },
-      data:{
-        ...data,
-        start_date:new Date(data.start_date!),
-        end_date:new Date(data.end_date!)
-      },
+      data: isDate
+        ? {
+            ...data,
+            start_date: new Date(data.start_date!),
+            end_date: new Date(data.end_date!),
+          }
+        : {
+            ...data,
+            start_date: null,
+            end_date: null,
+          },
     });
 
     revalidateTag("courses", "max");
     revalidateTag("categories", "max");
-    console.log("error: ",result);
-
     return {
       data: result,
       success: true,
@@ -76,8 +105,6 @@ export const editCourse = async (id: string, data: Partial<NewCourse>) => {
       status: 201,
     };
   } catch (error) {
-    console.log("error: ",error);
-    
     return {
       data: null,
       success: false,
@@ -112,6 +139,41 @@ export const getAllCourses = unstable_cache(
     }
   },
   ["all-courses"],
+  { revalidate: 3600, tags: ["courses"] },
+);
+
+export const getAllCoursesFiltered = unstable_cache(
+  async () => {
+    try {
+      const result = await prisma.courses.findMany({
+        select: {
+          id: true,
+          course_title_en: true,
+          course_title_ar: true,
+          course_description_en: true,
+          course_description_ar: true,
+          course_image: true,
+          category_id: true,
+          slug: true,
+        },
+      });
+
+      return {
+        data: result,
+        success: true,
+        message: "All Courses",
+        status: 200,
+      };
+    } catch (error) {
+      return {
+        data: null,
+        success: false,
+        message: "Error In Getting Courses",
+        status: 500,
+      };
+    }
+  },
+  ["all-courses-filtered"],
   { revalidate: 3600, tags: ["courses"] },
 );
 
@@ -195,12 +257,12 @@ export const getAllCoursesByLocale = (locale: Locale) =>
     async () => {
       try {
         const result = await getAllCourses();
-
         if (!result || !result.data) return null;
 
         const translatedCourses = result.data.map((course) => ({
           id: course.id,
-          title: locale === "en" ? course.course_title_en : course.course_title_ar,
+          title:
+            locale === "en" ? course.course_title_en : course.course_title_ar,
           description:
             locale === "en"
               ? course.course_description_en
@@ -214,7 +276,44 @@ export const getAllCoursesByLocale = (locale: Locale) =>
           slug: course.slug,
           start_date: course.start_date,
           end_date: course.end_date,
-          duration:course.duration
+          duration: course.duration,
+        }));
+
+        return {
+          data: translatedCourses,
+          message: "Translated Courses",
+          status: 200,
+        };
+      } catch (error) {
+        return {
+          data: [],
+          message: "Error fetching courses",
+          status: 500,
+        };
+      }
+    },
+    [`all-courses-by-locale-${locale}`],
+    { tags: ["courses"], revalidate: 3600 },
+  );
+
+export const getAllCoursesByLocaleFiltered = (locale: Locale) =>
+  unstable_cache(
+    async () => {
+      try {
+        const result = await getAllCoursesFiltered();
+        if (!result || !result.data) return null;
+
+        const translatedCourses = result.data.map((course) => ({
+          id: course.id,
+          title:
+            locale === "en" ? course.course_title_en : course.course_title_ar,
+          description:
+            locale === "en"
+              ? course.course_description_en
+              : course.course_description_ar,
+          image: course.course_image,
+          categoryId: course.category_id,
+          slug: course.slug,
         }));
 
         return {
@@ -327,14 +426,13 @@ export const getCoursesByCategoryIdByLocale = (
     { tags: ["courses", "categories"], revalidate: 3600 },
   );
 
-
-  export const getCourseNameAndIdById= (id: string) => {
+export const getCourseNameAndIdById = (id: string) => {
   const cachedFn = unstable_cache(
     async () => {
       try {
         const result = await prisma.courses.findUnique({
           where: { id },
-          select:{id:true, course_title_en:true}
+          select: { id: true, course_title_en: true },
         });
         if (!result)
           return { data: null, message: "Course not found", status: 409 };
@@ -348,7 +446,7 @@ export const getCoursesByCategoryIdByLocale = (
       }
     },
     [`course-name-by-id-${id}`],
-    { tags: ["courses"], revalidate: 3600 }
+    { tags: ["courses"], revalidate: 3600 },
   );
 
   return cachedFn();

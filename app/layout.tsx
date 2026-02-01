@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { AppName, AppDescription, AppURL } from "@/lib/constants";
+import { ROOT_METADATA } from "@/lib/constants/metadata";
 
 import { NextIntlClientProvider } from "next-intl";
 import { Toaster } from "@/components/ui/sonner"
@@ -8,11 +8,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 
-export const metadata: Metadata = {
-  title: { template: `%s | ${AppName}`, default: AppName },
-  description: `${AppDescription}`,
-  metadataBase: new URL(AppURL),
-};
+export const metadata=ROOT_METADATA
 
 export default function RootLayout({
   children,

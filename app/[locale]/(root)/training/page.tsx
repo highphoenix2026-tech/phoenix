@@ -6,24 +6,29 @@ import TrainingCatalogueSection from "@/app/components/trainingcomponents/Traini
 import TrainingOutcomesSection from "@/app/components/trainingcomponents/TrainingOutcomesSection";
 import { getAllCategoriesByLocale } from "@/app/server/categories/services";
 import { getAllCoursesByLocale } from "@/app/server/courses/services";
-import type { TranslatedCourse, TranslatedCategory } from "@/types";
+import type { TranslatedCourse, TranslatedCategory,TranslatedCourseFiltered } from "@/types";
+import { TRAINING_METADATA } from "@/lib/constants/metadata"
+
+export const metadata=TRAINING_METADATA
+
 
 type Locale = "en" | "ar";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     locale: Locale;
-  };
+  }>;
 }
 
 export default async function TrainingPage({ params }: PageProps) {
   const { locale } = await params;
   const categoriesRes = await getAllCategoriesByLocale(locale)();
   const coursesRes = await getAllCoursesByLocale(locale)();
+  
 
   const categoriesData: TranslatedCategory[] = categoriesRes?.data || [];
 
-  const coursesData: TranslatedCourse[] = coursesRes?.data || [];
+  const coursesData: TranslatedCourseFiltered[] = coursesRes?.data || [];
 
   return (
     <main className="bg-[#f1f3f5] text-slate-800 mt-20">
