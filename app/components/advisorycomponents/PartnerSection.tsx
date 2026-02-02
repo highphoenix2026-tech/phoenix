@@ -55,7 +55,7 @@ export default function PartnerSection() {
             className="group relative flex items-center gap-4 bg-[#c9a24d] px-10 py-4 text-[#0b1236] font-black uppercase italic tracking-widest text-xs transition-all duration-300 hover:bg-[#b8933f]"
           >
             {partner.cta}
-            <div className={`transition-transform duration-500 group-hover:translate-x-2 ${locale === 'ar' ? 'rotate-180' : ''}`}>
+            <div className={`transition-transform duration-500  ${locale === 'ar' ? 'rotate-180 group-hover:-translate-x-2' : 'group-hover:translate-x-2'}`}>
               <svg className="w-5 h-5 no-flip" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

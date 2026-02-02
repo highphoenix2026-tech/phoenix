@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/sonner"
 
 
 import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
+import NextAuthProviders from "@/providers/NextAuthProvider";
 
 export const metadata=ROOT_METADATA
 
@@ -18,7 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="antialiased bg-white text-white">
-          <NextIntlClientProvider>
+        <NextAuthProviders>
+            <NextIntlClientProvider>
          
               <FontSwitcher locale={"en"}>{children}</FontSwitcher>
              
@@ -30,6 +32,8 @@ export default function RootLayout({
             duration={3000}
           />
           </NextIntlClientProvider>
+        </NextAuthProviders>
+        
       </body>
     </html>
   );

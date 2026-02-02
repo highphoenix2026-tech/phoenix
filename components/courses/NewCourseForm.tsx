@@ -26,6 +26,7 @@ import FormSelect from "../inputs/SelectorInput";
 import { z } from "zod";
 import Button2 from "@/components/ui/Button2";
 import Button1 from "@/components/ui/Button1";
+import FormCourseTargetInput from "../inputs/FormCourseTargetInput";
 
 type CourseFormValues = z.infer<typeof courseSchema>;
 
@@ -53,6 +54,8 @@ export default function CreateCourseForm({
   } = useForm<CourseFormValues>({
     resolver: zodResolver(courseSchema),
     defaultValues: {
+      course_description_en:[],
+      course_description_ar:[],
       target_audience_en: [],
       target_audience_ar: [],
       course_image: "",
@@ -71,7 +74,7 @@ export default function CreateCourseForm({
   }, [categoriesNameAndId]);
 
   const handleUploadComplete = (url: string) => {
-    setValue("course_image", url, { shouldValidate: true });
+    setValue("course_image", url, { shouldValidate: true});
   };
 
   const handleUploadError = (error: Error) => {
@@ -91,6 +94,10 @@ export default function CreateCourseForm({
   }, [watchedTitle, setValue]);
 
   const onSubmit = async (data: CourseFormValues) => {
+    console.log( data.course_description_en,
+  Array.isArray(data.course_description_en));
+    
+    
     try {
       const result = await action(data);
       if (result.status === 401) {
@@ -165,15 +172,20 @@ export default function CreateCourseForm({
               </div>
 
               <div className="flex flex-col gap-4">
-                <TextareaInput
-                  register={register("course_description_en")}
-                  label="English Course Description"
+                 <FormCourseTargetInput
+                  control={control}
+                  label="English Course Target"
+                  name="course_description_en"
                   error={errors.course_description_en}
+                  placeholder=""
+
                 />
-                <TextareaInput
-                  register={register("course_description_ar")}
-                  label="Arabic Course Description"
+                <FormCourseTargetInput
+                  control={control}
+                  label="Arabic Course Target"
+                  name="course_description_ar"
                   error={errors.course_description_ar}
+                  placeholder=""
                 />
               </div>
 

@@ -35,8 +35,8 @@ model courses {
   id                    String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   course_title_en       String         @db.VarChar(255)
   course_title_ar       String         @db.VarChar(255)
-  course_description_en String?
-  course_description_ar String?
+  course_description_en String[]
+  course_description_ar String[]
   duration              String?        @db.VarChar(255)
   category_id           String         @db.Uuid
   slug                  String         @unique @db.VarChar(255)

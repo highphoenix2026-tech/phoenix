@@ -9,14 +9,12 @@ export const courseSchema = z
     course_title_ar: z.string().min(3, "Arabic course title is required"),
 
     course_description_en: z
-      .string()
-      .min(10, "English description must be at least 10 characters")
-      .nullable(),
+       .array(z.string().min(3))
+      .min(1, "Add at least one course target (EN)"),
 
     course_description_ar: z
-      .string()
-      .min(10, "Arabic description must be at least 10 characters")
-      .nullable(),
+      .array(z.string().min(3))
+      .min(1, "Add at least one course target (AR)"),
 
     target_audience_en: z
       .array(z.string().min(3))

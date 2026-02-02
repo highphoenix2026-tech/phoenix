@@ -24,6 +24,7 @@ export default function PrimaryFocusSection() {
   const { primaryFocus } = homeData[locale];
   const icons = [FaUserTie, FaGavel, FaMapMarkedAlt, FaSchool];
   const container = useRef(null);
+  const isArabic= locale==="ar"
 
   useGSAP(
     () => {
@@ -57,10 +58,10 @@ export default function PrimaryFocusSection() {
             <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
               {locale === "ar" ? "النطاق التشغيلي" : "Operational_Scope"}
             </span>
-            <div className="h-[1px] w-20 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />
+            <div className="h-px w-20 bg-linear-to-r from-[#c9a24d]/40 to-transparent" />
           </div>
           <h2 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter leading-none max-w-3xl">
-            {primaryFocus.title}
+            {primaryFocus.title} 
           </h2>
         </div>
 
@@ -80,11 +81,11 @@ export default function PrimaryFocusSection() {
                 {primaryFocus.services[0].desc}
               </p>
               <Link
-                href="/services"
+                href="/advisory"
                 className="flex items-center gap-2 text-[#c9a24d] font-mono text-[10px] tracking-[0.2em] uppercase hover:gap-4 transition-all"
               >
-                Access_Full_Brief{" "}
-                <FaChevronRight className="no-flip" size={8} />
+                {isArabic? "الملخص الكامل":"Access_Full_Brief"}
+                <FaChevronRight className="" size={10} />
               </Link>
             </div>
           </div>

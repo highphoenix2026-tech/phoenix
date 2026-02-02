@@ -58,8 +58,8 @@ export default function EngageSection() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10 grid md:grid-cols-12 items-center gap-12">
-        <div className="hidden md:block md:col-span-1 h-full min-h-[200px] relative">
-          <div className="side-line absolute top-0 left-1/2 w-[1px] h-0 bg-[#c9a24d]/40" />
+        <div className="hidden md:block md:col-span-1 h-full min-h-50 relative">
+          <div className="side-line absolute top-0 left-1/2 w-px h-0 bg-[#c9a24d]/40" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white py-4 text-[#c9a24d]">
             <FaHeadset size={20} className="animate-pulse" />
           </div>

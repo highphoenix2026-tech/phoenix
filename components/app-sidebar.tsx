@@ -117,7 +117,7 @@ export async function AppSidebar() {
               >
                 <DropdownMenuItem className="text-[#c9a24d] group  hover:bg-[#c9a24d] focus:text-[#0b1236] focus:bg-[#c9a24d] ">
                   <Link
-                    href="/cahnge-password"
+                    href="/change-password"
                     className="text-sm flex flex-row gap-1  "
                   >
                     <KeyRound

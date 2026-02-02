@@ -23,26 +23,27 @@ import TargetAudienceInput from "../inputs/MultiInput";
 import DateInput from "../inputs/DateInput";
 import FormSelect from "../inputs/SelectorInput";
 import { z } from "zod";
-import Button2 from "@/components/ui/Button2"
-import Button1 from "@/components/ui/Button1"
+import Button2 from "@/components/ui/Button2";
+import Button1 from "@/components/ui/Button1";
+import FormCourseTargetInput from "../inputs/FormCourseTargetInput";
 
 type CourseFormValues = z.infer<typeof courseSchema>;
 interface Props {
-  course:NewCourse
+  course: NewCourse;
   categoriesNameAndId: { id: string; category_name_en: string }[] | null;
   action: (
-   id:string, data: CourseFormValues,
+    id: string,
+    data: CourseFormValues,
   ) => Promise<{ success: boolean; message: string; status: number }>;
 }
 
- const formatDateForInput = (date?: Date | string | null) => {
+const formatDateForInput = (date?: Date | string | null) => {
   if (!date) return "";
   const d = typeof date === "string" ? new Date(date) : date;
   const month = (d.getMonth() + 1).toString().padStart(2, "0");
   const day = d.getDate().toString().padStart(2, "0");
   return `${d.getFullYear()}-${month}-${day}`;
 };
-
 
 export default function EditCourseForm({
   action,
@@ -61,18 +62,18 @@ export default function EditCourseForm({
   } = useForm<CourseFormValues>({
     resolver: zodResolver(courseSchema),
     defaultValues: {
-      course_title_en:course.course_title_en??"",
-      course_title_ar:course.course_title_ar??"",
-      course_description_en:course.course_description_en??"",
-      course_description_ar:course.course_description_ar??"",
-      target_audience_en: course.target_audience_en??[],
-      target_audience_ar: course.target_audience_ar??[],
-      course_image: course.course_image??"",
-      duration: course.duration??"",
-      slug: course.slug??"",
-      start_date:formatDateForInput(course.start_date),
-      end_date:formatDateForInput(course.end_date),
-      category_id:course.category_id??""
+      course_title_en: course.course_title_en ?? "",
+      course_title_ar: course.course_title_ar ?? "",
+      course_description_en: course.course_description_en ?? [],
+      course_description_ar: course.course_description_ar ?? [],
+      target_audience_en: course.target_audience_en ?? [],
+      target_audience_ar: course.target_audience_ar ?? [],
+      course_image: course.course_image ?? "",
+      duration: course.duration ?? "",
+      slug: course.slug ?? "",
+      start_date: formatDateForInput(course.start_date),
+      end_date: formatDateForInput(course.end_date),
+      category_id: course.category_id ?? "",
     } as Partial<CourseFormValues>,
   });
   const categoriesOptions = useMemo(() => {
@@ -85,7 +86,7 @@ export default function EditCourseForm({
   }, [categoriesNameAndId]);
 
   const handleUploadComplete = (url: string) => {
-    setValue("course_image", url, { shouldValidate: true,shouldDirty:true });
+    setValue("course_image", url, { shouldValidate: true, shouldDirty: true });
   };
 
   const handleUploadError = (error: Error) => {
@@ -106,7 +107,7 @@ export default function EditCourseForm({
 
   const onSubmit = async (data: CourseFormValues) => {
     try {
-      const result = await action(course.id??"",data);
+      const result = await action(course.id ?? "", data);
       if (result.status === 401) {
         toast.error(result.message);
         router.push("/login");
@@ -180,15 +181,19 @@ export default function EditCourseForm({
               </div>
 
               <div className="flex flex-col gap-4">
-                <TextareaInput
-                  register={register("course_description_en")}
-                  label="English Course Description"
+                <FormCourseTargetInput
+                  control={control}
+                  label="English Course Target"
+                  name="course_description_en"
                   error={errors.course_description_en}
+                  placeholder=""
                 />
-                <TextareaInput
-                  register={register("course_description_ar")}
-                  label="Arabic Course Description"
+                <FormCourseTargetInput
+                  control={control}
+                  label="Arabic Course Target"
+                  name="course_description_ar"
                   error={errors.course_description_ar}
+                  placeholder=""
                 />
               </div>
 

@@ -8,6 +8,11 @@ export default function Footer() {
   const locale = useLocale() as "en" | "ar";
   const t = useTranslations("navbar");
   const isArabic = locale === "ar";
+  const contactEmail= process.env.NEXT_PUBLIC_COMPANY_EMAIL
+  const contactPhone= process.env.NEXT_PUBLIC_COMPANY_PHONE
+  const locationEn= process.env.NEXT_PUBLIC_COMPANY_LOCATION_EN
+  const locationAr= process.env.NEXT_PUBLIC_COMPANY_LOCATION_AR
+
   
   const currentYear = new Date().getFullYear();
 
@@ -34,7 +39,7 @@ export default function Footer() {
               <h2 className="text-2xl font-black text-[#c9a24d] tracking-tighter uppercase italic">
                 Phoenix <span className="text-white">Aviation</span>
               </h2>
-              <div className="h-[2px] w-12 bg-[#c9a24d] mt-1" />
+              <div className="h-0.5 w-12 bg-[#c9a24d] mt-1" />
             </div>
             <p className="text-sm text-slate-400 leading-relaxed font-light">
               {isArabic 
@@ -76,25 +81,38 @@ export default function Footer() {
               <li className="flex items-start gap-4">
                 <FaMapMarkerAlt className="text-[#c9a24d] no-flip mt-1 shrink-0" />
                 <span className="text-slate-400">
-                  {isArabic ? "العبدلي، شارع أمية بنت عبد شمس" : "Al-Abdali, Omayya Bent Abd Shams St."}<br/>
-                  {isArabic ? "عمان، الأردن" : "Amman, Jordan"}
+                  {isArabic ? locationAr : locationEn}<br/>
+                 
                 </span>
               </li>
               <li className="flex items-center gap-4">
-                <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
-                <span className="text-slate-400" dir="ltr">+962 6 560 0000</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <FaEnvelope className="text-[#c9a24d] no-flip shrink-0" />
-                <span className="text-slate-400">info@phoenixaviation.com</span>
-              </li>
+  <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
+  <a
+    href={`tel:${contactPhone}`}
+    className="text-slate-400 hover:text-[#c9a24d]"
+    dir="ltr"
+  >
+    {contactPhone}
+  </a>
+</li>
+
+<li className="flex items-center gap-4">
+  <FaEnvelope className="text-[#c9a24d] no-flip shrink-0" />
+  <a
+    href={`mailto:${contactEmail}`}
+    className="text-slate-400 hover:text-[#c9a24d]"
+  >
+    {contactEmail}
+  </a>
+</li>
+
             </ul>
           </div>
 
         </div>
 
         <div className="text-center pt-5 mt-10 border-t border-white/10">
-          <p className="text-sm  centert  text-white/80 break-words">
+          <p className="text-sm  centert  text-white/80 wrap-break-word">
             {isArabic ? (
               <>
                 © {currentYear} Phoenix. جميع الحقوق محفوظة. تم الإنشاء بواسطة{" "}
@@ -114,7 +132,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#c9a24d]/10 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-bl from-[#c9a24d]/10 to-transparent pointer-events-none" />
     </footer>
   );
 }

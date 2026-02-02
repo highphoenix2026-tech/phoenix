@@ -43,6 +43,8 @@ export const addNewCourse = async (data: NewCourse) => {
       status: 201,
     };
   } catch (error) {
+    console.log("error: ",error);
+    
     return {
       success: false,
       message: "Error In Adding The Course",

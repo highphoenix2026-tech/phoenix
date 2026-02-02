@@ -100,7 +100,7 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
   /* ===================== EN Description ===================== */
   {
     accessorKey: "course_description_en",
-    header: "English Description",
+    header: "English Course Target",
     cell: ({ row }) => {
       const desc = row.getValue(
         "course_description_en"
@@ -117,7 +117,7 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
   /* ===================== AR Description ===================== */
   {
     accessorKey: "course_description_ar",
-    header: "Arabic Description",
+    header: "Arabic Course Target",
     cell: ({ row }) => {
       const desc = row.getValue(
         "course_description_ar"
