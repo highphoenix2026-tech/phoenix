@@ -17,6 +17,7 @@ export default function EngagementSection() {
   const { engagement } = contactData[locale];
   const { Engagementde } = contactData[locale];  
   const containerRef = useRef(null);
+  const isArabic= locale==="ar"
 
   const icons: Record<string, JSX.Element> = {
     FaBusinessTime: <FaBusinessTime className="text-[#c9a24d] text-4xl no-flip" />,
@@ -55,7 +56,7 @@ export default function EngagementSection() {
         <div className="engage-header text-center mb-20">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-slate-200" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase">Engagement_Protocol</span>
+            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase">{isArabic?"بروتوكول المشاركة":"Engagement_Protocol"}</span>
             <div className="w-10 h-[1px] bg-slate-200" />
           </div>
           <h2 className="text-4xl md:text-6xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-8">

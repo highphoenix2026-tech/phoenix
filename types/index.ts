@@ -48,7 +48,7 @@ export type TranslatedCategory = {
 export type TranslatedCourse = {
   id: string;
   title: string;
-  description: string | null;
+  description: string[] | null;
   target_audience: string | string[];
   image: string | null;
   categoryId: string;
@@ -62,7 +62,7 @@ export type TranslatedCourse = {
 export type TranslatedCourseFiltered = {
   id: string;
   title: string;
-  description: string | null;
+  description: string[] | null;
  
   image: string | null;
   categoryId: string;

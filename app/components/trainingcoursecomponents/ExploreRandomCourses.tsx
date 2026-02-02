@@ -14,7 +14,6 @@ export default function ExploreRandomCourses({
   currentCourseId,
   locale,
 }: Props) {
-  // تصفية الكورس الحالي واختيار 3 عشوائياً
   const randomCourses = [...allCourses]
     .filter((course) => course.id !== currentCourseId)
     .sort(() => 0.5 - Math.random())
@@ -31,12 +30,12 @@ export default function ExploreRandomCourses({
             Discovery_Protocol // 07
           </span>
           <h2 className="text-4xl centert md:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
-            {locale === "ar" ? "استكشف المزيد" : "Explore_Other_Files"}
+            {locale === "ar" ? "استكشاف دورات أخرى" : "Explore_Other_Courses"}
           </h2>
           <div className="w-24 h-1 bg-[#c9a24d] mx-auto mt-4" />
           
           <div className="flex flex-col items-center mt-6">
-             <div className="w-[1px] h-12 bg-gradient-to-b from-[#0b1236]/20 to-transparent" />
+             <div className="w-px h-12 bg-linear-to-b from-[#0b1236]/20 to-transparent" />
           </div>
         </div>
 
@@ -49,9 +48,9 @@ export default function ExploreRandomCourses({
               <div className="absolute -top-2 -left-2 w-4 h-4 border-t border-l border-[#c9a24d] opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 group-hover:-translate-x-1 group-hover:-translate-y-1" />
               <div className="absolute -bottom-2 -right-2 w-4 h-4 border-b border-r border-[#c9a24d] opacity-0 group-hover:opacity-100 transition-all duration-300 z-10 group-hover:translate-x-1 group-hover:translate-y-1" />
 
-              <div className="bg-slate-50 border border-slate-200 p-2 flex flex-col flex-grow transition-all duration-500 group-hover:bg-white group-hover:border-[#c9a24d]/30 group-hover:shadow-2xl">
+              <div className="bg-slate-50 border border-slate-200 p-2 flex flex-col grow transition-all duration-500 group-hover:bg-white group-hover:border-[#c9a24d]/30 group-hover:shadow-2xl">
                 
-                <div className="relative aspect-[16/10] overflow-hidden bg-[#0b1236] shrink-0">
+                <div className="relative aspect-16/10 overflow-hidden bg-[#0b1236] shrink-0">
                   <Image
                     fill
                     src={course.image ?? "/placeholder.jpg"}
@@ -63,7 +62,7 @@ export default function ExploreRandomCourses({
                   </div>
                 </div>
 
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-6 flex flex-col grow">
                   <div className="flex items-center gap-2 mb-4 shrink-0">
                     <div className="w-1.5 h-1.5 bg-[#c9a24d] rotate-45" />
                     <span className="text-[9px] font-mono text-slate-400 tracking-tighter uppercase">
@@ -71,12 +70,12 @@ export default function ExploreRandomCourses({
                     </span>
                   </div>
 
-                  <h3 className="text-[#0b1236] font-black text-xl uppercase italic leading-[1.1] mb-4 min-h-[3rem]">
+                  <h3 className="text-[#0b1236] font-black text-xl uppercase italic leading-[1.1] mb-4 min-h-12">
                     {course.title}
                   </h3>
 
                   <div className="border-l rtl:border-l-0 rtl:border-r border-slate-200 pl-4 rtl:pr-4 mb-8">
-                    <p className="text-slate-500 text-xs leading-relaxed line-clamp-3 min-h-[3rem]">
+                    <p className="text-slate-500 text-xs leading-relaxed line-clamp-3 min-h-12">
                       {course.description}
                     </p>
                   </div>

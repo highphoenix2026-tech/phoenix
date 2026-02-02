@@ -16,6 +16,7 @@ export default function ProfessionalNotice() {
   const locale = useLocale() as "en" | "ar";
   const { professional } = contactData[locale];
   const containerRef = useRef(null);
+  const isArabic= locale==="ar"
 
   useGSAP(() => {
     const ctx = gsap.context(() => {
@@ -76,7 +77,7 @@ export default function ProfessionalNotice() {
         <div className="mt-16 flex flex-col items-center gap-4 opacity-30">
            <div className="h-10 w-[1px] bg-gradient-to-b from-[#0b1236] to-transparent" />
            <p className="font-mono text-[8px] font-black tracking-[0.8em] uppercase italic text-[#0b1236]">
-             Phoenix_Aviation_Compliance
+            {isArabic? "العنقاء للاستشارات الجوية" :"Phoenix Aviation Consultancy"} 
            </p>
         </div>
 

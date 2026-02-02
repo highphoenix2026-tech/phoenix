@@ -81,13 +81,13 @@ export default function TeamMemberDialog({
                       alt={name}
                       width={96}
                       height={96}
-                      className="w-full h-full object-cover grayscale"
+                      className="w-full h-full object-cover "
                     />
                 </div>
               </div>
 
               <div className={`flex flex-col min-w-0 ${isArabic ? "text-right" : "text-left"}`}>
-                <DialogTitle className="text-3xl font-black text-white uppercase italic tracking-tighter leading-none mb-2">
+                <DialogTitle className="text-lg font-black text-white uppercase italic tracking-tighter leading-none mb-2">
                   {name}
                 </DialogTitle>
                 <DialogDescription className="text-[#c9a24d] font-mono text-[11px] font-black uppercase tracking-[0.2em]">

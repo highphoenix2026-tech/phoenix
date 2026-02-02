@@ -108,7 +108,7 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
 
       return (
         <div>
-          {desc ? desc.slice(0, 40) + "..." : "—"}
+          {desc ? desc[0].slice(0, 40) + "..." : "—"} 
         </div>
       );
     },

@@ -93,7 +93,7 @@ export default function StaffCards({ memberData }: Props) {
                 <div className="absolute top-6 left-6 w-4 h-4 border-t-2 border-l-2 border-[#c9a24d] opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />
               </div>
 
-              <div className="p-8 flex-1 flex flex-col items-start text-left rtl:items-end rtl:text-right">
+              <div className="p-8 flex-1 flex flex-col items-start text-left ">
                 <h3 className="text-2xl font-black text-[#0b1236] uppercase italic tracking-tighter leading-none mb-2">
                   {member.name}
                 </h3>

@@ -37,9 +37,9 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="flex flex-col">
               <h2 className="text-2xl font-black text-[#c9a24d] tracking-tighter uppercase italic">
-                Phoenix <span className="text-white">Aviation</span>
+                {isArabic?"العنقاء":"Phoenix"} <span className="text-white">{isArabic?"للاستشارات":"Aviation"} </span>{isArabic?"الجوية":"Consultancy"}
               </h2>
-              <div className="h-0.5 w-12 bg-[#c9a24d] mt-1" />
+              <div className="h-0.5 w-36 bg-[#c9a24d] mt-1" />
             </div>
             <p className="text-sm text-slate-400 leading-relaxed font-light">
               {isArabic 

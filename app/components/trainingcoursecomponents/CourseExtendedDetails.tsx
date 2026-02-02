@@ -9,7 +9,7 @@ import Link from "next/link";
 
 interface Props {
   id: string;
-  description: string | null;
+  description: string[] | null;
   targetAudience: string[];
   startDate?: Date | null;
   endDate?: Date | null;
@@ -26,6 +26,9 @@ export default function CourseExtendedDetails({
   duration,
   locale,
 }: Props) {
+  const isArabic=locale==="ar"
+  console.log("description: ",description);
+  
   return (
     <section className="py-24 bg-white px-6 md:px-24">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -33,14 +36,17 @@ export default function CourseExtendedDetails({
           <div className="relative">
             <div className="absolute -left-4 rtl:-right-4 top-0 w-1 h-full bg-[#c9a24d]" />
             <h2 className="text-sm font-mono text-[#c9a24d] uppercase tracking-[0.3em] mb-4">
-              {locale === "ar" ? "01_نظرة_عامة" : "01_Overview"}
+              {locale === "ar" ? "01_أهداف_الدورة" : "01_Course Target"}
             </h2>
-            <p className="text-2xl text-[#0b1236] font-medium leading-relaxed italic">
-              {description ||
-                (locale === "ar"
-                  ? "لا يوجد وصف متوفر"
-                  : "No description available")}
-            </p>
+            <ul className="text-2xl text-[#0b1236] font-medium leading-relaxed italic space-y-4">
+  {description?.map((target, i) => (
+    <li key={i} className="flex items-start gap-3">
+      {/* Custom bullet or icon */}
+      <span className="mt-2 h-2 w-2 rounded-full bg-[#0b1236] shrink-0" />
+      <span>{target}</span>
+    </li>
+  ))}
+</ul>
           </div>
         </div>
 
@@ -74,7 +80,7 @@ export default function CourseExtendedDetails({
                     {locale === "ar" ? "المدة المقدرة" : "Estimated Duration"}
                   </div>
                   <div className="text-sm font-bold italic mt-1">
-                    {duration || "---"}
+                    {duration || "---"} {isArabic? "أيام":"Days"}
                   </div>
                 </div>
               </div>

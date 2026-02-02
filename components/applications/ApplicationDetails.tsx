@@ -20,8 +20,8 @@ type Application = {
   id?: string;
   course_title_en: string;
   course_title_ar: string;
-  course_description_en: string | null;
-  course_description_ar: string | null;
+  course_description_en: string[] | null;
+  course_description_ar: string[] | null;
   target_audience_en: string[];
   target_audience_ar: string[];
   duration: string | null;

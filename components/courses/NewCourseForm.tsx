@@ -156,6 +156,7 @@ export default function CreateCourseForm({
                 placeholder={
                   categoriesOptions.length ? "Select category" : "No categories"
                 }
+                className="w-full"
               />
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

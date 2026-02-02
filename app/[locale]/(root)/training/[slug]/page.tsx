@@ -2,7 +2,6 @@ import { getAllCoursesByLocale } from "@/app/server/courses/services";
 import CourseDetailHero from "@/app/components/trainingcoursecomponents/CourseDetailHero";
 import CourseMainImage from "@/app/components/trainingcoursecomponents/CourseMainImage";
 import CourseExtendedDetails from "@/app/components/trainingcoursecomponents/CourseExtendedDetails";
-import RelatedCourses from "@/app/components/trainingcoursecomponents/RelatedCourses";
 import ExploreRandomCourses from "@/app/components/trainingcoursecomponents/ExploreRandomCourses";
 import { notFound } from "next/navigation";
 import { generateDynamicMetadata } from "@/lib/constants/metadata";
@@ -35,9 +34,7 @@ export default async function CourseDetailsPage({ params }: Props) {
     notFound();
   }
 
-  const relatedCourses = allCourses
-    .filter((c) => c.categoryId === course.categoryId && c.id !== course.id)
-    .slice(0, 3);
+  
 
   return (
     <main className="bg-white mt-20">
@@ -64,7 +61,7 @@ export default async function CourseDetailsPage({ params }: Props) {
         locale={locale}
       />
 
-      <RelatedCourses courses={relatedCourses} locale={locale} />
+      
     </main>
   );
 }

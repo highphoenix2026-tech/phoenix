@@ -40,7 +40,7 @@ export default function SortMemberButton({ routeName, value }: SortMemberButtonP
         hover:before:w-full
 
         transition-all duration-300 
-        shadow-md hover:shadow-xl`}
+        shadow-md hover:shadow-xl mb-14`}
     >
       {value}
     </button>

@@ -41,7 +41,7 @@ export default function NavigationButton({ routeName, value ,className}: Navigat
         hover:before:w-full
 
         transition-all duration-300 
-        shadow-md hover:shadow-xl`}
+        shadow-md hover:shadow-xl mb-14`}
     >
       {value}
     </button>
