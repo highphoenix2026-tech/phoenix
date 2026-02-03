@@ -74,14 +74,14 @@ const Login = () => {
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-12 rounded-[2.5rem] border border-slate-100"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="text-center mb-10">
+          <div className="text-center w-full flex flex-col items-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
-              <LogIn size={32} strokeWidth={1.5} />
+              <LogIn className="" size={32} strokeWidth={1.5} />
             </div>
-            <h1 className="text-3xl font-extrabold text-[#0b1236] tracking-tight">
-              Welcome Back
+            <h1 className="text-3xl centert font-extrabold text-[#0b1236] tracking-tight">
+              Login
             </h1>
-            <p className="text-slate-500 mt-2 font-medium">Access your aviation dashboard</p>
+            <p className="text-slate-500 centert mt-2 font-medium">Access your aviation dashboard</p>
             <div className="w-12 h-1 bg-[#c9a24d] mx-auto mt-4 rounded-full" />
           </div>
 

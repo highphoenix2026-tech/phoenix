@@ -87,7 +87,7 @@ export default function StaffCards({ memberData }: Props) {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
+                  className="w-full h-full object-cover grayscal group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#0b1236] via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                 <div className="absolute top-6 left-6 w-4 h-4 border-t-2 border-l-2 border-[#c9a24d] opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" />

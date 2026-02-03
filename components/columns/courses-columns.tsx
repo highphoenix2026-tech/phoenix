@@ -148,6 +148,7 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
       if(date) return new Date(date).toLocaleDateString();
        return "---"
     },
+    meta: { hiddenByDefault: true },
   },
 
   /* ===================== End Date ===================== */
@@ -160,5 +161,6 @@ export const CourseColumns: ColumnDef<NewCourse>[] = [
       return "---"
       
     },
+    meta: { hiddenByDefault: true },
   },
 ];

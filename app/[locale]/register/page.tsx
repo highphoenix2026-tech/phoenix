@@ -79,14 +79,14 @@ export default function RegisterForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="relative bg-white shadow-2xl shadow-slate-200 p-8 md:p-10 rounded-[2.5rem] border border-slate-100"
         >
-          <div className="text-center mb-8">
+          <div className="text-center flex flex-col items-center mb-8">
             <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#0b1236] text-[#c9a24d] mb-4 shadow-lg shadow-[#0b1236]/20">
               <UserPlus size={28} strokeWidth={1.5} />
             </div>
-            <h1 className="text-3xl font-extrabold text-[#0b1236] tracking-tight">
+            <h1 className="text-3xl centert font-extrabold text-[#0b1236] tracking-tight">
               Create Account
             </h1>
-            <p className="text-slate-500 mt-2 font-medium">Join our aviation consultancy platform</p>
+            <p className="text-slate-500 centert mt-2 font-medium">Join our aviation consultancy platform</p>
             <div className="w-10 h-1 bg-[#c9a24d] mx-auto mt-3 rounded-full" />
           </div>
 
