@@ -48,7 +48,7 @@ export default function FounderCard({ founderData }: Props) {
     }, containerRef);
     return () => ctx.revert();
   }, [locale]);
-
+  console.log(founderData);
   return (
     <section
       ref={containerRef}
@@ -93,18 +93,18 @@ export default function FounderCard({ founderData }: Props) {
               {founderData.position}
             </h3>
 
-            <div 
-              className="relative cursor-pointer group" 
+            <div
+              className="relative cursor-pointer group"
               onClick={() => setIsDialogOpen(true)} // Click text to open
             >
               <span className="absolute -top-10 -left-6 text-9xl text-slate-50 font-serif opacity-50 select-none group-hover:text-slate-100 transition-colors">
                 “
               </span>
               <p className="relative z-10 text-slate-600 text-lg md:text-xl leading-relaxed font-medium italic">
-                {founderData.description && founderData.description.length > 240 
-                  ? `${founderData.description.slice(0, 240)}... ` 
+                {founderData.description && founderData.description.length > 240
+                  ? `${founderData.description.slice(0, 240)}... `
                   : founderData.description}
-                
+
                 {/* Visual indicator to read more */}
                 <span className="text-[#c9a24d] text-sm font-bold uppercase tracking-tighter ml-2 cursor-pointer hover:underline">
                   {locale === "ar" ? "إقرأ المزيد" : "Read Full Profile"}
