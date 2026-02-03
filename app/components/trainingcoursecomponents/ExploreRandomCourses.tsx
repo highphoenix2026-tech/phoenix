@@ -22,14 +22,14 @@ export default function ExploreRandomCourses({
   if (randomCourses.length === 0) return null;
 
   return (
-    <section className="py-24 bg-white border-t border-slate-100 px-6 md:px-24">
+    <section className="py-16 bg-white border-t border-slate-100 px-auto">
       <div className="max-w-7xl mx-auto">
         
-        <div className="text-center mb-20">
+        <div className="text-center mb-7 lg:mb-14">
           <span className="text-[#c9a24d] centert font-mono text-[10px] tracking-[0.5em] uppercase block mb-2">
             Discovery_Protocol // 07
           </span>
-          <h2 className="text-4xl centert md:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
+          <h2 className="text-2xl centert md:text-4xl lg:text-6xl font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
             {locale === "ar" ? "استكشاف دورات أخرى" : "Explore_Other_Courses"}
           </h2>
           <div className="w-24 h-1 bg-[#c9a24d] mx-auto mt-4" />
