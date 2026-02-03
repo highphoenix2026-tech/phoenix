@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-
+import AdivsoryImage from "@/public/images/advisory.jpg"
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -17,7 +17,8 @@ export default function InstitutionalSection() {
   const containerRef = useRef(null);
 
   const placeholderImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop";
-
+   console.log("AdivsoryImage: ",AdivsoryImage.src);
+   
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -68,7 +69,7 @@ export default function InstitutionalSection() {
           
           <div className="relative aspect-video md:aspect-[4/5] overflow-hidden shadow-[0_50px_100px_-20px_rgba(11,18,54,0.2)] border border-slate-100">
             <img 
-              src={institutional.image || placeholderImage} 
+              src={AdivsoryImage.src || placeholderImage} 
               alt={institutional.title} 
               className="w-full h-full object-cover grayscale-[0.5] hover:grayscale-0 transition-all duration-1000" 
             />
