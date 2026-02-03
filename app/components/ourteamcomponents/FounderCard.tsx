@@ -46,7 +46,7 @@ export default function FounderCard({ founderData }: Props) {
           "-=0.5",
         );
     }, containerRef);
-    return () => ctx.revert();
+    return () => ctx.revert();//
   }, [locale]);
   console.log(founderData);
   return (
