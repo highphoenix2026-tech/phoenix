@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import FounderImage from "@/public/images/founderImage.jpg"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -58,8 +59,8 @@ export default function FounderSection() {
           <div className="bracket-br absolute -bottom-5 -right-5 w-20 h-20 border-b-2 border-r-2 border-[#c9a24d] z-20" />
           
           <div className="founder-img-box relative aspect-[4/5] bg-[#0b1236] rounded-sm overflow-hidden shadow-2xl">
-            <img 
-              src="	https://www.highphoenix.com/assets/founder_profile.jpg" 
+            <Image 
+              src={FounderImage.src}
               className="object-cover grayscal hover:grayscale-0 transition-all duration-1000" 
               alt={founder.name}
             />
