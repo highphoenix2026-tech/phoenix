@@ -77,7 +77,7 @@ export default function WhyUsSection() {
                   {item.title}
                 </h4>
                 
-                <p className="text-[11px] md:text-xs text-slate-500 leading-relaxed font-medium">
+                <p className="text-[11px] md:text-xs text-slate-700 leading-relaxed font-medium">
                   {item.desc}
                 </p>
 

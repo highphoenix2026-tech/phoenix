@@ -63,13 +63,13 @@ export default function ProfessionalNotice() {
         </div>
 
         <div className="space-y-6 max-w-3xl mx-auto">
-          <p className="text-slate-600 centert text-lg font-medium leading-relaxed italic">
+          <p className="text-slate-950 centert text-lg font-medium leading-relaxed italic">
             {professional.desc1}
           </p>
           <div className="flex justify-center py-2">
             <div className="w-12 h-[1px] bg-[#c9a24d]" />
           </div>
-          <p className="text-slate-500 centert text-sm md:text-base leading-relaxed font-medium">
+          <p className="text-slate-800 centert text-sm md:text-base leading-relaxed font-medium">
             {professional.desc2}
           </p>
         </div>

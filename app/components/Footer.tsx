@@ -41,7 +41,7 @@ export default function Footer() {
               </h2>
               <div className="h-0.5 w-36 bg-[#c9a24d] mt-1" />
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed font-light">
+            <p className="text-sm text-slate-200 leading-relaxed font-light">
               {isArabic 
                 ? "رائد عالمي في الاستشارات الاستراتيجية للطيران، نقدم حلول تدريب واستشارات متطورة لصناعة الطيران الحديثة."
                 : "Global leader in aviation strategic advisory, providing cutting-edge training and consultancy solutions for the modern aerospace industry."}
@@ -63,7 +63,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-slate-400 hover:text-white flex items-center transition-all duration-300 group">
+                  <Link href={link.href} className="text-slate-200 hover:text-white flex items-center transition-all duration-300 group">
                     <span className={`${isArabic ? 'ml-2 rotate-180' : 'mr-2'} opacity-0 group-hover:opacity-100 text-[#c9a24d] text-[10px]`}>▶</span>
                     {link.name}
                   </Link>
@@ -80,7 +80,7 @@ export default function Footer() {
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-4">
                 <FaMapMarkerAlt className="text-[#c9a24d] no-flip mt-1 shrink-0" />
-                <span className="text-slate-400">
+                <span className="text-slate-200">
                   {isArabic ? locationAr : locationEn}<br/>
                  
                 </span>
@@ -89,7 +89,7 @@ export default function Footer() {
   <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
   <a
     href={`tel:${contactPhone}`}
-    className="text-slate-400 hover:text-[#c9a24d]"
+    className="text-slate-200 hover:text-[#c9a24d]"
     dir="ltr"
   >
     {contactPhone}
@@ -100,7 +100,7 @@ export default function Footer() {
   <FaEnvelope className="text-[#c9a24d] no-flip shrink-0" />
   <a
     href={`mailto:${contactEmail}`}
-    className="text-slate-400 hover:text-[#c9a24d]"
+    className="text-slate-200 hover:text-[#c9a24d]"
   >
     {contactEmail}
   </a>

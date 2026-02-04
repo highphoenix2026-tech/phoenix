@@ -91,7 +91,7 @@ export default function DomainsSection() {
                   </h3>
                 </div>
                 
-                <p className="text-slate-500 text-base leading-relaxed font-medium">
+                <p className="text-slate-900 text-base leading-relaxed font-medium">
                   {domain.desc}
                 </p>
 

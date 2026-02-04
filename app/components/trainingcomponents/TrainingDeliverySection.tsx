@@ -50,7 +50,7 @@ export default function TrainingDeliverySection() {
       ref={containerRef} 
       className="bg-[#f8f9fa] py-24 px-6 overflow-hidden border-t border-slate-100 opacity-0 invisible"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         
         <div className="delivery-header text-center mb-16">
           <div className="inline-flex items-center w-full justify-center gap-2 mb-4">
@@ -62,7 +62,7 @@ export default function TrainingDeliverySection() {
           <h2 className="text-4xl md:text-5xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter mb-4">
             {delivery.title}
           </h2>
-          <p className="text-slate-500 centert font-medium max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-slate-700 centert font-medium max-w-2xl mx-auto text-lg leading-relaxed">
             {delivery.subtitle}
           </p>
         </div>
@@ -81,8 +81,8 @@ export default function TrainingDeliverySection() {
                 <h3 className="font-black text-[#0b1236] text-xl uppercase italic tracking-tight group-hover:text-[#c9a24d] transition-colors mb-3">
                   {model.title}
                 </h3>
-                <div className="w-8 h-[2px] bg-[#c9a24d] mb-4 group-hover:w-full transition-all duration-500" />
-                <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                <div className="w-10 h-0.5 bg-[#c9a24d] mb-4 group-hover:w-full transition-all duration-500" />
+                <p className="text-slate-900 text-base leading-relaxed font-medium">
                   {model.desc}
                 </p>
               </div>

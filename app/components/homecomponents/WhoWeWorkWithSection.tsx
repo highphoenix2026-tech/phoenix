@@ -84,7 +84,7 @@ const [radius, setRadius] = useState(
                   </div>
 
                   <div className="absolute top-full mt-4 bg-[#0b1236]/90 backdrop-blur-md border border-[#c9a24d]/30 px-5 py-2 shadow-2xl group-hover:bg-[#c9a24d] transition-all duration-300">
-                    <p className="text-[8px] md:text-[10px] font-mono font-bold text-[#c9a24d] group-hover:text-[#0b1236] text-center whitespace-nowrap tracking-[0.15em] uppercase">
+                    <p className="  text-[8px] md:text-[10px] font-mono font-bold text-[#c9a24d] group-hover:text-[#0b1236] text-center whitespace-nowrap tracking-[0.15em] uppercase">
                       {item}
                     </p>
                     <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-[#c9a24d] group-hover:border-[#0b1236]" />

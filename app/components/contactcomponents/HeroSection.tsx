@@ -38,7 +38,7 @@ export default function HeroSection() {
             {hero.title}
           </h1>
 
-          <p className="max-w-3xl text-base md:text-xl text-slate-300 leading-relaxed font-medium">
+          <p className="max-w-3xl text-base md:text-xl text-slate-200 leading-relaxed font-medium">
             {hero.desc}
           </p>
 

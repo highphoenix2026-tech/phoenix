@@ -9,7 +9,12 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Button1 from "./Button1";
 
-export default function Navbar() {
+interface Props {
+  role: string |undefined;
+}
+
+export default function Navbar({ role }: Props) {
+  const isAdmin = role === "admin";
   const t = useTranslations("navbar");
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -26,14 +31,25 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
-  const navLinks = [
-    { name: t("home"), href: "/" },
-    { name: t("aboutUs"), href: "/about" },
-    { name: t("advisoryServices"), href: "/advisory" },
-    { name: t("training"), href: "/training" },
-    { name: t("ourteam"), href: "/ourteam" },
-    { name: t("contact"), href: "/contact" },
-  ];
+  const navLinks = isAdmin
+    ? [
+        { name: t("home"), href: "/" },
+        { name: t("aboutUs"), href: "/about" },
+        { name: t("advisoryServices"), href: "/advisory" },
+        { name: t("training"), href: "/training" },
+        { name: t("ourteam"), href: "/ourteam" },
+        { name: t("contact"), href: "/contact" },
+        { name: t("dashboard"), href: "/admin/dashboard" },
+      ]
+    : [
+        { name: t("home"), href: "/" },
+        { name: t("aboutUs"), href: "/about" },
+        { name: t("advisoryServices"), href: "/advisory" },
+        { name: t("training"), href: "/training" },
+        { name: t("ourteam"), href: "/ourteam" },
+        { name: t("contact"), href: "/contact" },
+        
+      ];
 
   return (
     <>
@@ -138,8 +154,7 @@ export default function Navbar() {
               <LanguageSwitcher />
             </div>
 
-              <Button1  href="/contact"> {t("contact")}</Button1>
-   
+            <Button1 href="/contact"> {t("contact")}</Button1>
           </div>
         </div>
       </div>

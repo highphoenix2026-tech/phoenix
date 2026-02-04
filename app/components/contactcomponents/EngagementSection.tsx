@@ -62,7 +62,7 @@ export default function EngagementSection() {
           <h2 className="text-4xl md:text-6xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-8">
             {locale === "ar" ? "كيفية التعامل" : "How We Engage"}
           </h2>
-          <p className="mt-6 text-slate-500 centert font-medium max-w-3xl mx-auto leading-relaxed italic text-lg border-l-4 border-slate-100 pl-6 py-2">
+          <p className="mt-6 text-slate-700 centert font-medium max-w-3xl mx-auto leading-relaxed italic text-lg border-l-4 border-slate-100 pl-6 py-2">
 {Engagementde.descreption}          </p>
         </div>
 
@@ -85,9 +85,9 @@ export default function EngagementSection() {
                   {item.title}
                 </h4>
                 
-                <div className="w-8 h-[2px] bg-[#c9a24d] mb-6 group-hover:w-full transition-all duration-700" />
+                <div className="w-8 h-0.5 bg-[#c9a24d] mb-6 group-hover:w-full transition-all duration-700" />
                 
-                <p className="text-slate-500 group-hover:text-slate-300 text-sm leading-relaxed font-medium transition-colors">
+                <p className="text-slate-950 group-hover:text-slate-100 text-sm leading-relaxed font-medium transition-colors">
                   {item.desc}
                 </p>
 

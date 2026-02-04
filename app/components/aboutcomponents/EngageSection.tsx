@@ -60,7 +60,7 @@ export default function EngageSection() {
             {engage.title}
           </h2>
           
-          <p className="eng-element centert text-slate-500 text-base md:text-lg max-w-lg mx-auto font-medium leading-relaxed italic opacity-80">
+          <p className="eng-element centert text-slate-800 text-base md:text-lg max-w-lg mx-auto font-medium leading-relaxed italic opacity-80">
             {engage.desc}
           </p>
         </div>

@@ -77,7 +77,7 @@ export default function PrimaryFocusSection() {
               <h3 className="text-2xl md:text-3xl font-black uppercase italic mb-4">
                 {primaryFocus.services[0].title}
               </h3>
-              <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mb-8 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-6 rtl:pr-6">
+              <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-xl mb-8 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-6 rtl:pr-6">
                 {primaryFocus.services[0].desc}
               </p>
               <Link
@@ -119,7 +119,7 @@ export default function PrimaryFocusSection() {
                     <h4 className="text-lg font-black uppercase italic text-white mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-slate-400 text-xs leading-relaxed">
+                    <p className="text-slate-300 text-xs leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

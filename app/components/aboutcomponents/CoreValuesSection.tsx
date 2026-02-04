@@ -89,11 +89,11 @@ export default function CoreValuesSection() {
                   <div className="absolute inset-0 border-t border-[#c9a24d] rounded-full animate-spin opacity-0 group-hover:opacity-100 duration-1000" />
                 </div>
 
-                <h4 className="font-black text-xs md:text-sm uppercase tracking-widest text-[#c9a24d] mb-4 group-hover:text-[#0b1236] transition-colors">
+                <h4 className="font-black text-sm md:text-base uppercase tracking-widest text-[#c9a24d] mb-4 group-hover:text-[#0b1236] transition-colors">
                   {item.title}
                 </h4>
                 
-                <p className="text-[11px] centert md:text-xs text-slate-400 leading-relaxed font-medium group-hover:text-slate-600 transition-colors">
+                <p className="text-[12px] centert md:text-sm text-slate-50 leading-relaxed font-medium group-hover:text-slate-900 transition-colors">
                   {item.desc}
                 </p>
 

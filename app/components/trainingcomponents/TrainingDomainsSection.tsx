@@ -88,8 +88,8 @@ export default function TrainingDomainsSection() {
                 <h3 className="text-xl font-black text-white uppercase italic leading-tight tracking-tight group-hover:text-[#0b1236] transition-colors">
                   {item.title}
                 </h3>
-                <div className="w-6 h-[2px] bg-[#c9a24d] group-hover:bg-[#0b1236] group-hover:w-full transition-all duration-500" />
-                <p className="text-[11px] text-slate-400 leading-relaxed font-medium group-hover:text-[#0b1236]/80 transition-colors line-clamp-4">
+                <div className="w-6 h-[2px] bg-slate-400 group-hover:bg-[#0b1236] group-hover:w-full transition-all duration-500" />
+                <p className="text-[12px] text-[#c9a24d] leading-relaxed font-medium group-hover:text-[#0b1236]/80 transition-colors line-clamp-4">
                   {item.desc}
                 </p>
               </div>
@@ -101,8 +101,13 @@ export default function TrainingDomainsSection() {
               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[#c9a24d] opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[#c9a24d] opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
+
+            
           ))}
+          
         </div>
+
+        
 
         <div className="mt-20 flex justify-center opacity-20">
           <div className="flex items-center gap-4 font-mono text-[8px] text-white tracking-[0.5em] uppercase">

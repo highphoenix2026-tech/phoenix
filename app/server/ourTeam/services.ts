@@ -288,9 +288,8 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     },
   );
 
-    export const getNotMainMembersByLocale = (locale: string) =>
-  unstable_cache(
-    async () => {
+    export const getNotMainMembersByLocale = async(locale: string) =>
+  {
       try {
         const result = await prisma.our_team.findMany({
           where: { main:false },
@@ -323,10 +322,6 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
           status: 500,
         };
       }
-    },
-    [`members-false-${locale}`],
-    {
-      tags: ["ourTeam"],
-      revalidate: 3600,
-    },
-  );
+    }
+    
+    
