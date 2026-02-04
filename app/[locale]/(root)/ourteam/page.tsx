@@ -4,7 +4,7 @@ import StaffCards from "@/app/components/ourteamcomponents/StaffCards";
 import { getNotMainMembersByLocale,getMainMembersByLocale } from "@/app/server/ourTeam/services";
 import { translatedMembers } from "@/types/index";
 import { OURTEAM_METADATA } from "@/lib/constants/metadata";
-
+export const dynamic = "force-dynamic";
 export const metadata = OURTEAM_METADATA;
 
 type Locale = "en" | "ar";
@@ -21,7 +21,7 @@ export default async function OurTeamPage({ params }: PageProps) {
   const founderRes = await getMainMembersByLocale(locale)();
 
   const founderData: translatedMembers = founderRes?.data[0] || [];
-  const memberRes = await getNotMainMembersByLocale( locale);
+  const memberRes = await getNotMainMembersByLocale( locale)();
 
   const memberData: translatedMembers[] = memberRes?.data || [];
 
