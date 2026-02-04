@@ -344,7 +344,7 @@ export const generateDynamicMetadata = {
         siteName: SITE_TITLE,
         images: [
           {
-            url: `${SITE_URL}/${page.imageUrl || "logo2"}.jpg`,
+            url: page.imageUrl || `${SITE_URL}/logo2.jpg`,
             width: 1200,
             height: 630,
             alt: page.name,
