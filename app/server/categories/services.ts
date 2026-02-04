@@ -219,11 +219,11 @@ export const getCategoryById = (id: string) => {
 export const getAllCategoriesByLocale = (locale: Locale) =>
   unstable_cache(
     async () => {
-      const result = await getAllCategories();
+      const result = await prisma.category.findMany({});
 
-      if (!result || !result.data) return null;
+      if (!result ) return null;
 
-      const translated = result.data.map((category) => ({
+      const translated = result.map((category) => ({
         id: category.id,
         name:
           locale === "en"

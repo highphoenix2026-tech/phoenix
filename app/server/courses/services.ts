@@ -258,10 +258,14 @@ export const getAllCoursesByLocale = (locale: Locale) =>
   unstable_cache(
     async () => {
       try {
-        const result = await getAllCourses();
-        if (!result || !result.data) return null;
+        const result = await prisma.courses.findMany({
+        include: {
+          category: true,
+        },
+      });
+        if (!result ) return null;
 
-        const translatedCourses = result.data.map((course) => ({
+        const translatedCourses = result.map((course) => ({
           id: course.id,
           title:
             locale === "en" ? course.course_title_en : course.course_title_ar,
@@ -302,10 +306,21 @@ export const getAllCoursesByLocaleFiltered = (locale: Locale) =>
   unstable_cache(
     async () => {
       try {
-        const result = await getAllCoursesFiltered();
-        if (!result || !result.data) return null;
+        const result = await prisma.courses.findMany({
+        select: {
+          id: true,
+          course_title_en: true,
+          course_title_ar: true,
+          course_description_en: true,
+          course_description_ar: true,
+          course_image: true,
+          category_id: true,
+          slug: true,
+        },
+      });
+        if (!result ) return null;
 
-        const translatedCourses = result.data.map((course) => ({
+        const translatedCourses = result.map((course) => ({
           id: course.id,
           title:
             locale === "en" ? course.course_title_en : course.course_title_ar,
@@ -339,16 +354,19 @@ export const getCourseByIdByLocale = (id: string, locale: Locale) =>
   unstable_cache(
     async () => {
       try {
-        const result = await getCourseById(id);
+        const result = await prisma.courses.findUnique({where: { id },
+          include: {
+            category: true,
+          }});
 
-        if (!result || !result.data)
+        if (!result )
           return {
             data: null,
             message: "Course Not Found",
             status: 409,
           };
 
-        const course = result.data;
+        const course = result;
         return {
           data: {
             id: course.id,
@@ -389,11 +407,15 @@ export const getCoursesByCategoryIdByLocale = (
   unstable_cache(
     async () => {
       try {
-        const result = await getCoursesByCategoryId(categoryId);
+        const result = await prisma.courses.findMany({
+          where: { category_id: categoryId },
+          include: {
+            category: true,
+          },
+        });
+        if (!result ) return null;
 
-        if (!result || !result.data) return null;
-
-        const translatedCourses = result.data.map((course) => ({
+        const translatedCourses = result.map((course) => ({
           id: course.id,
           title: locale === "en" ? course.category : course.course_title_ar,
           description:
