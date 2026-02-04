@@ -310,6 +310,7 @@ export const generateDynamicMetadata = {
     name: string;
     description?: string;
     slug: string;
+    imageUrl:string
     parent?: string;
   }): Metadata => {
     const defaultDescriptions: Record<string, string> = {
@@ -343,7 +344,7 @@ export const generateDynamicMetadata = {
         siteName: SITE_TITLE,
         images: [
           {
-            url: `${SITE_URL}/${page.slug || "logo2"}.jpg`,
+            url: `${SITE_URL}/${page.imageUrl || "logo2"}.jpg`,
             width: 1200,
             height: 630,
             alt: page.name,
@@ -354,7 +355,7 @@ export const generateDynamicMetadata = {
         card: "summary_large_image",
         title: `${page.name} | ${SITE_TITLE}`,
         description,
-        images: [`${SITE_URL}/${page.slug || "logo2"}.jpg`],
+        images: [`${SITE_URL}/${page.imageUrl || "logo2"}.jpg`],
       },
     };
   },

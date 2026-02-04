@@ -453,3 +453,16 @@ export const getCourseNameAndIdById = (id: string) => {
 
   return cachedFn();
 };
+
+export const getCourseBySlug= async (slug:string)=>{
+  try {
+    const result= await prisma.courses.findUnique({where:{slug}})
+    return {
+      data:result, message:"Course Fetched Successfully",status:200
+    }
+  } catch (error) {
+    return {
+      data:null, message:"Error In Fetching Course",status:500
+    }
+  }
+}

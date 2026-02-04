@@ -6,6 +6,7 @@ import ExploreRandomCourses from "@/app/components/trainingcoursecomponents/Expl
 import { notFound } from "next/navigation";
 import { generateDynamicMetadata } from "@/lib/constants/metadata";
 import type { Metadata } from "next";
+import {getCourseBySlug} from "@/app/server/courses/services"
 
 type Locale = "en" | "ar";
 interface Props {
@@ -15,15 +16,27 @@ interface Props {
   }>;
 }
 
+
+
 export async function generateMetadata(params: Props): Promise<Metadata> {
+
+  const courseData=await  getCourseBySlug((await params.params).slug)
+  console.log("courseData: ",courseData);
+  
+
   return generateDynamicMetadata.page({
     type: "training",
     name: (await params.params).slug.replace(/-/g, " "),
     slug: `training/${(await params.params).slug}`,
+    description: courseData.data?.course_description_en[0],
+    imageUrl:courseData.data?.course_image!
+    
+    
   });
 }
 
 export default async function CourseDetailsPage({ params }: Props) {
+
   const { slug, locale } = await params;
 
   const coursesRes = await getAllCoursesByLocale(locale)();
