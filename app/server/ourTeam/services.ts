@@ -188,7 +188,7 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
     );
 
     await Promise.all(queries);
-    revalidateTag("ourteam", "max");
+    revalidateTag("ourTeam", "max");
     return {
       message: "Member orders updated successfully",
       status: 201,
