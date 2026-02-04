@@ -245,12 +245,12 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     },
   );
 
-  export const getMainMembersByLocale = (locale: string) =>
+export const getMainMembersByLocale = (locale: string) =>
   unstable_cache(
     async () => {
       try {
         const result = await prisma.our_team.findMany({
-          where: { main:true },
+          where: { main: true },
           orderBy: { display_order: "asc" },
         });
 
@@ -288,12 +288,12 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     },
   );
 
-    export const getNotMainMembersByLocale = (locale: string) =>
+export const getNotMainMembersByLocale = (locale: string) =>
   unstable_cache(
     async () => {
       try {
         const result = await prisma.our_team.findMany({
-          where: { main:false },
+          where: { main: false },
           orderBy: { display_order: "asc" },
         });
 
@@ -324,6 +324,10 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
         };
       }
     },
-    
-    
+
+    [`members-false-${locale}`],
+    {
+      tags: ["ourTeam"],
+      revalidate: 3600,
+    },
   );
