@@ -17,10 +17,10 @@ interface PageProps {
 export default async function OurTeamPage({ params }: PageProps) {
   const { locale } = await params;
 
-  const founderRes = await getMainMembersByLocale(locale)();
+  const founderRes = await getMainMembersByLocale(locale);
 
   const founderData: translatedMembers = founderRes?.data[0] || [];
-  const memberRes = await getNotMainMembersByLocale(locale)();
+  const memberRes = await getNotMainMembersByLocale(locale);
 
   const memberData: translatedMembers[] = memberRes?.data || [];
 

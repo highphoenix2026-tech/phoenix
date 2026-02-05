@@ -245,4 +245,4 @@ export const getAllCategoriesByLocale = (locale: Locale) =>
     },
     [`all-categories-by-locale-${locale}`],
     { tags: ["categories"] },
-  );
+  )();

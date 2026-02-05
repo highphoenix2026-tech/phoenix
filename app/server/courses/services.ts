@@ -300,7 +300,7 @@ export const getAllCoursesByLocale = (locale: Locale) =>
     },
     [`all-courses-by-locale-${locale}`],
     { tags: ["courses"] },
-  );
+  )();
 
 export const getAllCoursesByLocaleFiltered = (locale: Locale) =>
   unstable_cache(

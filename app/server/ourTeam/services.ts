@@ -286,7 +286,7 @@ export const getMainMembersByLocale = (locale: string) =>
       tags: ["ourTeam"],
       
     },
-  );
+  )();
 
 export const getNotMainMembersByLocale = (locale: string) =>
   unstable_cache(
@@ -330,4 +330,4 @@ export const getNotMainMembersByLocale = (locale: string) =>
       tags: ["ourTeam"],
      
     },
-  );
+  )();
