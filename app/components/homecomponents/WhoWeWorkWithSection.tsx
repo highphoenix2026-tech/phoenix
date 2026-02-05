@@ -15,9 +15,10 @@ export default function WhoWeWorkWithSection() {
   const locale = useLocale() as "en" | "ar";
   const { whoWeWorkWith } = homeData[locale];
   const container = useRef(null);
-const [radius, setRadius] = useState(
-  window.innerWidth < 480 ? 130 : 260
-);
+
+  const [radius, setRadius] = useState(
+    window.innerWidth < 480 ? 140 : 260
+  );
 
   const icons = [FaUniversity, FaPlaneDeparture, FaPlaneArrival, FaSchool, FaBuilding];
 
@@ -78,15 +79,39 @@ const [radius, setRadius] = useState(
                 }}
               >
                 <div className="group flex flex-col items-center relative">
-                  <div className="w-14 h-14 md:w-20 md:h-20 rounded-full bg-[#0b1236] shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-[#c9a24d]/40 flex items-center justify-center text-[#c9a24d] text-xl md:text-2xl transition-all duration-500 group-hover:bg-[#c9a24d] group-hover:text-[#0b1236] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(201,162,77,0.4)]">
-                    <IconComponent className="" />
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#0b1236] shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-[#c9a24d]/40 flex items-center justify-center text-[#c9a24d] text-xl md:text-2xl transition-all duration-500 group-hover:bg-[#c9a24d] group-hover:text-[#0b1236] group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(201,162,77,0.4)]">
+                    <IconComponent />
                     <div className="absolute inset-0 rounded-full border border-[#c9a24d] animate-ping opacity-0 group-hover:opacity-30" />
                   </div>
 
-                  <div className="absolute top-full mt-4 bg-[#0b1236]/90 backdrop-blur-md border border-[#c9a24d]/30 px-5 py-2 shadow-2xl group-hover:bg-[#c9a24d] transition-all duration-300">
-                    <p className="  text-[8px] md:text-[10px] font-mono font-bold text-[#c9a24d] group-hover:text-[#0b1236] text-center whitespace-nowrap tracking-[0.15em] uppercase">
+                  {/* صندوق النصوص مع التعديلات */}
+                  <div
+                    className="
+                      absolute top-full mt-1 md:mt-4
+                      bg-[#0b1236]/90 backdrop-blur-md
+                      border border-[#c9a24d]/30
+                      px-3 py-2
+                      shadow-2xl
+                      group-hover:bg-[#c9a24d]
+                      transition-all duration-300
+                      w-[120px] sm:w-[140px] md:w-auto
+                    "
+                  >
+                    <p
+                      className="
+                        text-[8px] sm:text-[9px] md:text-[10px]
+                        font-mono font-bold
+                        text-[#c9a24d] group-hover:text-[#0b1236]
+                        text-center
+                        whitespace-normal md:whitespace-nowrap
+                        leading-tight
+                        tracking-[0.12em] centert md:tracking-[0.15em]
+                        uppercase
+                      "
+                    >
                       {item}
                     </p>
+
                     <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-[#c9a24d] group-hover:border-[#0b1236]" />
                     <div className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-[#c9a24d] group-hover:border-[#0b1236]" />
                   </div>
@@ -96,6 +121,7 @@ const [radius, setRadius] = useState(
           })}
         </div>
 
+        {/* دائرة الدوران الخلفية */}
         <div className="absolute inset-[-180px] z-0 pointer-events-none animate-[spin_10s_linear_infinite]">
             <div className="absolute inset-[180px]"
                  style={{
@@ -105,10 +131,11 @@ const [radius, setRadius] = useState(
             <div className="absolute top-[180px] left-1/2 -translate-x-1/2 w-[2px] h-[calc(50%-180px)] bg-[#c9a24d] shadow-[0_0_20px_#c9a24d,0_0_40px_rgba(201,162,77,0.5)]" />
         </div>
 
-        <div className="radar-center relative z-50 w-32 h-32 md:w-52 md:h-52 rounded-full bg-[#c9a24d] text-[#0b1236] flex items-center justify-center shadow-[0_0_100px_rgba(201,162,77,0.25)] border-[8px] border-[#0b1236] text-center overflow-hidden">
+        {/* المركز */}
+        <div className="radar-center relative z-50 w-24 h-14 md:w-52 md:h-52 rounded-full bg-[#c9a24d] text-[#0b1236] flex items-center justify-center shadow-[0_0_100px_rgba(201,162,77,0.25)] border-[8px] border-[#0b1236] text-center overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]" />
           <div className="absolute inset-0 w-full h-full rounded-full animate-ping bg-[#c9a24d]/10 -z-10" />
-          <h2 className="relative z-10 text-[10px] centert md:text-xl font-[1000] uppercase tracking-tighter leading-tight px-4 italic text-center drop-shadow-sm">
+          <h2 className="relative z-10 text-[10px] md:text-xl font-[1000] uppercase tracking-tighter leading-tight px-4 italic text-center drop-shadow-sm">
             {locale === "en" ? "Strategic\nPartners" : "شركاء\nالنجاح"}
           </h2>
         </div>
