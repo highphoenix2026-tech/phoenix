@@ -51,7 +51,7 @@ export const getAllMembers = unstable_cache(
   ["all-member"],
   {
     tags: ["ourTeam"],
-    revalidate: 3600,
+    
   },
 );
 
@@ -79,7 +79,7 @@ export const getMembersByMain = (main: boolean) =>
     [`members-by-main-${main}`],
     {
       tags: ["ourTeam"],
-      revalidate: 3600,
+     
     },
   );
 
@@ -100,7 +100,7 @@ export const getMemberById = (id: string) => {
       }
     },
     [`member-by-id-${id}`],
-    { tags: ["ourTeam"], revalidate: 3600 },
+    { tags: ["ourTeam"]},
   );
 
   return cachedFn();
@@ -241,7 +241,7 @@ export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
     [`members-${main}-${locale}`],
     {
       tags: ["ourTeam"],
-      revalidate: 3600,
+     
     },
   );
 
@@ -284,7 +284,7 @@ export const getMainMembersByLocale = (locale: string) =>
     [`members-true-${locale}`],
     {
       tags: ["ourTeam"],
-      revalidate: 3600,
+      
     },
   );
 
@@ -328,6 +328,6 @@ export const getNotMainMembersByLocale = (locale: string) =>
     [`members-false-${locale}`],
     {
       tags: ["ourTeam"],
-      revalidate: 3600,
+     
     },
   );

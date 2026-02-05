@@ -141,7 +141,7 @@ export const getAllCourses = unstable_cache(
     }
   },
   ["all-courses"],
-  { revalidate: 3600, tags: ["courses"] },
+  {  tags: ["courses"] },
 );
 
 export const getAllCoursesFiltered = unstable_cache(
@@ -176,7 +176,7 @@ export const getAllCoursesFiltered = unstable_cache(
     }
   },
   ["all-courses-filtered"],
-  { revalidate: 3600, tags: ["courses"] },
+  {  tags: ["courses"] },
 );
 
 export const getCourseById = (id: string) => {
@@ -215,7 +215,7 @@ export const getCourseById = (id: string) => {
       }
     },
     [`course-by-id-${id}`],
-    { revalidate: 3600, tags: ["courses"] },
+    { tags: ["courses"] },
   );
 
   return cachedFn();
@@ -248,7 +248,7 @@ export const getCoursesByCategoryId = (categoryId: string) => {
       }
     },
     [`courses-by-category-${categoryId}`],
-    { revalidate: 3600, tags: ["courses", "categories"] },
+    {  tags: ["courses", "categories"] },
   );
 
   return cachedFn();
@@ -299,7 +299,7 @@ export const getAllCoursesByLocale = (locale: Locale) =>
       }
     },
     [`all-courses-by-locale-${locale}`],
-    { tags: ["courses"], revalidate: 3600 },
+    { tags: ["courses"] },
   );
 
 export const getAllCoursesByLocaleFiltered = (locale: Locale) =>
@@ -347,7 +347,7 @@ export const getAllCoursesByLocaleFiltered = (locale: Locale) =>
       }
     },
     [`all-courses-by-locale-${locale}`],
-    { tags: ["courses"], revalidate: 3600 },
+    { tags: ["courses"] },
   );
 
 export const getCourseByIdByLocale = (id: string, locale: Locale) =>
@@ -397,7 +397,7 @@ export const getCourseByIdByLocale = (id: string, locale: Locale) =>
       }
     },
     [`course-${id}-locale-${locale}`],
-    { tags: ["courses"], revalidate: 3600 },
+    { tags: ["courses"] },
   );
 
 export const getCoursesByCategoryIdByLocale = (
@@ -447,7 +447,7 @@ export const getCoursesByCategoryIdByLocale = (
       }
     },
     [`courses-${categoryId}-locale-${locale}`],
-    { tags: ["courses", "categories"], revalidate: 3600 },
+    { tags: ["courses", "categories"] },
   );
 
 export const getCourseNameAndIdById = (id: string) => {
@@ -470,7 +470,7 @@ export const getCourseNameAndIdById = (id: string) => {
       }
     },
     [`course-name-by-id-${id}`],
-    { tags: ["courses"], revalidate: 3600 },
+    { tags: ["courses"] },
   );
 
   return cachedFn();
