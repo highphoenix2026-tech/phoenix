@@ -20,6 +20,9 @@ export default function TrainingCatalogueSection({
 }: Props) {
   const locale = useLocale() as "en" | "ar";
   const { catalogue } = trainingData[locale];
+  console.log("locale: ",locale);
+  console.log("dbCourses: ",dbCourses);
+  
 
   const [selected, setSelected] = useState<string>("all");
   const [visibleCount, setVisibleCount] = useState<number>(3);

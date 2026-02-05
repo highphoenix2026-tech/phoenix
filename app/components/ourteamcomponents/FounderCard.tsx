@@ -48,7 +48,6 @@ export default function FounderCard({ founderData }: Props) {
     }, containerRef);
     return () => ctx.revert();//
   }, [locale]);
-  console.log(founderData);
   return (
     <section
       ref={containerRef}
