@@ -39,7 +39,7 @@ export default async function CourseDetailsPage({ params }: Props) {
 
   const { slug, locale } = await params;
 
-  const coursesRes = await getAllCoursesByLocale(locale)();
+  const coursesRes = await getAllCoursesByLocale(locale);
   const allCourses = coursesRes?.data || [];
 
   const course = allCourses.find((c) => c.slug === slug);
