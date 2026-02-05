@@ -8,6 +8,7 @@ import { getAllCategoriesByLocale } from "@/app/server/categories/services";
 import { getAllCoursesByLocale } from "@/app/server/courses/services";
 import type { TranslatedCourse, TranslatedCategory,TranslatedCourseFiltered } from "@/types";
 import { TRAINING_METADATA } from "@/lib/constants/metadata"
+import { log } from "util";
 
 export const metadata=TRAINING_METADATA
 
@@ -22,8 +23,16 @@ interface PageProps {
 
 export default async function TrainingPage({ params }: PageProps) {
   const { locale } = await params;
+  console.log();
+  
   const categoriesRes = await getAllCategoriesByLocale(locale);
   const coursesRes = await getAllCoursesByLocale(locale);
+
+  console.log(categoriesRes);
+  console.log(" coursesRes:", coursesRes);
+  console.log("locale:", locale);
+  
+  
   
 
   const categoriesData: TranslatedCategory[] = categoriesRes?.data || [];
