@@ -346,9 +346,9 @@ export const getAllCoursesByLocaleFiltered = (locale: Locale) =>
         };
       }
     },
-    [`all-courses-by-locale-${locale}`],
+    [`all-courses-filtered-by-locale-${locale}`],
     { tags: ["courses"] },
-  );
+  )();
 
 export const getCourseByIdByLocale = (id: string, locale: Locale) =>
   unstable_cache(
