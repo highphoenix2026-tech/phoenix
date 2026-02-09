@@ -7,7 +7,7 @@ export const homeData = {
       cta: "Enroll Now"
     },
     founder: {
-      name: "Capt. Mohammad Khawaldeh, PhD",
+      name: "Capt. Mohammad Al-Khawaldeh, PhD",
       role: "Founder & Principal Consultant",
       desc: "Capt. Khawaldeh brings extensive experience across aviation regulation, safety oversight, and institutional leadership. His work focuses on strengthening governance, compliance, and sustainable aviation systems worldwide."
     },
