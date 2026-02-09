@@ -55,14 +55,14 @@ export default function TrainingDeliverySection() {
         <div className="delivery-header text-center mb-16">
           <div className="inline-flex items-center w-full justify-center gap-2 mb-4">
             <span className="w-2 h-2 bg-[#c9a24d] rotate-45" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] font-black uppercase">
+            <span className="text-[#c9a24d] font-mono text-[14px] tracking-[0.4em] font-black uppercase">
                {locale === "ar" ?"أنظمة_النشر" :" Deployment_Systems" }
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter mb-4">
             {delivery.title}
           </h2>
-          <p className="text-slate-700 centert font-medium max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-slate-700 centert font-medium max-w-xl mx-auto text-xl leading-relaxed">
             {delivery.subtitle}
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function TrainingDeliverySection() {
           {delivery.models.map((model, i) => (
             <div 
               key={i} 
-              className="delivery-card group relative bg-white border border-slate-200 p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/60 hover:-translate-y-2 overflow-hidden"
+              className="delivery-card group relative bg-white border border-slate-200 p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/60 hover:-translate-y-2 overflow-hidden"
             >
               <span className="absolute -top-4 -right-2 text-6xl font-black text-slate-50 group-hover:text-slate-100 transition-colors italic">
                 0{i + 1}
@@ -82,7 +82,7 @@ export default function TrainingDeliverySection() {
                   {model.title}
                 </h3>
                 <div className="w-10 h-0.5 bg-[#c9a24d] mb-4 group-hover:w-full transition-all duration-500" />
-                <p className="text-slate-900 text-base leading-relaxed font-medium">
+                <p className="text-slate-900 text-lg leading-relaxed font-medium">
                   {model.desc}
                 </p>
               </div>
@@ -91,14 +91,14 @@ export default function TrainingDeliverySection() {
         </div>
 
         <div className="flex flex-col items-center gap-8 border-t border-slate-200 pt-16">
-          <span className="font-mono text-[9px] text-slate-400 tracking-[0.5em] uppercase font-bold">
-            Authorized_Delivery_Methods
+          <span className="font-mono text-[12px] text-slate-400 tracking-[0.5em] uppercase font-bold">
+            {locale === "ar" ?"وسائل التسليم المعتمدة" :"Authorized_Delivery_Methods"}
           </span>
           <div className="flex flex-wrap justify-center gap-3">
             {delivery.methods.map((method, i) => (
               <span 
                 key={i} 
-                className="delivery-method px-6 py-2 border border-slate-200 bg-white text-[#0b1236] font-bold text-xs uppercase tracking-widest hover:border-[#c9a24d] hover:text-[#c9a24d] transition-all cursor-default"
+                className="delivery-method px-6 py-2 border border-slate-200 bg-white text-[#0b1236] font-bold text-base uppercase tracking-widest hover:border-[#c9a24d] hover:text-[#c9a24d] transition-all cursor-default"
               >
                 {method}
               </span>

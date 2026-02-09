@@ -55,7 +55,7 @@ export default function CoreValuesSection() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-[2px] bg-[#c9a24d]" />
-              <span className="text-[#c9a24d] font-mono text-xs tracking-[0.4em] uppercase font-bold">
+              <span className="text-[#c9a24d] font-mono text-[10px]  md:text-[17px] tracking-[0.4em] uppercase font-bold">
                 {values.badge || "Core_Assets"}
               </span>
             </div>
@@ -65,7 +65,7 @@ export default function CoreValuesSection() {
           </div>
           
           <div className="hidden md:block text-right">
-            <span className="font-mono text-[10px] text-white/20 tracking-widest uppercase">
+            <span className="font-mono text-[10px] text-[#c9a24d] tracking-widest uppercase">
               System_Integrity: 100% <br />
               Operational_Standards_Active
             </span>
@@ -78,7 +78,7 @@ export default function CoreValuesSection() {
             return (
               <div 
                 key={i} 
-                className="value-card group relative bg-white/5 border border-white/10 p-8 flex flex-col items-center text-center transition-all duration-500 hover:bg-white hover:shadow-2xl"
+                className="value-card group relative bg-white/5 border border-white/10 p-8 flex flex-col items-center text-center transition-all duration-500 hover:bg-gray-50 hover:shadow-2xl"
               >
                 <div className="absolute top-0 left-0 w-6 h-6 border-t border-l border-[#c9a24d]/0 group-hover:border-[#c9a24d]/100 group-hover:w-full group-hover:h-full transition-all duration-700" />
                 
@@ -89,11 +89,11 @@ export default function CoreValuesSection() {
                   <div className="absolute inset-0 border-t border-[#c9a24d] rounded-full animate-spin opacity-0 group-hover:opacity-100 duration-1000" />
                 </div>
 
-                <h4 className="font-black text-sm md:text-base uppercase tracking-widest text-[#c9a24d] mb-4 group-hover:text-[#0b1236] transition-colors">
+                <h4 className="font-black text-sm md:text-xl uppercase tracking-widest text-[#c9a24d] mb-4 group-hover:text-[#0b1236] transition-colors">
                   {item.title}
                 </h4>
                 
-                <p className="text-[12px] centert md:text-sm text-slate-50 leading-relaxed font-medium group-hover:text-slate-900 transition-colors">
+                <p className="text-[20px] centert md:text-lg text-slate-50 leading-relaxed font-medium group-hover:text-slate-900 transition-colors">
                   {item.desc}
                 </p>
 

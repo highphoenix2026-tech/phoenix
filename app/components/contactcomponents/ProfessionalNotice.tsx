@@ -54,7 +54,7 @@ export default function ProfessionalNotice() {
         <div className="space-y-4 mb-10">
           <div className="flex items-center justify-center gap-2">
             <span className="w-6 h-[1px] bg-slate-300" />
-            <span className="text-[#c9a24d] font-mono text-[9px] tracking-[0.4em] font-black centert uppercase"> {locale === "ar" ?"إشعار رسمي" :" Official_Notice" }</span>
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] font-black centert uppercase"> {locale === "ar" ?"إشعار رسمي" :" Official_Notice" }</span>
             <span className="w-6 h-[1px] bg-slate-300" />
           </div>
           <h2 className="text-3xl md:text-5xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
@@ -63,20 +63,20 @@ export default function ProfessionalNotice() {
         </div>
 
         <div className="space-y-6 max-w-3xl mx-auto">
-          <p className="text-slate-950 centert text-lg font-medium leading-relaxed italic">
+          <p className="text-slate-950 centert text-xl font-medium leading-relaxed italic">
             {professional.desc1}
           </p>
           <div className="flex justify-center py-2">
             <div className="w-12 h-[1px] bg-[#c9a24d]" />
           </div>
-          <p className="text-slate-800 centert text-sm md:text-base leading-relaxed font-medium">
+          <p className="text-slate-800 centert text-sm md:text-lg leading-relaxed font-medium">
             {professional.desc2}
           </p>
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-4 opacity-30">
-           <div className="h-10 w-[1px] bg-gradient-to-b from-[#0b1236] to-transparent" />
-           <p className="font-mono text-[8px] font-black tracking-[0.8em] uppercase italic text-[#0b1236]">
+           <div className="h-10 w-px bg-gradient-to-b from-[#0b1236] to-transparent" />
+           <p className="font-mono text-[10px] md:text-[15px] font-black tracking-[0.8em] w-full uppercase italic text-[#0b1236]">
             {isArabic? "العنقاء للاستشارات الجوية" :"Phoenix Aviation Consultancy"} 
            </p>
         </div>

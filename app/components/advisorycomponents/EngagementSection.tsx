@@ -67,7 +67,7 @@ export default function EngagementSection() {
         <div className="engage-header opacity-0 mb-20 flex flex-col items-center text-center">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase font-bold">
                {locale === "ar" ?"بروتوكول المشاركة" :"Engagement_Protocol" }
             </span>
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
@@ -85,7 +85,7 @@ export default function EngagementSection() {
               className="engage-card invisible opacity-0 group relative bg-[#121a3d] border border-white/10 p-8 h-[270px] flex flex-col justify-between transition-all duration-500 hover:bg-[#c9a24d] overflow-hidden shadow-2xl"
             >
               <div className="flex justify-between items-start relative z-10">
-                <span className="font-mono text-[10px] font-bold text-[#c9a24d] group-hover:text-[#0b1236] transition-colors">
+                <span className="font-mono text-[15px] font-bold text-[#c9a24d] group-hover:text-[#0b1236] transition-colors">
                   PHX_STP_0{i + 1}
                 </span>
                 <div className="text-2xl text-[#c9a24d]  group-hover:text-[#0b1236] transition-all duration-500">
@@ -93,8 +93,8 @@ export default function EngagementSection() {
                 </div>
               </div>
 
-              <div className="relative z-10 space-y-3">
-                <h3 className="text-lg font-black text-white uppercase italic leading-tight tracking-tight group-hover:text-[#0b1236] transition-colors">
+              <div className="relative z-10 space-y-20">
+                <h3 className="text-lg font-black  text-white uppercase flex flex-row justify-start items-start italic leading-tight tracking-tight group-hover:text-[#0b1236] transition-colors">
                   {item.title}
                 </h3>
                 <div className="w-6 h-[2px] bg-[#c9a24d] group-hover:bg-[#0b1236] group-hover:w-full transition-all duration-500" />

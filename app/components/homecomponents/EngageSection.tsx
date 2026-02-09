@@ -67,7 +67,7 @@ export default function EngageSection() {
 
         <div className="md:col-span-7 space-y-8">
           <div className="engage-white-animate opacity-0 translate-y-6">
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-black border-b border-[#c9a24d]/20 pb-2">
+            <span className="text-[#c9a24d] font-mono  text-[12px] md:text-[17px] tracking-[0.4em] uppercase font-semibold  border-b border-[#c9a24d]/20 pb-2">
               {locale === "ar" ? "جاهز_للانضمام؟" : "Ready_To_Proceed?"}
             </span>
           </div>

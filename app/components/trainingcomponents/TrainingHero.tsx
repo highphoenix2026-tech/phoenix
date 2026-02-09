@@ -28,7 +28,7 @@ export default function TrainingHero() {
         <div className="flex flex-col gap-6">
           
           <div className="flex items-center gap-3">
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[15px] tracking-[0.4em] uppercase">
                {locale === "ar" ?"قسم_تدريب_الطيران" :"Flight_Training_Division" }
             </span>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />
@@ -38,7 +38,7 @@ export default function TrainingHero() {
             {hero.title}
           </h1>
 
-          <p className="max-w-3xl text-base md:text-xl text-slate-300 leading-relaxed font-medium">
+          <p className="max-w-4xl text-base md:text-2xl text-slate-300 leading-relaxed font-medium">
             {hero.desc}
           </p>
 

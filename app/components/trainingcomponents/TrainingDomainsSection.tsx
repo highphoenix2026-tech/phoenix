@@ -60,7 +60,7 @@ export default function TrainingDomainsSection() {
         <div className="domain-header opacity-0 mb-20 flex flex-col items-center text-center">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase font-bold">
                {locale === "ar" ?"قطاعات_الخبرة" :"Expertise_Sectors" }
             </span>
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
@@ -75,7 +75,7 @@ export default function TrainingDomainsSection() {
           {domains.items.map((item, i) => (
             <div 
               key={i} 
-              className="domain-pillar invisible opacity-0 group relative bg-[#121a3d] border border-white/10 p-8 h-[320px] flex flex-col justify-between transition-all duration-500 hover:bg-[#c9a24d] overflow-hidden shadow-2xl"
+              className="domain-pillar invisible opacity-0 group relative bg-[#121a3d] border border-white/10 py-8 px-4 h-[220px] flex flex-col justify-start gap-3  transition-all duration-500 hover:bg-[#c9a24d] overflow-hidden shadow-2xl"
             >
               <div className="flex justify-between items-start relative z-10">
                 <span className="font-mono text-[10px] font-bold text-[#c9a24d] group-hover:text-[#0b1236] transition-colors">
@@ -88,8 +88,8 @@ export default function TrainingDomainsSection() {
                 <h3 className="text-xl font-black text-white uppercase italic leading-tight tracking-tight group-hover:text-[#0b1236] transition-colors">
                   {item.title}
                 </h3>
-                <div className="w-6 h-[2px] bg-slate-400 group-hover:bg-[#0b1236] group-hover:w-full transition-all duration-500" />
-                <p className="text-[12px] text-[#c9a24d] leading-relaxed font-medium group-hover:text-[#0b1236]/80 transition-colors line-clamp-4">
+                <div className="w-6 h-[2px] bg-slate-200 group-hover:bg-[#0b1236] group-hover:w-full transition-all duration-500" />
+                <p className="text-[18px] text-[#c9a24d] leading-relaxed font-medium group-hover:text-[#0b1236]/95 transition-colors line-clamp-4">
                   {item.desc}
                 </p>
               </div>

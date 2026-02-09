@@ -99,7 +99,7 @@ export default function WhoWeWorkWithSection() {
                   >
                     <p
                       className="
-                        text-[8px] sm:text-[9px] md:text-[10px]
+                        text-[8px] sm:text-[9px] md:text-[15px]
                         font-mono font-bold
                         text-[#c9a24d] group-hover:text-[#0b1236]
                         text-center
@@ -135,7 +135,7 @@ export default function WhoWeWorkWithSection() {
         <div className="radar-center relative z-50 w-24 h-14 md:w-52 md:h-52 rounded-full bg-[#c9a24d] text-[#0b1236] flex items-center justify-center shadow-[0_0_100px_rgba(201,162,77,0.25)] border-[8px] border-[#0b1236] text-center overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_infinite]" />
           <div className="absolute inset-0 w-full h-full rounded-full animate-ping bg-[#c9a24d]/10 -z-10" />
-          <h2 className="relative z-10 text-[10px] md:text-xl font-[1000] uppercase tracking-tighter leading-tight px-4 italic text-center drop-shadow-sm">
+          <h2 className="relative z-10  text-[12px] md:text-[17px] font-[1000] uppercase tracking-tighter leading-tight px-4 italic text-center drop-shadow-sm">
             {locale === "en" ? "Strategic\nPartners" : "شركاء\nالنجاح"}
           </h2>
         </div>

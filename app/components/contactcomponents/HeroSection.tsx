@@ -28,7 +28,7 @@ export default function HeroSection() {
         <div className="flex flex-col gap-6">
           
           <div className="flex items-center gap-3">
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase">
                {locale === "ar" ?"مركز_اتصالات_عالمي" :" Global_Communication_Hub" }
             </span>
             <div className="h-[1px] flex-1 bg-gradient-to-r from-[#c9a24d]/40 to-transparent" />

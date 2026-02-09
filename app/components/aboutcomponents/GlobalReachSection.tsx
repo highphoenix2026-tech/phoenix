@@ -44,7 +44,7 @@ export default function GlobalReachSection() {
       <div className="max-w-5xl mx-auto relative z-10 reach-content flex flex-col items-center text-center">
         <div className="flex items-center gap-4 mb-6">
           <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#c9a24d]" />
-          <span className="text-[#c9a24d] font-mono text-xs tracking-[0.5em] font-bold uppercase">
+          <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.5em] font-bold uppercase">
             {globalReach.badge || "Network_Status"}
           </span>
           <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#c9a24d]" />
@@ -58,7 +58,7 @@ export default function GlobalReachSection() {
           <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#c9a24d]" />
           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#c9a24d]" />
           
-          <p className="text-lg md:text-xl centert  text-slate-300 font-medium leading-relaxed italic">
+          <p className="text-lg md:text-2xl centert  text-slate-50 font-medium leading-relaxed italic">
             {globalReach.desc}
           </p>
 

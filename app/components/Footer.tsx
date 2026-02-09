@@ -9,7 +9,8 @@ export default function Footer() {
   const t = useTranslations("navbar");
   const isArabic = locale === "ar";
   const contactEmail= process.env.NEXT_PUBLIC_COMPANY_EMAIL
-  const contactPhone= process.env.NEXT_PUBLIC_COMPANY_PHONE
+  const contactPhone1= process.env.NEXT_PUBLIC_COMPANY_PHONE1
+  const contactPhone2= process.env.NEXT_PUBLIC_COMPANY_PHONE2
   const locationEn= process.env.NEXT_PUBLIC_COMPANY_LOCATION_EN
   const locationAr= process.env.NEXT_PUBLIC_COMPANY_LOCATION_AR
 
@@ -88,11 +89,22 @@ export default function Footer() {
               <li className="flex items-center gap-4">
   <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
   <a
-    href={`tel:${contactPhone}`}
+    href={`tel:${contactPhone1}`}
     className="text-slate-200 hover:text-[#c9a24d]"
     dir="ltr"
   >
-    {contactPhone}
+    {contactPhone1}
+  </a>
+</li>
+
+<li className="flex items-center gap-4">
+  <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
+  <a
+    href={`tel:${contactPhone2}`}
+    className="text-slate-200 hover:text-[#c9a24d]"
+    dir="ltr"
+  >
+    {contactPhone2}
   </a>
 </li>
 

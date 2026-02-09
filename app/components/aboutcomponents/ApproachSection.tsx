@@ -69,7 +69,7 @@ export default function ApproachSection() {
         <div className="approach-header flex flex-col items-center text-center mb-24">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-[#c9a24d]" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
+            <span className="text-[#c9a24d] font-mono text-[15px] tracking-[0.4em] uppercase font-bold">
               {approach.badge || "Methodology"}
             </span>
             <div className="w-8 h-px bg-[#c9a24d]" />
@@ -85,9 +85,9 @@ export default function ApproachSection() {
             return (
               <div
                 key={i}
-                className="approach-card group opacity-0 relative bg-white border border-slate-100 p-9 transition-all duration-500 hover:border-[#c9a24d] hover:shadow-[0_30px_60px_-15px_rgba(11,18,54,0.1)]"
+                className="approach-card group opacity-0 relative bg-white border border-slate-100 p-5 transition-all duration-500 hover:border-[#c9a24d] hover:shadow-[0_30px_60px_-15px_rgba(11,18,54,0.1)]"
               >
-                <div className="absolute -top-3 left-6 bg-[#0b1236] text-[#c9a24d] font-mono text-[9px] px-3 py-1 tracking-[0.2em] font-bold z-20">
+                <div className="absolute -top-3 left-6 bg-[#0b1236] text-[#c9a24d] font-mono text-[12px] px-3 py-1 tracking-[0.2em] font-bold z-20">
                   {locale === "ar" ? `الطور_0 ${i + 1}` : `PHASE_0 ${i + 1}`}
                 </div>
 
@@ -98,11 +98,11 @@ export default function ApproachSection() {
                     <Icon className="no-flip" />
                   </div>
 
-                  <h4 className="font-black text-base uppercase tracking-wider text-[#0b1236] group-hover:text-[#c9a24d]">
+                  <h4 className="font-black text-2xl uppercase tracking-wider text-[#0b1236] group-hover:text-[#c9a24d]">
                     {item.title}
                   </h4>
 
-                  <p className="text-sm centert text-slate-800 leading-relaxed font-medium">
+                  <p className="text-xl centert text-slate-800 leading-relaxed font-medium">
                     {item.desc}
                   </p>
                 </div>

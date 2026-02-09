@@ -92,9 +92,7 @@ export default function TrainingCatalogueSection({
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-16">
-          <span className="text-[#c9a24d] centert font-mono text-[10px] tracking-[0.5em] uppercase block mb-2">
-            System_Archive // 04
-          </span>
+          
           <h2 className="text-4xl md:text-6xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter">
             {catalogue.title}
           </h2>
@@ -159,7 +157,7 @@ export default function TrainingCatalogueSection({
                     {course.title}
                   </h3>
 
-                  <p className="text-slate-500 text-xs mb-8 line-clamp-3">
+                  <p className="text-slate-700 text-base mb-8 line-clamp-3">
                     {course.description}
                   </p>
 
@@ -167,7 +165,7 @@ export default function TrainingCatalogueSection({
                     href={`/${locale}/training/${course.slug}`}
                     className="mt-auto flex items-center justify-between border border-[#0b1236]/10 p-4 hover:bg-[#0b1236] hover:text-white"
                   >
-                    <span className="text-[10px] font-black uppercase italic tracking-widest">
+                    <span className="text-[12px] font-black uppercase italic tracking-widest">
                       {locale === "ar" ? "عرض البيانات" : "ACCESS_DETAILS"}
                     </span>
                     <span className="text-[#c9a24d]">
@@ -184,7 +182,7 @@ export default function TrainingCatalogueSection({
           <div className="mt-20 flex justify-center">
             <button
               onClick={loadMore}
-              className="px-12 py-4 border border-slate-200 font-mono text-[10px] tracking-[0.3em] hover:border-[#c9a24d]"
+              className="px-12 py-4 border border-slate-200 font-mono text-[15px] tracking-[0.3em] hover:border-[#c9a24d]"
             >
               {locale === "ar"
                 ? "تحميل المزيد من الدورات"
