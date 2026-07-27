@@ -202,7 +202,7 @@ export const updateMemberOrder = async (members: MemberOrder[]) => {
   }
 };
 
-export const getMembersByMainAndLocale = (main: boolean, locale: string) =>
+export const  getMembersByMainAndLocale = (main: boolean, locale: string) =>
   unstable_cache(
     async () => {
       try {
