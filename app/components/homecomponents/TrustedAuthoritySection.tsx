@@ -66,7 +66,7 @@ export default function TrustedAuthoritySection() {
 
         <div className="flex items-center gap-4 mb-6">
           <div className="trust-line opacity-0 w-0 h-[1px] bg-[#c9a24d]" />
-          <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
+          <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase font-bold">
             {locale === "ar" ?"التحقق من الصلاحية" :"Authority_Verification" }
           </span>
           <div className="trust-line opacity-0 w-0 h-[1px] bg-[#c9a24d]" />
@@ -77,7 +77,7 @@ export default function TrustedAuthoritySection() {
             {trustedAuthority.title}
           </h3>
           
-          <div className="flex flex-wrap justify-center gap-6 opacity-40 font-mono text-[9px] tracking-widest uppercase">
+          <div className="flex flex-wrap justify-center gap-6 opacity-40 font-mono text-[12px] tracking-widest uppercase">
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-[#0b1236] rotate-45" /> Official_Accreditation
             </span>

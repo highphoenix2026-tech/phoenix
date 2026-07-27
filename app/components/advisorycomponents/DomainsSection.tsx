@@ -91,13 +91,13 @@ export default function DomainsSection() {
                   </h3>
                 </div>
                 
-                <p className="text-slate-500 text-base leading-relaxed font-medium">
+                <p className="text-slate-900 text-xl leading-relaxed font-medium">
                   {domain.desc}
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-4">
                   {domain.items.map((item, j) => (
-                    <span key={j} className="text-[10px] font-bold text-[#0b1236] uppercase tracking-widest bg-slate-50 border border-slate-100 px-3 py-1.5 flex items-center gap-2 hover:border-[#c9a24d] transition-colors cursor-default">
+                    <span key={j} className="text-[15px] font-bold text-[#0b1236] uppercase tracking-widest bg-slate-50 border border-slate-100 px-3 py-1.5 flex items-center gap-2 hover:border-[#c9a24d] transition-colors cursor-default">
                       <div className="w-1 h-1 bg-[#c9a24d]" />
                       {item}
                     </span>

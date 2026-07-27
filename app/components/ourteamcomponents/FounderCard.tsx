@@ -48,7 +48,6 @@ export default function FounderCard({ founderData }: Props) {
     }, containerRef);
     return () => ctx.revert();//
   }, [locale]);
-  console.log(founderData);
   return (
     <section
       ref={containerRef}
@@ -81,7 +80,7 @@ export default function FounderCard({ founderData }: Props) {
           <div className="founder-info lg:w-3/5 text-center lg:text-left rtl:lg:text-right">
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-8 h-[2px] bg-[#c9a24d]" />
-              <span className="text-[#c9a24d] font-mono text-[10px] font-black uppercase tracking-widest">
+              <span className="text-[#c9a24d] font-mono text-[15px] font-black uppercase tracking-widest">
                 {locale === "ar" ? "نبذة_عن_القائد" : " Leadership_Profile"}
               </span>
             </div>

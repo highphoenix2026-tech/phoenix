@@ -136,7 +136,7 @@ function NewApplicationForm({ action, locale, course }: Props) {
               disabled={isSubmitting}
               className="group relative w-full  min-w-60 flex items-center justify-center bg-[#0b1236] text-white py-4 px-8 transition-all hover:bg-[#0b1236] hover:shadow-[8px_8px_0px_#c9a24d] active:translate-x-1 active:translate-y-1 disabled:opacity-50"
             >
-              <span className="text-base md:text-xl font-black uppercase italic tracking-widest ">
+              <span className="text-sm md:text-xl font-black uppercase italic tracking-widest ">
                 {isSubmitting ? (
                   <Loader2 className="animate-spin" size={18} />
                 ) : (

@@ -1,14 +1,10 @@
 import {
-  Calendar,
   Home,
-  Search,
-  Settings,
   User2,
   ChevronUp,
   Users,
   KeyRound,
   Ticket,
-  Crown,
   FileUser,
   BookA,
 } from "lucide-react";
@@ -85,7 +81,7 @@ export async function AppSidebar() {
                 >
                   <SidebarMenuButton
                     asChild
-                    className="hover:bg-[#c9a24d] hover:text-[#0b1236]"
+                    className="hover:bg-[#c9a24d] hover:text-[#0b1236] text-[#c9a24d] focus:bg-[#c9a24d] focus:text-[#0b1236]"
                   >
                     <a href={item.url}>
                       <item.icon />
@@ -100,20 +96,20 @@ export async function AppSidebar() {
       </SidebarContent>
       <SidebarFooter className="bg-[#0b1236] text-[#c9a24d]">
         <SidebarMenu>
-          <SidebarMenuItem>
+          <SidebarMenuItem >
             <DropdownMenu>
               <DropdownMenuTrigger
                 asChild
-                className="hover:bg-[#c9a24d] hover:text-[#0b1236] border-[#0b1236] focus:border-[#c9a24d] "
+                className="hover:bg-[#c9a24d] hover:text-[#0b1236] border-[#0b1236]  focus:border-[#c9a24d] "
               >
-                <SidebarMenuButton>
+                <SidebarMenuButton >
                   <User2 /> {userName}
                   <ChevronUp className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 side="top"
-                className="min-w-44 rounded-lg shadow-lg bg-[#0b1236]  border-[#c9a24d]  "
+                className="min-w-48  rounded-lg shadow-lg bg-[#0b1236]  border-[#c9a24d]  "
               >
                 <DropdownMenuItem className="text-[#c9a24d] group  hover:bg-[#c9a24d] focus:text-[#0b1236] focus:bg-[#c9a24d] ">
                   <Link

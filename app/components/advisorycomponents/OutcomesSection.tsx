@@ -50,7 +50,7 @@ export default function OutcomesSection() {
         <div className="outcome-header opacity-0 mb-20 flex flex-col items-center text-center">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase font-bold">
                {locale === "ar" ?"الأثر الإستراتيجي" :"Strategic_Impact" }
             </span>
             <div className="w-10 h-[1px] bg-[#c9a24d]" />
@@ -67,14 +67,14 @@ export default function OutcomesSection() {
               className="outcome-item opacity-0 group flex items-start gap-5 p-5 bg-white/5 border-l-2 border-[#c9a24d]/30 hover:border-[#c9a24d] hover:bg-white/10 transition-all duration-300"
             >
               <div className="mt-1 flex items-center justify-center w-6 h-6 rounded-sm border border-[#c9a24d] group-hover:bg-[#c9a24d] transition-colors duration-300 shadow-[0_0_10px_rgba(201,162,77,0.2)]">
-                <FaCheck className="text-[10px] text-[#c9a24d] group-hover:text-[#0b1236] no-flip" />
+                <FaCheck className="text-[14px] text-[#c9a24d] group-hover:text-[#0b1236] no-flip" />
               </div>
 
               <div className="space-y-1">
                 <p className="text-white text-lg font-bold tracking-tight leading-tight group-hover:text-[#c9a24d] transition-colors">
                   {item}
                 </p>
-                <span className="block font-mono text-[8px] text-white/20 uppercase tracking-widest">
+                <span className="block font-mono text-[12px] text-white/20 uppercase tracking-widest">
                   Log_Ref: PHX-OUT-0{i+1}
                 </span>
               </div>

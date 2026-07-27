@@ -9,7 +9,12 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Button1 from "./Button1";
 
-export default function Navbar() {
+interface Props {
+  role: string |undefined;
+}
+
+export default function Navbar({ role }: Props) {
+  const isAdmin = role === "admin";
   const t = useTranslations("navbar");
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -26,25 +31,36 @@ export default function Navbar() {
     setIsOpen(false);
   }, [pathname]);
 
-  const navLinks = [
-    { name: t("home"), href: "/" },
-    { name: t("aboutUs"), href: "/about" },
-    { name: t("advisoryServices"), href: "/advisory" },
-    { name: t("training"), href: "/training" },
-    { name: t("ourteam"), href: "/ourteam" },
-    { name: t("contact"), href: "/contact" },
-  ];
+  const navLinks = isAdmin
+    ? [
+        { name: t("home"), href: "/" },
+        { name: t("aboutUs"), href: "/about" },
+        { name: t("advisoryServices"), href: "/advisory" },
+        { name: t("training"), href: "/training" },
+        { name: t("ourteam"), href: "/ourteam" },
+        { name: t("contact"), href: "/contact" },
+        { name: t("dashboard"), href: "/admin/dashboard" },
+      ]
+    : [
+        { name: t("home"), href: "/" },
+        { name: t("aboutUs"), href: "/about" },
+        { name: t("advisoryServices"), href: "/advisory" },
+        { name: t("training"), href: "/training" },
+        { name: t("ourteam"), href: "/ourteam" },
+        { name: t("contact"), href: "/contact" },
+        
+      ];
 
   return (
     <>
-      <header className="fixed top-0 w-full z-[100] bg-[#0b1236] border-b-2 border-[#c9a24d] shadow-2xl h-20">
+      <header className="fixed top-0 w-full z-[100] bg-gray-50 border-b-2 border-[#c9a24d] shadow-2xl h-20">
         <div className="max-w-[1500px] mx-auto flex justify-between items-center h-full px-6 md:px-12">
           <div className="flex items-center gap-6 h-full">
             <Link href="/" className="w-20 md:w-[70px] shrink-0">
               <Image
                 src={Logo}
                 alt="Logo"
-                className="w-full h-auto brightness-0 invert"
+                className="w-full h-auto  "
                 priority
               />
             </Link>
@@ -62,7 +78,7 @@ export default function Navbar() {
                       className={`h-full px-5 flex items-center text-[12px] font-black uppercase  tracking-[0.2em] transition-all relative group ${
                         isActive
                           ? "text-[#c9a24d] bg-white/[0.03]"
-                          : "text-white/60 hover:text-white"
+                          : "text-[#0b1236] hover:text-[#c9a24d]"
                       }`}
                     >
                       {link.name}
@@ -84,13 +100,13 @@ export default function Navbar() {
             className="lg:hidden relative z-[1000] w-12 h-12 flex flex-col items-center justify-center gap-1.5"
           >
             <span
-              className={`h-[2px] bg-white transition-all duration-300 ${isOpen ? "w-8 rotate-45 translate-y-2" : "w-6"}`}
+              className={`h-[2px] bg-[#0b1236] transition-all duration-300 ${isOpen ? "w-8 rotate-45 translate-y-2" : "w-6"}`}
             />
             <span
               className={`h-[2px] bg-[#c9a24d] transition-all duration-300 ${isOpen ? "opacity-0" : "w-8"}`}
             />
             <span
-              className={`h-[2px] bg-white transition-all duration-300 ${isOpen ? "w-8 -rotate-45 -translate-y-[2px]" : "w-4"}`}
+              className={`h-[2px] bg-[#0b1236] transition-all duration-300 ${isOpen ? "w-8 -rotate-45 -translate-y-[2px]" : "w-4"}`}
             />
           </button>
         </div>
@@ -105,13 +121,13 @@ export default function Navbar() {
         />
 
         <div
-          className={`absolute top-0 right-0 w-[80%] max-w-[320px] h-full bg-[#0b1236] border-l-4 border-[#c9a24d] shadow-[-20px_0_50px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-out flex flex-col p-8 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+          className={`absolute top-0 right-0 w-[80%] max-w-[320px] h-full bg-gray-50 border-l-4 border-[#c9a24d] shadow-[-20px_0_50px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-out flex flex-col p-8 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="mb-12 pt-4">
-            <Image src={Logo} alt="Logo" className="w-20 brightness-0 invert" />
+            <Image src={Logo} alt="Logo" className="w-20 " />
           </div>
 
-          <nav className="flex-1">
+          <nav className="flex-1 ">
             <ul className="flex flex-col gap-4">
               {navLinks.map((link, i) => (
                 <li key={link.href}>
@@ -120,7 +136,7 @@ export default function Navbar() {
                     className={`text-xl font-black uppercase italic tracking-tight flex items-baseline gap-3 transition-colors ${
                       pathname === link.href
                         ? "text-[#c9a24d]"
-                        : "text-white/80 hover:text-[#c9a24d]"
+                        : "text-[#0b1236] hover:text-[#c9a24d]"
                     }`}
                   >
                     <span className="text-[9px] font-mono opacity-30 italic">
@@ -138,8 +154,7 @@ export default function Navbar() {
               <LanguageSwitcher />
             </div>
 
-              <Button1  href="/contact"> {t("contact")}</Button1>
-   
+            <Button1 href="/contact"> {t("contact")}</Button1>
           </div>
         </div>
       </div>

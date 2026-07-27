@@ -22,12 +22,15 @@ interface PageProps {
 
 export default async function TrainingPage({ params }: PageProps) {
   const { locale } = await params;
-  const categoriesRes = await getAllCategoriesByLocale(locale)();
-  const coursesRes = await getAllCoursesByLocale(locale)();
+  
+  const categoriesRes = await getAllCategoriesByLocale(locale);
+  const coursesRes = await getAllCoursesByLocale(locale);
+  console.log(" coursesRes:", coursesRes);
+  console.log("locale:", locale);
+  
   
 
   const categoriesData: TranslatedCategory[] = categoriesRes?.data || [];
-
   const coursesData: TranslatedCourseFiltered[] = coursesRes?.data || [];
 
   return (

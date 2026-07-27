@@ -43,7 +43,7 @@ export const getCategoryNameAndId = unstable_cache(
     }
   },
   ["name-id-categories"],
-  { revalidate: 3600, tags: ["categories"] },
+  { tags: ["categories"] },
 );
 
 export const getAllCategories = unstable_cache(
@@ -66,7 +66,7 @@ export const getAllCategories = unstable_cache(
     }
   },
   ["all-categories"],
-  { revalidate: 3600, tags: ["categories"] },
+  {  tags: ["categories"] },
 );
 
 export const getAllCategoriesWithCourses = unstable_cache(
@@ -91,7 +91,7 @@ export const getAllCategoriesWithCourses = unstable_cache(
     }
   },
   ["all-categories-with-courses"],
-  { revalidate: 3600, tags: ["categories"] },
+  {  tags: ["categories"] },
 );
 
 export const getAllCategoriesNameAndImageWithCourses = unstable_cache(
@@ -127,7 +127,7 @@ export const getAllCategoriesNameAndImageWithCourses = unstable_cache(
     }
   },
   ["all-categories-with-courses"],
-  { revalidate: 3600, tags: ["categories"] },
+  { tags: ["categories"] },
 );
 
 export const deleteCategory = async (id: string) => {
@@ -210,7 +210,7 @@ export const getCategoryById = (id: string) => {
       }
     },
     [`category-by-id-${id}`],
-    { tags: ["categories"], revalidate: 3600 },
+    { tags: ["categories"] },
   );
 
   return cachedFn();
@@ -219,11 +219,11 @@ export const getCategoryById = (id: string) => {
 export const getAllCategoriesByLocale = (locale: Locale) =>
   unstable_cache(
     async () => {
-      const result = await getAllCategories();
+      const result = await prisma.category.findMany({});
 
-      if (!result || !result.data) return null;
+      if (!result ) return null;
 
-      const translated = result.data.map((category) => ({
+      const translated = result.map((category) => ({
         id: category.id,
         name:
           locale === "en"
@@ -244,5 +244,5 @@ export const getAllCategoriesByLocale = (locale: Locale) =>
       };
     },
     [`all-categories-by-locale-${locale}`],
-    { tags: ["categories"], revalidate: 3600 },
-  );
+    { tags: ["categories"] },
+  )();

@@ -57,7 +57,7 @@ export default function MissionVisionSection() {
               </span>
 
               <div className="relative z-10 w-16 h-16 flex items-center justify-center bg-[#0b1236] shadow-xl group-hover:bg-[#c9a24d] transition-all duration-500">
-                <Icon className="text-[#c9a24d] no-flip group-hover:text-[#0b1236] text-2xl" />
+                <Icon className="text-[#c9a24d] no-flip group-hover:text-[#0b1236] text-4xl" />
               </div>
 
               <div className="space-y-4 max-w-md relative z-10">
@@ -68,7 +68,7 @@ export default function MissionVisionSection() {
                   </h3>
                 </div>
                 <div className="h-[2px] w-12 bg-[#c9a24d] transition-all duration-700 group-hover:w-full opacity-40 group-hover:opacity-100" />
-                <p className="text-slate-500 text-lg leading-relaxed font-medium transition-colors duration-500 group-hover:text-[#0b1236]">
+                <p className="text-slate-800 text-xl leading-relaxed font-medium transition-colors duration-500 group-hover:text-[#0b1236]">
                   {item.desc}
                 </p>
               </div>

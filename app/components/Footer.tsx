@@ -9,7 +9,8 @@ export default function Footer() {
   const t = useTranslations("navbar");
   const isArabic = locale === "ar";
   const contactEmail= process.env.NEXT_PUBLIC_COMPANY_EMAIL
-  const contactPhone= process.env.NEXT_PUBLIC_COMPANY_PHONE
+  const contactPhone1= process.env.NEXT_PUBLIC_COMPANY_PHONE1
+  const contactPhone2= process.env.NEXT_PUBLIC_COMPANY_PHONE2
   const locationEn= process.env.NEXT_PUBLIC_COMPANY_LOCATION_EN
   const locationAr= process.env.NEXT_PUBLIC_COMPANY_LOCATION_AR
 
@@ -41,7 +42,7 @@ export default function Footer() {
               </h2>
               <div className="h-0.5 w-36 bg-[#c9a24d] mt-1" />
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed font-light">
+            <p className="text-sm text-slate-200 leading-relaxed font-light">
               {isArabic 
                 ? "رائد عالمي في الاستشارات الاستراتيجية للطيران، نقدم حلول تدريب واستشارات متطورة لصناعة الطيران الحديثة."
                 : "Global leader in aviation strategic advisory, providing cutting-edge training and consultancy solutions for the modern aerospace industry."}
@@ -63,7 +64,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-slate-400 hover:text-white flex items-center transition-all duration-300 group">
+                  <Link href={link.href} className="text-slate-200 hover:text-white flex items-center transition-all duration-300 group">
                     <span className={`${isArabic ? 'ml-2 rotate-180' : 'mr-2'} opacity-0 group-hover:opacity-100 text-[#c9a24d] text-[10px]`}>▶</span>
                     {link.name}
                   </Link>
@@ -80,7 +81,7 @@ export default function Footer() {
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-4">
                 <FaMapMarkerAlt className="text-[#c9a24d] no-flip mt-1 shrink-0" />
-                <span className="text-slate-400">
+                <span className="text-slate-200">
                   {isArabic ? locationAr : locationEn}<br/>
                  
                 </span>
@@ -88,11 +89,22 @@ export default function Footer() {
               <li className="flex items-center gap-4">
   <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
   <a
-    href={`tel:${contactPhone}`}
-    className="text-slate-400 hover:text-[#c9a24d]"
+    href={`tel:${contactPhone1}`}
+    className="text-slate-200 hover:text-[#c9a24d]"
     dir="ltr"
   >
-    {contactPhone}
+    {contactPhone1}
+  </a>
+</li>
+
+<li className="flex items-center gap-4">
+  <FaPhoneAlt className="text-[#c9a24d] no-flip shrink-0" />
+  <a
+    href={`tel:${contactPhone2}`}
+    className="text-slate-200 hover:text-[#c9a24d]"
+    dir="ltr"
+  >
+    {contactPhone2}
   </a>
 </li>
 
@@ -100,7 +112,7 @@ export default function Footer() {
   <FaEnvelope className="text-[#c9a24d] no-flip shrink-0" />
   <a
     href={`mailto:${contactEmail}`}
-    className="text-slate-400 hover:text-[#c9a24d]"
+    className="text-slate-200 hover:text-[#c9a24d]"
   >
     {contactEmail}
   </a>

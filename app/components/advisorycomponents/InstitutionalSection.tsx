@@ -43,7 +43,7 @@ export default function InstitutionalSection() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-[2px] bg-[#c9a24d]" />
-              <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase font-bold">
+              <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase font-bold">
                 {locale === "ar" ?"التقسيم المؤسسي" :"Institutional_Division" }
               </span> 
             </div>
@@ -52,8 +52,8 @@ export default function InstitutionalSection() {
             </h2>
           </div>
 
-          <div className="relative p-8 bg-slate-50 border-l-4 border-[#c9a24d]">
-             <p className="text-slate-600 text-lg leading-relaxed font-medium italic">
+          <div className="relative p-4 bg-slate-50 border-l-4 border-[#c9a24d]">
+             <p className="text-slate-600 text-xl leading-relaxed font-medium italic">
                {institutional.desc}
              </p>
              <div className="mt-6 flex gap-4 opacity-20">

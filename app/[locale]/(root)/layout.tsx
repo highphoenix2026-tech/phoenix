@@ -8,6 +8,8 @@ import { setRequestLocale } from "next-intl/server";
 import FontSwitcher from "@/app/components/fontswitcher/FontSwitcher";
 import { routing } from "@/i18n/routing";
 import { notFound } from 'next/navigation';
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/auth/authoptions";
 
 type Props = {
   children: React.ReactNode;
@@ -20,6 +22,8 @@ export function generateStaticParams() {
 
 export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
+  const session= await getServerSession(authOptions)
+  const role= session?.user.role
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -36,7 +40,7 @@ export default async function RootLayout({ children, params }: Props) {
     <NextIntlClientProvider locale={locale} messages={messages}>
       <FontSwitcher locale={locale}>
         <div className="flex flex-col min-h-screen " dir={dir}>
-          <Header />
+          <Header role={role}/>
           <main className="flex-1">
             {children}
           </main>

@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
                        rounded-full
                        text-sm md:text-lg
                        font-black shadow-xl
-                       hover:bg-white hover:text-yellow-400 transition-all duration-300 active:scale-95">
+                       hover:bg-[#0b1236] hover:text-[#c9a24d] transition-all duration-300 active:scale-95">
           
          
       {locale === "en" ? "AR" : "EN"}

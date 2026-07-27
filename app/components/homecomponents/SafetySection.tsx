@@ -61,7 +61,7 @@ export default function SafetySection() {
           
           <div className="safety-animate opacity-0 translate-y-4 flex items-center gap-4">
             <span className="w-2 h-2 bg-[#c9a24d] animate-pulse rounded-full" />
-            <span className="text-[#c9a24d] font-mono text-xs tracking-[0.5em] uppercase font-bold">
+            <span className="text-[#c9a24d] font-mono  text-[10px] md:text-[17px] tracking-[0.5em] uppercase font-bold">
               Protocol_Status: Active
             </span>
             <span className="w-2 h-2 bg-[#c9a24d] animate-pulse rounded-full" />

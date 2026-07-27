@@ -82,6 +82,7 @@ function ResetPasswordPage() {
               error={errors.password}
               label="New Password"
               placeholder="Min. 6 characters"
+              className="text-gray-700"
             />
             
             <PasswordInput
@@ -89,6 +90,7 @@ function ResetPasswordPage() {
               error={errors.confirmPassword}
               label="Confirm New Password"
               placeholder="Repeat your password"
+              className="text-gray-700"
             />
           </div>
 

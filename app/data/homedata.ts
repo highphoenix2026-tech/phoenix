@@ -7,7 +7,7 @@ export const homeData = {
       cta: "Enroll Now"
     },
     founder: {
-      name: "Capt. Mohammad F. Khawaldeh, PhD",
+      name: "Capt. Mohammad Al-Khawaldeh, PhD",
       role: "Founder & Principal Consultant",
       desc: "Capt. Khawaldeh brings extensive experience across aviation regulation, safety oversight, and institutional leadership. His work focuses on strengthening governance, compliance, and sustainable aviation systems worldwide."
     },
@@ -97,7 +97,7 @@ export const homeData = {
       cta: "سجل الآن"
     },
     founder: {
-      name: "الكابتن محمد ف. خوالدة، دكتوراه",
+      name: "الكابتن محمد  الخوالدة، دكتوراه",
       role: "المؤسس والمستشار الرئيسي",
       desc: "يتمتع الكابتن خوالدة بخبرة واسعة في تنظيم الطيران، الرقابة على السلامة، والقيادة المؤسسية. يركز عمله على تعزيز الحوكمة والامتثال وأنظمة الطيران المستدامة على مستوى العالم."
     },
@@ -111,7 +111,7 @@ export const homeData = {
           desc: "توجيه استراتيجي رفيع المستوى للهيئات الجوية، لتمكين النمو المستدام وأطر السياسات القوية.",
         },
         {
-          title: "السلامة، الامتثال والحكومة",
+          title: "السلامة، الامتثال والحوكمة",
           desc: "ضمان الالتزام الصارم بمعايير ICAO واللوائح المحلية من خلال التدقيق وتنفيذ الأنظمة.",
         },
         {

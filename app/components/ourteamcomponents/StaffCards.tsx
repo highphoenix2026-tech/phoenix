@@ -65,7 +65,7 @@ export default function StaffCards({ memberData }: Props) {
         <div className="staff-header text-center mb-24">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-12 h-px bg-slate-200" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.5em] font-black uppercase">
               {locale === "ar" ? "فريق العمل" : " Core_Team"}
             </span>
             <div className="w-12 h-px bg-slate-200" />

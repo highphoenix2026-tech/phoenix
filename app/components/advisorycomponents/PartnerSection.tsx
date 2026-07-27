@@ -35,7 +35,7 @@ export default function PartnerSection() {
         
         <div className="inline-flex items-center gap-2 mb-6  w-full justify-center">
           <div className="w-6 h-[1px] bg-[#c9a24d]" />
-          <span className="text-[#c9a24d] font-mono text-[9px] centert tracking-[0.4em] font-black uppercase">
+          <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] centert tracking-[0.4em] font-bold uppercase">
              {locale === "ar" ?"الاتصال المباشر" :" Corporate_Profile" }
           </span>
           <div className="w-6 h-[1px] bg-[#c9a24d]" />
@@ -45,7 +45,7 @@ export default function PartnerSection() {
           {partner.title}
         </h2>
 
-        <p className="text-slate-500 centert text-base md:text-lg font-medium max-w-xl mx-auto leading-relaxed mb-10">
+        <p className="text-slate-800 centert text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed mb-10">
           {partner.desc}
         </p>
 

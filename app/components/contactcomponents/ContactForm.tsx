@@ -1,6 +1,6 @@
 "use client";
 
-import {  useRef } from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +10,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import {  Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 
 type EmailFormValues = z.infer<ReturnType<typeof createContactSchema>>;
 
@@ -29,9 +29,7 @@ export default function ContactForm({ locale, action }: Props) {
   const containerRef = useRef<HTMLElement | null>(null);
   const router = useRouter();
   const isRtl = locale === "ar";
-  const labelPosition = isRtl
-  ? "right-0 text-right"
-  : "left-0 text-left";
+  const labelPosition = isRtl ? "right-0 text-right" : "left-0 text-left";
 
   const {
     register,
@@ -39,7 +37,6 @@ export default function ContactForm({ locale, action }: Props) {
     formState: { errors, isSubmitting },
   } = useForm<EmailFormValues>({
     resolver: zodResolver(createContactSchema(locale)),
-   
   });
 
   const onSubmit: SubmitHandler<EmailFormValues> = async (data) => {
@@ -52,7 +49,9 @@ export default function ContactForm({ locale, action }: Props) {
       }
       toast.error(result.message);
     } catch (error) {
-      toast.error(locale === "en" ? "Error sending email" : "خطأ في إرسال البريد");
+      toast.error(
+        locale === "en" ? "Error sending email" : "خطأ في إرسال البريد",
+      );
     }
   };
 
@@ -73,11 +72,11 @@ export default function ContactForm({ locale, action }: Props) {
         ".floating-label",
         { opacity: 0, x: -10 },
         {
-          opacity: 0.4,
+          opacity: 1,
           x: 0,
           stagger: 0.1,
           scrollTrigger: { trigger: containerRef.current, start: "top 80%" },
-        }
+        },
       );
     }, containerRef);
     return () => ctx.revert();
@@ -94,7 +93,7 @@ export default function ContactForm({ locale, action }: Props) {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-20">
         <div className="lg:w-1/3 space-y-6">
           <div className="w-12 h-1 bg-[#c9a24d]" />
-          <h2 className="text-6xl font-black text-white uppercase italic leading-tight tracking-tighter" >
+          <h2 className="text-6xl font-black text-white uppercase italic leading-tight tracking-tighter">
             {isRtl ? "اتصل" : "Contact"}
             <br />
             <span className="text-white/20">{isRtl ? "بنا" : "Us"}</span>
@@ -110,13 +109,15 @@ export default function ContactForm({ locale, action }: Props) {
             className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10"
           >
             <div className="relative group">
-              <span  className={`floating-label absolute -top-6 ${labelPosition} font-mono text-[9px] uppercase tracking-widest text-[#c9a24d]`} >
+              <span
+                className={`floating-label absolute -top-9 ${labelPosition} font-mono text-base font-semibold uppercase tracking-widest text-[#c9a24d]`}
+              >
                 {form.name}
               </span>
               <input
                 {...register("name")}
                 type="text"
-                className={`w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] transition-all duration-500 ${errors.name ? "border-red-400" : ""}`}
+                className={`w-full bg-transparent border my-1.5 border-[#c9a24d] px-3 rounded-lg py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] transition-all duration-500 ${errors.name ? "border-red-400" : ""}`}
                 placeholder="..."
                 aria-invalid={errors.name ? "true" : "false"}
               />
@@ -128,13 +129,15 @@ export default function ContactForm({ locale, action }: Props) {
             </div>
 
             <div className="relative group">
-              <span className={`floating-label absolute -top-6 ${labelPosition} font-mono text-[9px] uppercase tracking-widest text-[#c9a24d]`}>
+              <span
+                className={`floating-label absolute -top-9 ${labelPosition} font-mono text-base font-semibold uppercase tracking-widest text-[#c9a24d]`}
+              >
                 {form.subject}
               </span>
               <input
                 {...register("subject")}
                 type="text"
-                className={`w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] transition-all duration-500 ${errors.subject ? "border-red-400" : ""}`}
+                className={`w-full bg-transparent border my-1.5 border-[#c9a24d] px-3 rounded-lg py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] transition-all duration-500 ${errors.subject ? "border-red-400" : ""}`}
                 placeholder="..."
                 aria-invalid={errors.subject ? "true" : "false"}
               />
@@ -146,13 +149,15 @@ export default function ContactForm({ locale, action }: Props) {
             </div>
 
             <div className="relative group">
-              <span className={`floating-label absolute -top-6 ${labelPosition} font-mono text-[9px] uppercase tracking-widest text-[#c9a24d]`}>
+              <span
+                className={`floating-label absolute -top-9 ${labelPosition} font-mono text-base font-semibold uppercase tracking-widest  text-[#c9a24d]`}
+              >
                 {form.email}
               </span>
               <input
                 {...register("email")}
                 type="email"
-                className={`w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] transition-all duration-500 ${errors.email ? "border-red-400" : ""}`}
+                className={`w-full bg-transparent border my-1.5 border-[#c9a24d] px-3 rounded-lg py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] transition-all duration-500 ${errors.email ? "border-red-400" : ""}`}
                 placeholder="..."
                 aria-invalid={errors.email ? "true" : "false"}
               />
@@ -163,18 +168,22 @@ export default function ContactForm({ locale, action }: Props) {
               )}
             </div>
             <div className="md:col-span-2 relative">
-              <span className={`floating-label absolute -top-6 ${labelPosition} font-mono text-[9px] uppercase tracking-widest text-[#c9a24d]`}>
+              <span
+                className={`floating-label absolute -top-9 ${labelPosition} font-mono text-base font-semibold uppercase tracking-widest text-[#c9a24d]`}
+              >
                 {form.message}
               </span>
               <textarea
                 {...register("message")}
                 name="message"
-                className={`w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] h-20 resize-none transition-all duration-500 ${errors.message ? "border-red-400" : ""}`}
+                className={`w-full bg-transparent border my-1.5 border-[#c9a24d] px-3 rounded-lg py-3 text-white text-lg font-bold italic outline-none focus:border-[#c9a24d] h-20 resize-none transition-all duration-500 ${errors.message ? "border-red-400" : ""}`}
                 placeholder="..."
                 aria-invalid={errors.message ? "true" : "false"}
               />
               {errors.message && (
-                <p className="mt-2 text-xs text-red-400">{String(errors.message.message)}</p>
+                <p className="mt-2 text-xs text-red-400">
+                  {String(errors.message.message)}
+                </p>
               )}
             </div>
 
@@ -182,14 +191,18 @@ export default function ContactForm({ locale, action }: Props) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group relative w-full py-6 bg-white overflow-hidden transition-transform active:scale-95 disabled:opacity-60"
+                className="group relative w-full py-6 rounded-lg bg-white overflow-hidden transition-transform active:scale-95 disabled:opacity-60"
               >
                 <div className="absolute inset-0 bg-[#c9a24d] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 <span className="relative z-10 text-[#0b1236] font-black uppercase italic tracking-[0.5em] text-sm">
                   {isSubmitting ? (
                     <span className="flex flex-row justify-center gap-2 items-center">
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      <span>{form.submit === "إرسال" ? form.sending ?? "جاري الإرسال..." : "Sending..."}</span>
+                      <span>
+                        {form.submit === "إرسال"
+                          ? (form.sending ?? "جاري الإرسال...")
+                          : "Sending..."}
+                      </span>
                     </span>
                   ) : (
                     form.submit
@@ -201,8 +214,8 @@ export default function ContactForm({ locale, action }: Props) {
 
           <div className="grid grid-cols-1  gap-6 text-white">
             <div className="mt-2 sm:mt-0 w-full">
-              <div className="p-4 bg-white/5 rounded-2xl border border-white/5">
-                <p className="text-white/80 italic text-sm leading-relaxed">
+              <div className="p-4 bg-white/5 rounded-lg border border-white/5">
+                <p className="text-white italic text-sm leading-relaxed">
                   {isRtl
                     ? "نحن نرد عادةً خلال 24 ساعة عمل. يسعدنا سماع صوتك!"
                     : "We usually respond within 24 business hours. Looking forward to hearing from you!"}

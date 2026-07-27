@@ -56,13 +56,13 @@ export default function EngagementSection() {
         <div className="engage-header text-center mb-20">
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-10 h-[1px] bg-slate-200" />
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.5em] font-black uppercase">{isArabic?"بروتوكول المشاركة":"Engagement_Protocol"}</span>
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.5em] font-black uppercase">{isArabic?"بروتوكول المشاركة":"Engagement_Protocol"}</span>
             <div className="w-10 h-[1px] bg-slate-200" />
           </div>
           <h2 className="text-4xl md:text-6xl centert font-[1000] text-[#0b1236] uppercase italic tracking-tighter leading-none mb-8">
             {locale === "ar" ? "كيفية التعامل" : "How We Engage"}
           </h2>
-          <p className="mt-6 text-slate-500 centert font-medium max-w-3xl mx-auto leading-relaxed italic text-lg border-l-4 border-slate-100 pl-6 py-2">
+          <p className="mt-6 text-slate-700 centert font-medium max-w-4xl mx-auto leading-relaxed italic text-xl border-l-4 border-slate-100 pl-6 py-2">
 {Engagementde.descreption}          </p>
         </div>
 
@@ -85,9 +85,9 @@ export default function EngagementSection() {
                   {item.title}
                 </h4>
                 
-                <div className="w-8 h-[2px] bg-[#c9a24d] mb-6 group-hover:w-full transition-all duration-700" />
+                <div className="w-8 h-0.5 bg-[#c9a24d] mb-6 group-hover:w-full transition-all duration-700" />
                 
-                <p className="text-slate-500 group-hover:text-slate-300 text-sm leading-relaxed font-medium transition-colors">
+                <p className="text-slate-950 group-hover:text-slate-100 text-lg leading-relaxed font-medium transition-colors">
                   {item.desc}
                 </p>
 

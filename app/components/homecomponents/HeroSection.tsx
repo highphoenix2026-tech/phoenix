@@ -53,7 +53,7 @@ export default function HeroSection() {
   return (
     <section className="relative w-full    min-h-[90vh] overflow-hidden bg-white pt-5">
       <div className="relative w-full max-w-460 mx-auto px-4">
-        <div className="relative w-full  h-[70vh]    md:min-h-[80vh] md:h-[80vh] flex items-center justify-center">
+        <div className="relative w-full  h-[60vh] mt-[10vh]  md:mt-0  md:min-h-[80vh] md:h-[80vh] flex items-center justify-center">
           <div
             className={`hero-cta-piece absolute z-40 bottom-3 ${locale === "ar" ? "right-1/6" : "left-1/6"} transform-gpu translate-y-1.25 `}
           >
@@ -82,7 +82,7 @@ export default function HeroSection() {
 
               <path
                 className="block md:hidden"
-                d="M0,0 H1000 V410 L960,450 H40 L0,370 Z"
+                d="M0,0 H1000 V370 L850,450 H150 L0,370 Z"
                 fill="#0b1236"
               />
             </svg>

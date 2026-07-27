@@ -55,7 +55,7 @@ export default function PrimaryFocusSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="animate-me opacity-0 translate-y-8 flex flex-col gap-6 mb-16 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-8 rtl:pr-8">
           <div className="flex items-center gap-3">
-            <span className="text-[#c9a24d] font-mono text-[10px] tracking-[0.4em] uppercase">
+            <span className="text-[#c9a24d] font-mono text-[12px] md:text-[17px] tracking-[0.4em] uppercase">
               {locale === "ar" ? "النطاق التشغيلي" : "Operational_Scope"}
             </span>
             <div className="h-px w-20 bg-linear-to-r from-[#c9a24d]/40 to-transparent" />
@@ -77,7 +77,7 @@ export default function PrimaryFocusSection() {
               <h3 className="text-2xl md:text-3xl font-black uppercase italic mb-4">
                 {primaryFocus.services[0].title}
               </h3>
-              <p className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl mb-8 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-6 rtl:pr-6">
+              <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-xl mb-8 border-l-2 rtl:border-l-0 rtl:border-r-2 border-[#c9a24d]/20 pl-6 rtl:pr-6">
                 {primaryFocus.services[0].desc}
               </p>
               <Link
@@ -98,7 +98,7 @@ export default function PrimaryFocusSection() {
             <h4 className="text-xl font-[1000] uppercase italic leading-tight mb-4">
               {primaryFocus.services[1].title}
             </h4>
-            <p className="text-sm font-bold leading-relaxed">
+            <p className="text-lg font-bold leading-relaxed">
               {primaryFocus.services[1].desc}
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function PrimaryFocusSection() {
                     <h4 className="text-lg font-black uppercase italic text-white mb-2">
                       {item.title}
                     </h4>
-                    <p className="text-slate-400 text-xs leading-relaxed">
+                    <p className="text-slate-50 text-lg leading-relaxed">
                       {item.desc}
                     </p>
                   </div>

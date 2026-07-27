@@ -58,7 +58,7 @@ const Login = () => {
         router.push("/admin/dashboard");
         return;
       }
-      return toast.error("An unexpected error occurred. Please try again.");
+     if(!result?.ok)  return toast.error("An unexpected error occurred. Please try again.");
     } catch (error) {
       return toast.error("An unexpected error occurred.");
     }

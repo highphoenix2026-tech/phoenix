@@ -51,7 +51,7 @@ export default function TrainingOutcomesSection() {
         <div className="outcome-header text-center mb-16">
           <div className="inline-flex items-center w-full justify-center gap-2 mb-4">
             <div className="w-1 h-1 bg-[#c9a24d] rounded-full" />
-            <span className="text-[#c9a24d] font-mono  text-[10px] tracking-[0.4em] font-black uppercase">
+            <span className="text-[#c9a24d] font-mono  text-[12px] md:text-[17px] tracking-[0.4em] font-black uppercase">
                {locale === "ar" ?"معايير_نجاح_المهمة" :" Mission_Success_Criteria" }
             </span>
             <div className="w-1 h-1 bg-[#c9a24d] rounded-full" />
@@ -76,7 +76,7 @@ export default function TrainingOutcomesSection() {
                 <FaCheck className="text-[#c9a24d] no-flip text-[10px] opacity-40 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              <p className="text-[#0b1236] text-lg font-bold italic tracking-tight uppercase leading-tight group-hover:translate-x-1 transition-transform">
+              <p className="text-[#0b1236] text-xl font-bold italic tracking-tight uppercase leading-tight group-hover:translate-x-1 transition-transform">
                 {item}
               </p>
             </div>
